@@ -736,6 +736,8 @@ header{background:color-mix(in srgb,var(--tint) calc((1 - var(--vid)) * 94%),tra
 #motifDesc{display:none!important}
 /* sense botó de compartir (decisió de Laura) */
 #shareBtn{display:none!important}
+/* sense etiqueta de preu (decisió de Laura) */
+#hangTag,#hangStr{display:none!important}
 </style>
 <script>
 /* Idiomes: català (original), castellà i anglès.
@@ -3202,7 +3204,7 @@ function start(THREE) {
       sh.baseY = by(sh.baseX);
       sh.rootY = -d + 0.03 * sh3 - 1.7 * s;
       if (sh.state === 'hung') { sh.root.position.set(0, sh.rootY, 0); sh.root.scale.setScalar(s * smooth(sh.reap)); }
-      sh.proxy.scale.set(glbW * s * 0.95, sh3 * 0.97, 0.4);
+      sh.proxy.scale.set(glbW * s * 0.95, sh3 * 0.97, glbW * s * 0.95); // tan fondo com ample: quan la samarreta gira no es perd el hover
       sh.proxy.position.set(0, sh.rootY, 0);
       sh.hem.position.set(0, sh.rootY - 0.5 * sh3 - 0.04, 0.12);
     });
@@ -3223,8 +3225,9 @@ function start(THREE) {
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   const pend = { hp: -1, hc: -1 };
   function resetHover() { clearTimeout(xfT); pend.hp = hp = -1; pend.hc = hc = -1; canvas.style.opacity = '1'; dirty = true; }
+  const sndHov = { i: -1, t: 0 }; let unhovT = 0;
   function setHover(kind, i) {
-    if (kind === 'hp' && i >= 0 && i !== pend.hp && window.CNSND) CNSND.hover();
+    if (kind === 'hp' && i >= 0 && i !== pend.hp && window.CNSND) { const n = performance.now(); if (i !== sndHov.i || n - sndHov.t > 700) CNSND.hover(); sndHov.i = i; sndHov.t = n; }
     if (!CN.reduced) { if (kind === 'hp') hp = i; else hc = i; pend[kind] = i; dirty = true; return; }
     if (pend[kind] === i) return;
     pend[kind] = i;
@@ -3269,6 +3272,9 @@ function start(THREE) {
     if (!rackReady || rackPNow < 0.5 || flight) return;
     const i = pick(e);
     hit.style.cursor = i >= 0 ? 'pointer' : '';
+    // histèresi: si deixa de tocar la samarreta un instant (mentre gira), no la deixem anar de seguida
+    clearTimeout(unhovT);
+    if (i < 0 && hp >= 0) { unhovT = setTimeout(() => setHover('hp', -1), 180); return; }
     setHover('hp', i);
   });
   hit.addEventListener('pointerup', e => {
@@ -3916,6 +3922,22 @@ function start(THREE) {
  if(!L||L.classList.contains('done')||!document.contains(L))arm();
  else{var mo=new MutationObserver(function(){if(L.classList.contains('done')||!document.contains(L)){mo.disconnect();arm()}});mo.observe(L,{attributes:true,attributeFilter:['class']});
   setTimeout(function(){if(!shown&&!tmShow){mo.disconnect();arm()}},9000)}
+})();
+</script>
+<script>
+/* quan deixes de fer scroll a mig camí d'un pas, la pàgina acaba el moviment suaument fins al pas sencer (text i opcions ben posats) */
+(function(){var tm=0,lastY=-1,anim=false,userT=0;
+ function busy(){var C=window.CN;return !C||!C.metrics||!C.metrics.secs||C.metrics.secs.length<6||C.busy||document.documentElement.classList.contains('lock')||document.querySelector('dialog[open]')||document.body.classList.contains('in-final')||C.faqOn}
+ function snap(){if(busy())return;var C=window.CN,M=C.metrics,y=window.scrollY,c=y+M.ref,s=M.secs,last=s[s.length-1];
+  if(c>last.c+(last.h-innerHeight)/2+2)return;            /* més enllà de Reserva: scroll lliure (FAQ, peu) */
+  var best=0,bd=1e9;for(var i=0;i<s.length;i++){var d=Math.abs(s[i].c-c);if(d<bd){bd=d;best=i}}
+  var sc=s[best],lim=Math.max(0,(sc.h-innerHeight)/2);    /* zona on el pas ja està quiet */
+  if(Math.abs(c-sc.c)<=lim+2)return;
+  var tgt=c<sc.c?sc.c-lim:sc.c+lim;tgt=Math.max(0,tgt-M.ref);
+  if(Math.abs(tgt-y)<3)return;anim=true;window.scrollTo({top:tgt,behavior:C.reduced?'instant':'smooth'});setTimeout(function(){anim=false},900)}
+ function onScroll(){if(anim)return;clearTimeout(tm);tm=setTimeout(function(){if(performance.now()-userT<120){onScroll();return}snap()},220)}
+ ['wheel','touchmove','keydown','pointerdown'].forEach(function(ev){addEventListener(ev,function(){userT=performance.now();anim=false},{passive:true})});
+ addEventListener('scroll',onScroll,{passive:true});
 })();
 </script>
 </body>

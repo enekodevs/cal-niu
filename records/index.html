@@ -448,8 +448,9 @@ html .it select,html .ck select{-webkit-appearance:none;appearance:none;backgrou
 @media(prefers-reduced-motion:reduce){.toast{transition:none}}
 /* mòbil: passera i estampats */
 @media(max-width:899px){
- #gMotiu{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:56px;gap:6px;padding:0 44px 0 12px;overflow:visible}
- #gMotiu .chip{flex-direction:column;justify-content:center;gap:2px;padding:4px 3px;min-height:0;height:56px;overflow:hidden;border-radius:16px;font-size:11.5px;line-height:1.15;text-align:center}
+ #gMotiu{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(56px,auto);gap:6px;padding:0 44px 0 12px;overflow:visible}
+ /* alt mínim i no fix: a 360-375 px un nom de 3 línies («Influencer de tomaqueres») fa créixer només la seva fila en comptes de tallar-se */
+ #gMotiu .chip{flex-direction:column;justify-content:center;gap:2px;padding:4px 3px;min-height:56px;height:auto;overflow:hidden;border-radius:16px;font-size:11.5px;line-height:1.15;text-align:center}
  #pas-estampat .en.a{bottom:232px}
  #gMotiu .chip svg{width:22px;height:24px}
 }
@@ -779,16 +780,17 @@ ca:{
  'say.added':'Samarreta afegida a la cistella: {m}, {c}, talla {s}.','say.cartN':' Cistella: {items}.','add.max':'Ja en tens {n} d\'aquesta. Si en vols més, escriu-nos.',
  'say.another':'Pas 1 de 5. Tens la mateixa peça, estampat i color; només cal triar una talla nova. Pots canviar-ho tot.',
  'share.txt':'Mira la samarreta que he dissenyat a la botiga de Cal Niu: {d}.','share.title':'Samarreta Cal Niu','share.ok':'Enllaç copiat.','share.fail':'No s\'ha pogut copiar. L\'enllaç és: {url}',
- 'toast.removed':'Has tret {l}.','toast.merged':'Hem ajuntat dues línies iguals: ara en tens {n}.','say.restored':'Has recuperat {l}.',
+ 'toast.removed':'Has tret {l}.','toast.merged':'Hem ajuntat dues línies iguals: ara en tens {n}.','toast.cap':'N\'han quedat fora {k}: el màxim és {n} per peça.','say.restored':'Has recuperat {l}.',
  'res.title':'Les meves reserves','res.link':'Les meves reserves ({n})','res.openA':'Obre el resum de la reserva {id}','res.open':'Obre el resum','res.none':'Encara no tens cap reserva en aquest navegador.','res.wipe':'Esborrar l\'historial','close':'Tanca',
  'res.one':'Reserva {id}','res.num':'Número de reserva: ','tot.tax':'Total · impostos inclosos','res.back':'Torna a la llista',
  'res.wipeQ':'Esborrarem les reserves guardades en aquest navegador, també la que encara no has enviat. Segur?','res.wipeNo':'No, les deixo','res.wipeYes':'Sí, esborra-ho','res.wiped':'Historial esborrat.',
  'cart.emptySay':'La cistella és buida: afegeix una samarreta per continuar.',
+ 'ck.changed':'La cistella ha canviat en una altra pestanya. Revisa-la abans de continuar.','ck.emptied':'La cistella és buida: no es pot fer cap reserva.',
  'ck.errs':'Revisa què falta:','ck.sum':'Veure la comanda · {t}','opt':'(opcional)',
  'f.nom':'Nom i cognoms','f.email':'Correu','f.email.h.test':'Quan la botiga s\'obri, és on et respondrem.','f.email.h.real':'Hi rebràs la resposta de l\'equip.','f.tel':'Telèfon','f.tel.h':'9 xifres, amb o sense +34. Obligatori si tries l\'enviament, WhatsApp o telèfon.',
  'f.canal.test':'Per on preferiràs que et responguem?','f.canal.real':'Per on prefereixes que et responguem?',
  'ck.priv.test':'Només per gestionar la reserva. Es guarda només en aquest navegador; la pots esborrar des de «Les meves reserves».','ck.priv.real':'Només per gestionar la reserva; es queda al teu navegador només fins que enviïs la reserva.',
- 'ck.pick.sub':'Gratuït. Quedem el dia que triïs.','ck.ship.left':'Et falten {x} per a l\'enviament gratuït.','ck.ship.free':'Enviament gratuït: has arribat a {x}.','ck.how':'Com vols rebre-la?',
+ 'ck.pick.sub':'Gratuït. Quedem un dia que ens vagi bé a tots dos.','ck.ship.left':'Et falten {x} per a l\'enviament gratuït (import mínim provisional).','ck.ship.free':'Enviament gratuït: has arribat a {x}.','ck.how':'Com vols rebre-la?',
  'f.slot':'Franja preferida','f.adr1':'Adreça','f.adr2':'Pis, porta… ','f.cp':'Codi postal','f.poble':'Població','f.prov':'Província','f.notes':'Notes per a l\'equip',
  'rv.items':'Les teves peces','a.editItems':'Editar les peces','edit':'Editar','th.item':'Peça','th.size':'Talla','th.qty':'Qt.','th.price':'Preu',
  'rv.contact':'Contacte','a.editContact':'Editar el contacte','rv.via':'Et responem per: {c}','rv.del':'Lliurament','a.editDel':'Editar el lliurament','rv.notes':'Notes: {x}','sub':'Subtotal','free':'Gratuït','free.l':'gratuït','total':'Total',
@@ -798,7 +800,7 @@ ca:{
  'ok.test.card':'Entenc que és una prova: no es fa cap càrrec de veritat i no s\'envia res a l\'equip de Cal Niu.','ok.test.later':'Entenc que això és una prova: no pago res ara i la reserva queda guardada només en aquest navegador; ningú de Cal Niu la rebrà encara.',
  'ok.real.card':'Entenc que és una prova: no es fa cap càrrec de veritat i l\'equip de Cal Niu em contactarà per confirmar la reserva i acordar l\'entrega.','ok.real.later':'Entenc que això és una reserva: no pago res ara i l\'equip de Cal Niu em contactarà per confirmar-la, pagar-la i acordar l\'entrega.',
  'step.1':'Dades','step.2':'Lliurament','step.3':'Revisió','stept.1':'Les teves dades','stept.2':'Com t\'arriba?','stept.3':'Revisa-ho i tria com pagar',
- 'ck.final.card':'Continuar al pagament de prova','ck.final.later':'Preparar la reserva','ck.final.later.test':'Preparar la reserva','ck.stepOf':'Pas {n} de 3 · {s}','back':'Enrere','ck.toReview':'Tornar a la revisió','cont':'Continuar',
+ 'ck.final.card':'Continuar al pagament de prova','ck.final.later':'Preparar la reserva','ck.final.later.test':'Desar la reserva','ck.stepOf':'Pas {n} de 3 · {s}','back':'Enrere','ck.toReview':'Tornar a la revisió','cont':'Continuar',
  'ck.exitQ':'Vols sortir? Guardarem el que has escrit.','ck.stay':'Seguir aquí','ck.leave':'Sortir',
  'say.ship':'Enviament: {d}. Total: {t}.','say.pick':'Recollida a Cal Niu: gratuït. Total: {t}.','say.card':'Pagament amb targeta, mode de prova.','say.later':'Reserva i paga després.',
  'ck.delQ':'Esborrarem aquesta reserva d\'aquest navegador, amb les dades personals. Segur?','ck.deleted':'Reserva esborrada.',
@@ -818,7 +820,7 @@ ca:{
  'nav.0':'Inici','nav.1':'Peça','nav.2':'Estampat','nav.3':'Color','nav.4':'Talla','nav.5':'Reserva','nav.6':'FAQs','nav.step':'Pas {i}: {n}',
  'step.of5':'Pas {i} de 5','sn.prev':'Anterior: {s}','sn.next':'Següent: {s}','sn.stepN':'pas {i}, {n}',
  'resum.copy.test':'Revisa-la i afegeix-la a la cistella. Després la reserves: pots triar pagar-la més tard o amb targeta (de moment, tot és de prova). Encara no enviem les reserves a ningú.',
- 'shared.at':'Te l\'han compartit aquest disseny. Revisa\'l i afegeix-lo a la cistella.','shared.say':'Te l\'han compartit aquest disseny.',
+ 'shared.at':'T\'han compartit aquest disseny. Revisa\'l i afegeix-lo a la cistella.','shared.say':'T\'han compartit aquest disseny.',
  'rack.tap':'Torna a tocar per triar-la','rack.click':'Clica per triar-la','rack.aria':'Branca amb cinc samarretes penjades, totes de màniga curta i a {p}: {names}. Fes servir els botons de sota per triar-ne una.','rack.and':' i ',
  'size.lbl':'Talla {s}','snd.mute':'Silencia el so','snd.muteT':'Silencia','snd.unmute':'Activa el so','snd.hint':'Amb so. Si no el vols, apaga\'l aquí.'
 },
@@ -848,7 +850,7 @@ es:{
  'faq.q3':'¿Cómo pago?','faq.a3':'Puedes reservar y pagar después. Las formas de pago previstas son Bizum, transferencia o efectivo al recoger, pero todavía no están confirmadas <span class="pd">[pendiente]</span>. El pago con tarjeta que ves es simulado y no cobra nada.',
  'faq.q4':'¿Puedo cambiar la talla?','faq.a4':'Sí, mientras no la hayamos estampado. Una vez estampada, el cambio dependerá de las existencias: <span class="pd">[pendiente]</span>. Si dudas, mira la guía de tallas.',
  'faq.q5':'¿Puedo devolverla?','faq.a5':'La ley da 14 días naturales para desistir. Como estampamos por encargo, hay que revisar si se aplica la excepción de bienes personalizados (art. 103.c TRLGDCU) <span class="pd">[pendiente de revisión]</span>. Los detalles están en el borrador de condiciones de venta.',
- 'faq.q6':'¿Enviáis a domicilio?','faq.a6':'Tenemos previsto hacer envíos a la Península. Coste y plazo: <span class="pd">[pendiente]</span>.',
+ 'faq.q6':'¿Enviáis a domicilio?','faq.a6':'Tenemos previsto hacer envíos a la Península. Coste: 4,90 €, gratis a partir de 60 € (los dos importes son provisionales). Plazo: <span class="pd">[pendiente]</span>.',
  'faq.q7':'¿Puedo pasar a recogerla?','faq.a7':'Sí, en Cal Niu, en Castellar del Riu. Quedamos el día y la hora que mejor nos vengan.',
  'faq.q8':'¿A dónde va el dinero?','faq.a8':'A mantener la casa rectoral y las actividades. El reparto exacto todavía no lo tenemos cerrado: <span class="pd">[pendiente]</span>.',
  'faq.q9':'¿Cómo puedo contactaros?','faq.a9':'WhatsApp: <a href="https://wa.me/34617575495" target="_blank" rel="noopener">+34 617 575 495</a> · Instagram: <a href="https://instagram.com/som.calniu" target="_blank" rel="noopener">@som.calniu</a> · Correo: <span class="pd">[pendiente]</span>. Por ahora la tienda está en pruebas y las reservas todavía no nos llegan, pero puedes escribirnos para cualquier duda.',
@@ -892,11 +894,12 @@ es:{
  'say.added':'Camiseta añadida a la cesta: {m}, {c}, talla {s}.','say.cartN':' Cesta: {items}.','add.max':'Ya tienes {n} de esta. Si quieres más, escríbenos.',
  'say.another':'Paso 1 de 5. Tienes la misma prenda, estampado y color; solo tienes que elegir una talla nueva. Puedes cambiarlo todo.',
  'share.txt':'Mira la camiseta que he diseñado en la tienda de Cal Niu: {d}.','share.title':'Camiseta Cal Niu','share.ok':'Enlace copiado.','share.fail':'No se ha podido copiar. El enlace es: {url}',
- 'toast.removed':'Has quitado {l}.','toast.merged':'Hemos juntado dos líneas iguales: ahora tienes {n}.','say.restored':'Has recuperado {l}.',
+ 'toast.removed':'Has quitado {l}.','toast.merged':'Hemos juntado dos líneas iguales: ahora tienes {n}.','toast.cap':'Se han quedado fuera {k}: el máximo es {n} por prenda.','say.restored':'Has recuperado {l}.',
  'res.title':'Mis reservas','res.link':'Mis reservas ({n})','res.openA':'Abrir el resumen de la reserva {id}','res.open':'Abrir el resumen','res.none':'Todavía no tienes ninguna reserva en este navegador.','res.wipe':'Borrar el historial','close':'Cerrar',
  'res.one':'Reserva {id}','res.num':'Número de reserva: ','tot.tax':'Total · impuestos incluidos','res.back':'Volver a la lista',
  'res.wipeQ':'Borraremos las reservas guardadas en este navegador, incluida la que todavía no has enviado. ¿Seguro?','res.wipeNo':'No, las dejo','res.wipeYes':'Sí, bórralas','res.wiped':'Historial borrado.',
  'cart.emptySay':'La cesta está vacía: añade una camiseta para continuar.',
+ 'ck.changed':'La cesta ha cambiado en otra pestaña. Revísala antes de continuar.','ck.emptied':'La cesta está vacía: no se puede hacer ninguna reserva.',
  'ck.errs':'Revisa qué falta:','ck.sum':'Ver la reserva · {t}','opt':'(opcional)',
  'f.nom':'Nombre y apellidos','f.email':'Correo','f.email.h.test':'Cuando la tienda abra, es donde te responderemos.','f.email.h.real':'Aquí recibirás la respuesta del equipo.','f.tel':'Teléfono','f.tel.h':'9 cifras, con o sin +34. Obligatorio si eliges el envío, WhatsApp o teléfono.',
  'f.canal.test':'¿Cómo prefieres que te contestemos cuando abra la tienda?','f.canal.real':'¿Por dónde prefieres que te respondamos?',
@@ -960,7 +963,7 @@ en:{
  'faq.q3':'How do I pay?','faq.a3':'You can reserve now and pay later. The payment methods we’re planning are Bizum, bank transfer or cash on collection, but they aren’t confirmed yet <span class="pd">[pending]</span>. The card payment you see is simulated and doesn’t charge anything.',
  'faq.q4':'Can I change the size?','faq.a4':'Yes, before the order is printed. After that, it depends on stock: <span class="pd">[pending]</span>. If you’re not sure, check the size guide.',
  'faq.q5':'Can I return it?','faq.a5':'By law you normally have 14 days to change your mind and cancel (the right of withdrawal). Because we print to order, we still need to check whether the exception for personalised goods applies (art. 103.c TRLGDCU, Spanish consumer law) <span class="pd">[pending review]</span>. Details are in the draft terms of sale.',
- 'faq.q6':'Do you deliver?','faq.a6':'We plan to deliver within mainland Spain. Cost and timing: <span class="pd">[pending]</span>.',
+ 'faq.q6':'Do you deliver?','faq.a6':'We plan to deliver within mainland Spain. Cost: €4.90, free from €60 (both amounts are provisional). Timing: <span class="pd">[pending]</span>.',
  'faq.q7':'Can I pick it up?','faq.a7':'Yes, at Cal Niu, in Castellar del Riu. We’ll arrange a day and time that suits us both.',
  'faq.q8':'Where does the money go?','faq.a8':'Towards looking after the rectory and the activities. We haven’t settled the exact split yet: <span class="pd">[pending]</span>.',
  'faq.q9':'How can I contact you?','faq.a9':'WhatsApp: <a href="https://wa.me/34617575495" target="_blank" rel="noopener">+34 617 575 495</a> · Instagram: <a href="https://instagram.com/som.calniu" target="_blank" rel="noopener">@som.calniu</a> · Email: <span class="pd">[pending]</span>. The shop is still a test, so reservations don’t reach us on their own, but you can message us with any questions.',
@@ -1004,11 +1007,12 @@ en:{
  'say.added':'T-shirt added to your basket: {m}, {c}, size {s}.','say.cartN':' Basket: {items}.','add.max':'You already have {n} of this one. If you want more, message us.',
  'say.another':'Step 1 of 5. You have the same item, print and colour; you just need to choose a new size. You can change anything.',
  'share.txt':'Have a look at the T-shirt I designed in the Cal Niu shop: {d}.','share.title':'Cal Niu T-shirt','share.ok':'Link copied.','share.fail':'Couldn’t copy it. The link is: {url}',
- 'toast.removed':'You removed {l}.','toast.merged':'We merged two identical lines: you now have {n}.','say.restored':'You restored {l}.',
+ 'toast.removed':'You removed {l}.','toast.merged':'We merged two identical lines: you now have {n}.','toast.cap':'{k} were left out: the maximum is {n} per item.','say.restored':'You restored {l}.',
  'res.title':'My reservations','res.link':'My reservations ({n})','res.openA':'Open the summary of reservation {id}','res.open':'Open summary','res.none':'You don’t have any reservations in this browser yet.','res.wipe':'Clear history','close':'Close',
  'res.one':'Reservation {id}','res.num':'Reservation number: ','tot.tax':'Total · taxes included','res.back':'Back to the list',
  'res.wipeQ':'We’ll delete the reservations saved in this browser, including the one you haven’t sent yet. Are you sure?','res.wipeNo':'No, keep them','res.wipeYes':'Yes, delete them','res.wiped':'History cleared.',
  'cart.emptySay':'Your basket is empty: add a T-shirt to continue.',
+ 'ck.changed':'Your basket changed in another tab. Please check it before you continue.','ck.emptied':'Your basket is empty, so there’s nothing to reserve.',
  'ck.errs':'Please check what’s missing:','ck.sum':'See your reservation · {t}','opt':'(optional)',
  'f.nom':'Full name','f.email':'Email','f.email.h.test':'When the shop opens, this is where we’ll reply.','f.email.h.real':'This is where the team will reply.','f.tel':'Phone','f.tel.h':'Spanish number, 9 digits, with or without +34. Required if you choose delivery, WhatsApp or phone.',
  'f.canal.test':'How would you like us to reply?','f.canal.real':'How would you like us to reply?',
@@ -1127,12 +1131,14 @@ window.__vidOn=true;
 window.__vidGate=function(on){window.__vidOn=on;if(on){if(v.paused&&!document.hidden)v.play().catch(function(){})}else if(!v.paused)v.pause()};
 document.addEventListener("visibilitychange",function(){document.hidden?v.pause():(window.__vidOn&&v.play().catch(function(){}))})})();</script>
 <script>
-/* carregador: acaba quan el vídeo es pot reproduir I el model 3D ha carregat (o ha fallat); mínim 2,4 s, màxim 6 s */
+/* carregador: acaba quan el vídeo es pot reproduir I el model 3D ha carregat (o ha fallat); màxim 6,5 s.
+   El mínim de 3,6 s (el temps de l'animació del fons) és només estètic: no s'imposa amb prefers-reduced-motion
+   ni quan tot ha arribat de pressa (en menys de FAST ms) o el model 3D ve de la memòria cau (visita que torna) */
 (function(){
 var L=document.getElementById('loader'),root=document.documentElement;
 function reveal(){var n=document.getElementById('pas-intro');if(n)n.classList.add('in');else document.addEventListener('DOMContentLoaded',reveal)}
 if(!L){root.classList.remove('loading');reveal();return}
-var t0=performance.now(),MIN=3600,MAX=6500,st={v:false,g:false},fin=false,tm=0;
+var t0=performance.now(),MIN=3600,MAX=6500,FAST=1500,st={v:false,g:false},fin=false,tm=0;
 /* el navegador reaprofita l'SVG animat de la memòria cau ja acabat de dibuixar: el carreguem amb una adreça nova cada cop perquè l'animació torni a començar */
 (function(){var lg=L.querySelector('.logo');if(lg&&lg.dataset.src)lg.src=lg.dataset.src+'?r='+Date.now()})();
 var v=document.getElementById('heroVideo'),red=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1189,10 +1195,12 @@ function done(){
  if(fly)fly();
  setTimeout(function(){if(L.parentNode)L.parentNode.removeChild(L)},950);
 }
+/* visita que torna: el model 3D ha sortit de la memòria cau (0 bytes per la xarxa) */
+function cached(){try{var r=performance.getEntriesByType('resource').filter(function(e){return /\.glb(\?|$)/.test(e.name)});return r.length>0&&r.every(function(e){return e.transferSize===0&&e.decodedBodySize>0})}catch(x){return false}}
 function check(){
  if(fin||!(st.v&&st.g))return;
  var el=performance.now()-t0;clearTimeout(tm);
- if(el>=MIN)done();else tm=setTimeout(done,MIN-el);
+ if(el>=MIN||red||el<FAST||cached())done();else tm=setTimeout(done,MIN-el);
 }
 window.__loadMark=function(k){if(k==='glb')st.g=true;else st.v=true;check()};
 if(!v||red||window.__noVideo||v.readyState>=3)st.v=true;
@@ -1304,7 +1312,7 @@ check();
       <details><summary data-i18n="faq.q3">Com pago?</summary><div><p data-i18n-html="faq.a3">Pots reservar i pagar després. Les formes de pagament previstes són Bizum, transferència o efectiu en recollir, però encara no estan confirmades <span class="pd">[pendent]</span>. El pagament amb targeta que veus és simulat i no cobra res.</p></div></details>
       <details><summary data-i18n="faq.q4">Puc canviar la talla?</summary><div><p data-i18n-html="faq.a4">Sí, abans que l'encàrrec s'estampi. Un cop feta, el canvi dependrà de l'estoc: <span class="pd">[pendent]</span>. Si dubtes, mira la guia de talles.</p></div></details>
       <details><summary data-i18n="faq.q5">Puc tornar-la? Hi ha devolucions?</summary><div><p data-i18n-html="faq.a5">La llei dona 14 dies naturals per desistir. Com que estampem per encàrrec, cal revisar si s'hi aplica l'excepció de béns personalitzats (art. 103.c TRLGDCU) <span class="pd">[pendent de revisió]</span>. Els detalls són a l'esborrany de condicions de venda.</p></div></details>
-      <details><summary data-i18n="faq.q6">Envieu a casa?</summary><div><p data-i18n-html="faq.a6">Està previst enviar a la península. Cost i temps: <span class="pd">[pendent]</span>.</p></div></details>
+      <details><summary data-i18n="faq.q6">Envieu a casa?</summary><div><p data-i18n-html="faq.a6">Està previst enviar a la península. Cost: 4,90 €, gratuït a partir de 60 € (tots dos imports són provisionals). Termini: <span class="pd">[pendent]</span>.</p></div></details>
       <details><summary data-i18n="faq.q7">Puc passar-la a buscar?</summary><div><p data-i18n-html="faq.a7">Sí, a Cal Niu, a Castellar del Riu. Quedem el dia i l'hora que ens vagin bé.</p></div></details>
       <details><summary data-i18n="faq.q8">On van els diners?</summary><div><p data-i18n-html="faq.a8">A mantenir la rectoria i les activitats. El repartiment exacte encara no el tenim tancat: <span class="pd">[pendent]</span>.</p></div></details>
       <details><summary data-i18n="faq.q9">Com us puc contactar?</summary><div><p data-i18n-html="faq.a9">WhatsApp: <a href="https://wa.me/34617575495" target="_blank" rel="noopener">+34 617 575 495</a> · Instagram: <a href="https://instagram.com/som.calniu" target="_blank" rel="noopener">@som.calniu</a> · Correu: <span class="pd">[pendent]</span>. Ara per ara la botiga és en proves: les reserves no ens arriben soles, però per qualsevol dubte ens pots escriure.</p></div></details>
@@ -1404,8 +1412,8 @@ var INFO={
  com:{t:'Com funciona?',draft:0,b:'<p>Això és una botiga en proves: encara no es cobra res ni s\'envien reserves de debò.</p><ol class="flex3"><li><b>Tria.</b> Escull la samarreta, l\'estampat, el color i la talla.</li><li><b>Reserva.</b> Afegeix-la a la cistella i omple les dades. No pagues res ara.</li><li><b>T\'escrivim.</b> Quan la botiga s\'obri de veritat, l\'equip de Cal Niu et dirà com pagar i com recollir-la. Ara per ara, la reserva queda guardada només al teu navegador.</li></ol>'},
  avis:{t:'Avís legal',draft:1,b:'<p>Informació general en compliment de la Llei 34/2002, de serveis de la societat de la informació (LSSI-CE).</p><h3>Titular</h3><ul><li>Nom o raó social: '+P+'</li><li>NIF: '+P+'</li><li>Adreça: '+P+'</li><li>Correu: '+P+'</li><li>Dades registrals, si escau: '+P+'</li></ul><h3>Objecte</h3><p>Aquesta web permet configurar i reservar samarretes de Cal Niu, antiga rectoria de Castellar del Riu (Berguedà). El que s\'hi recapta serveix per mantenir la casa i les activitats.</p><h3>Propietat intel·lectual</h3><p>Els dissenys, textos, logotips i imatges són de Cal Niu o s\'hi fan servir amb permís, llevat que s\'indiqui el contrari. No es poden reutilitzar sense autorització. '+P+'</p><h3>Responsabilitat</h3><p>Fem tot el possible perquè la informació sigui correcta, però pot canviar sense avís, sobretot mentre la botiga està en proves.</p><h3>Llei aplicable</h3><p>Aquest avís es regeix per la llei espanyola. Jurisdicció: '+P+'</p>'},
  privacitat:{t:'Política de privacitat',draft:1,b:'<p>Segons el Reglament (UE) 2016/679 (RGPD) i la Llei orgànica 3/2018 (LOPDGDD).</p><h3>Responsable</h3><p>'+P+' · NIF '+P+' · Adreça '+P+' · Correu '+P+'</p><h3>Quines dades i per què</h3><p>Nom, correu, telèfon (opcional) i dades de lliurament, només per gestionar la teva reserva i contactar-te sobre ella. Base legal: aplicar mesures precontractuals a petició teva.</p><h3>On es guarden</h3><p>Mentre la botiga és en proves, les dades es queden només al teu navegador i no se\'ns envien. Quan s\'obri de veritat, aquí hi posarem on es guarden i qui hi té accés: '+P+'</p><h3>Quant de temps</h3><p>'+P+'</p><h3>Destinataris</h3><p>'+P+' No tenim previst cedir les dades a tercers amb finalitats comercials.</p><h3>Els teus drets</h3><p>Pots accedir a les teves dades, rectificar-les, esborrar-les, oposar-te al tractament, limitar-lo i demanar-ne la portabilitat escrivint a '+P+'. Si creus que no ho hem fet bé, pots reclamar a l\'Agència Espanyola de Protecció de Dades (AEPD, www.aepd.es) '+P+' (autoritat a revisar segons la forma jurídica del titular).</p><h3>Notícies de Cal Niu</h3><p>No t\'enviarem notícies sense que ho demanis amb una casella pròpia i opcional. Ara no n\'hi ha cap.</p>'},
- condicions:{t:'Condicions de venda',draft:1,b:'<p>Aquestes condicions són un esborrany i no s\'apliquen mentre la botiga sigui en proves.</p><h3>Venedor</h3><p>'+P+' · NIF '+P+' · Adreça '+P+'</p><h3>Preus</h3><p>El preu final inclou tots els impostos aplicables. Règim d\'IVA: '+P+'. L\'enviament, si n\'hi ha, es mostra abans de confirmar la reserva (cost provisional: '+P+').</p><h3>Reserva i pagament</h3><p>Reservar no obliga a pagar en aquell moment. Les formes de pagament són '+P+'.</p><h3>Termini</h3><p>Estampem per encàrrec. Termini estimat de 2–3 setmanes des de la confirmació, provisional '+P+'.</p><h3>Dret de desistiment (14 dies)</h3><p>Com a consumidor tens 14 dies naturals des que reps la peça per desistir sense donar cap motiu. Cal que ens ho comuniquis i ens tornis la peça en 14 dies. Si l\'has fet servir més del necessari per provar-la, en pots respondre de la pèrdua de valor (art. 108 TRLGDCU). Les peces personalitzades poden quedar excloses (art. 103.c TRLGDCU). Triem entre opcions fixes: és un argument a validar, no una conclusió. Cal revisar si el desistiment s\'hi aplica <span class="pd">[pendent de revisió]</span>. Procediment, formulari tipus i qui paga la devolució: '+P+'</p><h3>Garantia</h3><p>La llei dona una garantia legal sobre la conformitat del producte. Termini i condicions: '+P+'</p><h3>Reclamacions</h3><p>Pots escriure\'ns a '+P+'.</p>'},
- cookies:{t:'Cookies i emmagatzematge',draft:1,b:'<p>Aquesta web no fa servir cookies de seguiment, ni d\'analítica, ni de publicitat.</p><h3>Què guardem al teu navegador</h3><ul><li><b>localStorage:</b> la cistella i les reserves que has fet, perquè no es perdin si tanques la pàgina. Només al teu navegador.</li><li><b>localStorage:</b> si has tancat l\'avís de botiga en proves i l\'idioma que has triat.</li><li><b>sessionStorage:</b> l\'esborrany de les dades de la reserva mentre l\'omples; s\'esborra en tancar la pestanya.</li></ul><p>Són imprescindibles per al funcionament, per això no cal demanar consentiment ni hi ha bàner.</p><h3>Serveis de tercers</h3><p>Per mostrar la pàgina, el teu navegador carrega tipus de lletra de Google Fonts i la llibreria 3D des de jsDelivr; aquests serveis poden rebre la teva adreça IP. Si volem eliminar-ho o allotjar-ho nosaltres, ho actualitzarem aquí '+P+'.</p><h3>Esborrar-ho</h3><p>Pots esborrar-ho tot des de la configuració del navegador (dades del lloc).</p>'},
+ condicions:{t:'Condicions de venda',draft:1,b:'<p>Aquestes condicions són un esborrany i no s\'apliquen mentre la botiga sigui en proves.</p><h3>Venedor</h3><p>'+P+' · NIF '+P+' · Adreça '+P+'</p><h3>Preus</h3><p>El preu final inclou tots els impostos aplicables. Règim d\'IVA: '+P+'. L\'enviament, si n\'hi ha, es mostra abans de confirmar la reserva (cost provisional: '+P+').</p><h3>Reserva i pagament</h3><p>Reservar no obliga a pagar en aquell moment. Les formes de pagament són '+P+'.</p><h3>Termini</h3><p>Estampem per encàrrec. Termini estimat de 2–3 setmanes des de la confirmació, provisional '+P+'.</p><h3>Dret de desistiment (14 dies)</h3><p>Com a consumidor tens 14 dies naturals des que reps la peça per desistir sense donar cap motiu. Cal que ens ho comuniquis i ens tornis la peça en 14 dies. Si l\'has fet servir més del necessari per provar-la, en pots respondre de la pèrdua de valor (art. 108 TRLGDCU). Les peces personalitzades poden quedar excloses (art. 103.c TRLGDCU). Com que les peces es trien entre opcions fixes i no es dissenyen a mida, aquesta excepció podria no aplicar-se; encara no ho hem confirmat. Cal revisar si el desistiment s\'hi aplica <span class="pd">[pendent de revisió]</span>. Procediment, formulari tipus i qui paga la devolució: '+P+'</p><h3>Garantia</h3><p>La llei dona una garantia legal sobre la conformitat del producte. Termini i condicions: '+P+'</p><h3>Reclamacions</h3><p>Pots escriure\'ns a '+P+'.</p>'},
+ cookies:{t:'Cookies i emmagatzematge',draft:1,b:'<p>Aquesta web no fa servir cookies de seguiment, ni d\'analítica, ni de publicitat.</p><h3>Què guardem al teu navegador</h3><ul><li><b>localStorage:</b> la cistella i les reserves que has fet, perquè no es perdin si tanques la pàgina. Només al teu navegador.</li><li><b>localStorage:</b> l\'idioma que has triat.</li><li><b>sessionStorage:</b> l\'esborrany de les dades de la reserva mentre l\'omples, si has silenciat el so ambient i si ja t\'hem mostrat l\'avís del so; s\'esborra en tancar la pestanya.</li></ul><p>Són imprescindibles per al funcionament, per això no cal demanar consentiment ni hi ha bàner.</p><h3>Serveis de tercers</h3><p>Per mostrar la pàgina, el teu navegador carrega tipus de lletra de Google Fonts i la llibreria 3D des de jsDelivr; aquests serveis poden rebre la teva adreça IP. Si volem eliminar-ho o allotjar-ho nosaltres, ho actualitzarem aquí '+P+'.</p><h3>Esborrar-ho</h3><p>Pots esborrar-ho tot des de la configuració del navegador (dades del lloc).</p>'},
  proveidor:{t:'Qui la fa',draft:0,b:'<p>Abans de portar res a sobre, volem que sàpigues d\'on ve. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Qui l\'estampa</dt><dd>Berga Estampa (As de Camisetas), a Berga</dd></div><div><dt>Tècnica</dt><dd>'+P+'</dd></div><div class="w2"><dt>La samarreta llisa</dt><dd>Marca, model i origen '+P+'.</dd></div></dl><p class="intent"><b>La nostra intenció:</b> treballem amb una botiga del Berguedà, a mitja hora de casa. També volem cotó orgànic, però no ho direm com a fet fins que tinguem un certificat que ho acrediti.</p>'},
  material:{t:'El material',draft:0,b:'<p>Un teixit que es noti bé a la mà. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Composició</dt><dd>'+P+'</dd></div><div><dt>Gramatge</dt><dd>'+P+'</dd></div><div><dt>Tall</dt><dd>'+P+' · talles de la XS a la XXL</dd></div><div><dt>Certificats</dt><dd>'+P+'</dd></div><div class="w2"><dt>Cura de la peça</dt><dd>Les instruccions de rentat les posarem quan sapiguem el teixit exacte: '+P+'</dd></div></dl>'},
  terminis:{t:'Terminis i com la preparem',draft:0,b:'<p>No tenim un magatzem ple de samarretes. Les estampem quan les reserves, i per això triga una mica.</p><h3>Quan la tindràs</h3><p><b class="big" id="prodMsg">2–3 setmanes</b></p><p>Termini provisional, des que es confirma la reserva. '+P+' de confirmar amb el taller.</p><h3>Recollida a Cal Niu</h3><p>Quan estigui preparada, quedem un dia que ens vagi bé a tots dos, a la rectoria de Castellar del Riu.</p><h3>Enviament a casa teva</h3><p>Termini d\'enviament un cop preparada: '+P+'. El cost i el llindar d\'enviament gratuït són provisionals.</p>'}
@@ -1416,7 +1424,7 @@ var INFO_ES={
  avis:{t:'Aviso legal',draft:1,b:'<p>Información general en cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información (LSSI-CE).</p><h3>Titular</h3><ul><li>Nombre o razón social: '+PE+'</li><li>NIF: '+PE+'</li><li>Dirección: '+PE+'</li><li>Correo: '+PE+'</li><li>Datos registrales, si procede: '+PE+'</li></ul><h3>Objeto</h3><p>Esta web permite configurar y reservar camisetas de Cal Niu, antigua casa rectoral de Castellar del Riu (Berguedà). Lo que se recauda sirve para mantener la casa y las actividades.</p><h3>Propiedad intelectual</h3><p>Los diseños, textos, logotipos e imágenes son de Cal Niu o se usan con permiso, salvo que se indique lo contrario. No se pueden reutilizar sin autorización. '+PE+'</p><h3>Responsabilidad</h3><p>Hacemos todo lo posible para que la información sea correcta, pero puede cambiar sin aviso, sobre todo mientras la tienda está en pruebas.</p><h3>Ley aplicable</h3><p>Este aviso se rige por la ley española. Jurisdicción: '+PE+'</p>'},
  privacitat:{t:'Política de privacidad',draft:1,b:'<p>Según el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p><h3>Responsable</h3><p>'+PE+' · NIF '+PE+' · Dirección '+PE+' · Correo '+PE+'</p><h3>Qué datos y para qué</h3><p>Nombre, correo, teléfono (opcional) y datos de entrega, solo para gestionar tu reserva y contactarte sobre ella. Base legal: aplicar medidas precontractuales a petición tuya.</p><h3>Dónde se guardan</h3><p>Mientras la tienda está en pruebas, los datos se quedan solo en tu navegador y no nos llegan. Cuando abra de verdad, aquí indicaremos dónde se guardan y quién tiene acceso: '+PE+'</p><h3>Cuánto tiempo</h3><p>'+PE+'</p><h3>Destinatarios</h3><p>'+PE+' No tenemos previsto ceder los datos a terceros con fines comerciales.</p><h3>Tus derechos</h3><p>Puedes acceder a tus datos, rectificarlos, suprimirlos, oponerte al tratamiento, limitarlo y pedir su portabilidad escribiendo a '+PE+'. Si crees que no lo hemos hecho bien, puedes reclamar ante la Agencia Española de Protección de Datos (AEPD, www.aepd.es) '+PE+' (autoridad a revisar según la forma jurídica del titular).</p><h3>Noticias de Cal Niu</h3><p>No te enviaremos noticias a menos que lo pidas con una casilla propia y opcional. Ahora no hay ninguna.</p>'},
  condicions:{t:'Condiciones de venta',draft:1,b:'<p>Estas condiciones son un borrador y no se aplican mientras la tienda esté en pruebas.</p><h3>Vendedor</h3><p>'+PE+' · NIF '+PE+' · Dirección '+PE+'</p><h3>Precios</h3><p>El precio final incluye todos los impuestos aplicables. Régimen de IVA: '+PE+'. El envío, si lo hay, se muestra antes de confirmar la reserva (coste provisional: '+PE+').</p><h3>Reserva y pago</h3><p>Reservar no obliga a pagar en ese momento. Las formas de pago son '+PE+'.</p><h3>Plazo</h3><p>Estampamos por encargo. Plazo estimado de 2 a 3 semanas desde la confirmación, provisional '+PE+'.</p><h3>Derecho de desistimiento (14 días)</h3><p>Como consumidor tienes 14 días naturales desde que recibes la prenda para desistir sin dar ningún motivo. Tienes que comunicárnoslo y devolvernos la prenda en 14 días. Si la has usado más de lo necesario para probarla, puedes responder de la pérdida de valor (art. 108 TRLGDCU). Las prendas personalizadas pueden quedar excluidas (art. 103.c TRLGDCU) <span class="pd">[pendiente de revisión]</span>. Procedimiento, formulario tipo y quién paga la devolución: '+PE+'</p><h3>Garantía</h3><p>La ley da una garantía legal sobre la conformidad del producto. Plazo y condiciones: '+PE+'</p><h3>Reclamaciones</h3><p>Puedes escribirnos a '+PE+'.</p>'},
- cookies:{t:'Cookies y almacenamiento',draft:1,b:'<p>Esta web no usa cookies de seguimiento, ni de analítica, ni de publicidad.</p><h3>Qué guardamos en tu navegador</h3><ul><li><b>localStorage:</b> la cesta y las reservas que has hecho, para que no se pierdan si cierras la página. Solo en tu navegador.</li><li><b>localStorage:</b> si has cerrado el aviso de tienda en pruebas y el idioma que has elegido.</li><li><b>sessionStorage:</b> el borrador de los datos de la reserva mientras lo rellenas; se borra al cerrar la pestaña.</li></ul><p>Son imprescindibles para el funcionamiento, por eso no hace falta pedir consentimiento ni mostrar un aviso de cookies.</p><h3>Servicios de terceros</h3><p>Para mostrar la página, tu navegador carga tipos de letra de Google Fonts y la biblioteca 3D desde jsDelivr; estos servicios pueden recibir tu dirección IP. Si queremos eliminarlo o alojarlo nosotros, lo actualizaremos aquí '+PE+'.</p><h3>Borrarlo</h3><p>Puedes borrarlo todo desde la configuración del navegador (datos del sitio).</p>'},
+ cookies:{t:'Cookies y almacenamiento',draft:1,b:'<p>Esta web no usa cookies de seguimiento, ni de analítica, ni de publicidad.</p><h3>Qué guardamos en tu navegador</h3><ul><li><b>localStorage:</b> la cesta y las reservas que has hecho, para que no se pierdan si cierras la página. Solo en tu navegador.</li><li><b>localStorage:</b> el idioma que has elegido.</li><li><b>sessionStorage:</b> el borrador de los datos de la reserva mientras lo rellenas, si has silenciado el sonido ambiente y si ya te hemos mostrado el aviso del sonido; se borra al cerrar la pestaña.</li></ul><p>Son imprescindibles para el funcionamiento, por eso no hace falta pedir consentimiento ni mostrar un aviso de cookies.</p><h3>Servicios de terceros</h3><p>Para mostrar la página, tu navegador carga tipos de letra de Google Fonts y la biblioteca 3D desde jsDelivr; estos servicios pueden recibir tu dirección IP. Si queremos eliminarlo o alojarlo nosotros, lo actualizaremos aquí '+PE+'.</p><h3>Borrarlo</h3><p>Puedes borrarlo todo desde la configuración del navegador (datos del sitio).</p>'},
  proveidor:{t:'Quién la hace',draft:0,b:'<p>Antes de que te la pongas, queremos que sepas de dónde viene. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Quién la estampa</dt><dd>Berga Estampa (As de Camisetas), en Berga</dd></div><div><dt>Técnica</dt><dd>'+PE+'</dd></div><div class="w2"><dt>La camiseta lisa</dt><dd>Marca, modelo y origen '+PE+'.</dd></div></dl><p class="intent"><b>Nuestra intención:</b> trabajamos con una tienda del Berguedà, a media hora de casa. También queremos algodón orgánico, pero no lo daremos por hecho hasta que tengamos un certificado que lo acredite.</p>'},
  material:{t:'El material',draft:0,b:'<p>Un tejido agradable al tacto. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Composición</dt><dd>'+PE+'</dd></div><div><dt>Gramaje</dt><dd>'+PE+'</dd></div><div><dt>Corte</dt><dd>'+PE+' · tallas de la XS a la XXL</dd></div><div><dt>Certificados</dt><dd>'+PE+'</dd></div><div class="w2"><dt>Cuidado de la prenda</dt><dd>Pondremos las instrucciones de lavado cuando sepamos el tejido exacto: '+PE+'</dd></div></dl>'},
  terminis:{t:'Plazos y cómo la preparamos',draft:0,b:'<p>No tenemos un almacén lleno de camisetas. Las estampamos cuando las reservas, y por eso tarda un poco.</p><h3>Cuándo la tendrás</h3><p><b class="big" id="prodMsg">de 2 a 3 semanas</b></p><p>Plazo provisional, desde que se confirma la reserva. '+PE+' de confirmar con el taller.</p><h3>Recogida en Cal Niu</h3><p>Cuando esté lista, quedamos un día que nos venga bien a los dos, en la casa rectoral de Castellar del Riu.</p><h3>Envío a tu casa</h3><p>Plazo de envío una vez lista: '+PE+'. El coste y el mínimo para el envío gratis son provisionales.</p>'}
@@ -1426,7 +1434,7 @@ var INFO_EN={
  avis:{t:'Legal notice',draft:1,b:'<p>General information under Spanish Law 34/2002 on information society services (LSSI-CE).</p><h3>Owner</h3><ul><li>Name or company name: '+PN+'</li><li>Tax ID (NIF): '+PN+'</li><li>Address: '+PN+'</li><li>Email: '+PN+'</li><li>Registration details, if applicable: '+PN+'</li></ul><h3>Purpose</h3><p>This website lets you design and reserve T-shirts from Cal Niu, the old rectory in Castellar del Riu (Berguedà). The money raised helps look after the house and its activities.</p><h3>Intellectual property</h3><p>The designs, texts, logos and images belong to Cal Niu or are used with permission, unless stated otherwise. They may not be reused without authorisation. '+PN+'</p><h3>Liability</h3><p>We do our best to keep the information accurate, but it may change without notice, especially while the shop is a test.</p><h3>Applicable law</h3><p>This notice is governed by Spanish law. Jurisdiction: '+PN+'</p>'},
  privacitat:{t:'Privacy policy',draft:1,b:'<p>Under Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).</p><h3>Data controller</h3><p>'+PN+' · Tax ID '+PN+' · Address '+PN+' · Email '+PN+'</p><h3>What data and why</h3><p>Name, email, phone (optional) and delivery details, only to handle your reservation and contact you about it. Legal basis: taking pre-contractual steps at your request.</p><h3>Where it is stored</h3><p>While the shop is a test, your data stays in your browser only and is not sent to us. When it opens for real, we will explain here where it is stored and who can access it: '+PN+'</p><h3>How long</h3><p>'+PN+'</p><h3>Recipients</h3><p>'+PN+' We have no plans to share your data with third parties for commercial purposes.</p><h3>Your rights</h3><p>You can access, correct or delete your data, object to or restrict its processing, and ask for portability by writing to '+PN+'. If you think we haven’t handled it properly, you can complain to the Spanish Data Protection Agency (AEPD, www.aepd.es) '+PN+' (authority to be confirmed depending on the owner’s legal form).</p><h3>Cal Niu news</h3><p>We won’t send you news unless you ask for it with its own optional tick box. There isn’t one right now.</p>'},
  condicions:{t:'Terms of sale',draft:1,b:'<p>These terms are a draft and do not apply while the shop is a test.</p><h3>Seller</h3><p>'+PN+' · Tax ID '+PN+' · Address '+PN+'</p><h3>Prices</h3><p>The final price includes all applicable taxes. VAT scheme: '+PN+'. Delivery, if any, is shown before you confirm the reservation (provisional cost: '+PN+').</p><h3>Reservation and payment</h3><p>Reserving doesn’t oblige you to pay at that moment. Payment methods: '+PN+'.</p><h3>Timing</h3><p>We print to order. Estimated time of 2–3 weeks from confirmation, provisional '+PN+'.</p><h3>Right of withdrawal (14 days)</h3><p>As a consumer you have 14 calendar days from receiving the item to withdraw without giving a reason. You need to let us know and send the item back within 14 days. If you have used it more than needed to try it on, you may be liable for the loss in value (art. 108 TRLGDCU). Personalised items may be excluded (art. 103.c TRLGDCU). Because customers choose from fixed options rather than designing their own, this exception may not apply; we haven’t confirmed this yet. We still need to confirm whether withdrawal applies <span class="pd">[pending review]</span>. Procedure, model form and who pays for the return: '+PN+'</p><h3>Guarantee</h3><p>The law gives a legal guarantee of conformity for the product. Period and conditions: '+PN+'</p><h3>Complaints</h3><p>You can write to us at '+PN+'.</p>'},
- cookies:{t:'Cookies and storage',draft:1,b:'<p>This website does not use tracking, analytics or advertising cookies.</p><h3>What we keep in your browser</h3><ul><li><b>localStorage:</b> your basket and the reservations you’ve made, so they aren’t lost if you close the page. Only in your browser.</li><li><b>localStorage:</b> whether you’ve closed the test-shop notice, and the language you chose.</li><li><b>sessionStorage:</b> the draft of your reservation details while you fill them in; it’s deleted when you close the tab.</li></ul><p>These are essential for the site to work, so no consent is needed and there’s no banner.</p><h3>Third-party services</h3><p>To show the page, your browser loads fonts from Google Fonts and the 3D library from jsDelivr; these services may receive your IP address. If we decide to remove them or host them ourselves, we’ll update this '+PN+'.</p><h3>Deleting it</h3><p>You can delete it all from your browser settings (site data).</p>'},
+ cookies:{t:'Cookies and storage',draft:1,b:'<p>This website does not use tracking, analytics or advertising cookies.</p><h3>What we keep in your browser</h3><ul><li><b>localStorage:</b> your basket and the reservations you’ve made, so they aren’t lost if you close the page. Only in your browser.</li><li><b>localStorage:</b> the language you chose.</li><li><b>sessionStorage:</b> the draft of your reservation details while you fill them in, whether you’ve muted the background sound and whether we’ve already shown you the sound tip; it’s deleted when you close the tab.</li></ul><p>These are essential for the site to work, so no consent is needed and there’s no banner.</p><h3>Third-party services</h3><p>To show the page, your browser loads fonts from Google Fonts and the 3D library from jsDelivr; these services may receive your IP address. If we decide to remove them or host them ourselves, we’ll update this '+PN+'.</p><h3>Deleting it</h3><p>You can delete it all from your browser settings (site data).</p>'},
  proveidor:{t:'Who makes it',draft:0,b:'<p>Before you wear anything, we want you to know where it comes from. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Who prints it</dt><dd>Berga Estampa (As de Camisetas), in Berga</dd></div><div><dt>Technique</dt><dd>'+PN+'</dd></div><div class="w2"><dt>The blank T-shirt</dt><dd>Brand, model and origin '+PN+'.</dd></div></dl><p class="intent"><b>What we’re aiming for:</b> we work with a print shop in the Berguedà, half an hour from home. We’d also like organic cotton, but we won’t claim it until we have a certificate to prove it.</p>'},
  material:{t:'The fabric',draft:0,b:'<p>A fabric that feels good in your hand. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Composition</dt><dd>'+PN+'</dd></div><div><dt>Weight</dt><dd>'+PN+'</dd></div><div><dt>Fit</dt><dd>'+PN+' · sizes XS to XXL</dd></div><div><dt>Certificates</dt><dd>'+PN+'</dd></div><div class="w2"><dt>Care</dt><dd>We’ll add washing instructions once we know the exact fabric: '+PN+'</dd></div></dl>'},
  terminis:{t:'Timing and how we make it',draft:0,b:'<p>We don’t have a warehouse full of T-shirts. We print them when you reserve, which is why it takes a little while.</p><h3>When you’ll have it</h3><p><b class="big" id="prodMsg">2–3 weeks</b></p><p>Provisional timeframe, from when the reservation is confirmed. '+PN+' confirmation with the print shop.</p><h3>Collection at Cal Niu</h3><p>When it’s ready, we’ll arrange a day that suits us both, at the rectory in Castellar del Riu.</p><h3>Delivery to your home</h3><p>Delivery time once it’s ready: '+PN+'. The cost and the free-delivery threshold are provisional.</p>'}
@@ -1602,6 +1610,8 @@ function cleanLine(x){
  if(!x||idxOf(TYPES,x.tipus)<0||idxOf(MOTIFS,x.estampat)<0||idxOf(COLORS,x.color)<0||SIZES.indexOf(x.talla)<0||!(x.qty>0))return null;
  return makeLine(idxOf(TYPES,x.tipus),idxOf(MOTIFS,x.estampat),idxOf(COLORS,x.color),x.talla,x.qty);
 }
+/* ajuntar dues quantitats amb el topall per peça: torna què queda i quantes unitats no hi caben (mai es perden en silenci) */
+function capMerge(a,b){var s=a+b,q=Math.min(BOTIGA.maxQty,s);return{qty:q,lost:s-q}}
 function mergeBySku(lines){var out=[],by={};
  lines.forEach(function(l){var k=by[l.sku];if(k)k.qty=Math.min(BOTIGA.maxQty,k.qty+l.qty);else{by[l.sku]=l;out.push(l)}});return out}
 /* migració: llegeix el text desat (v2) o, si no n'hi ha, el de la clau antiga (línies {t,m,c,s,q}); JSON malmès → cistella buida, sense llançar */
@@ -1652,8 +1662,10 @@ function computeTotals(lines,mode){
  var del=(mode==='shipping'&&sub>0&&sub<BOTIGA.shipping.freeFromCents)?BOTIGA.shipping.cents:0;
  return{items:items,subtotalCents:sub,deliveryCents:del,totalCents:sub+del,pending:!mode,freeLeftCents:Math.max(0,BOTIGA.shipping.freeFromCents-sub)};
 }
+/* any i mes a l'hora de Madrid, la mateixa zona que fmtDate: el número i la data de la reserva sempre casen */
+function madridYM(now){try{var o={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit'}).formatToParts(now).forEach(function(p){o[p.type]=p.value});if(o.year&&o.month)return{y:+o.year,m:+o.month}}catch(e){}return{y:now.getFullYear(),m:now.getMonth()+1}}
 function makeOrderId(now,rng){
- var yy=String(now.getFullYear()%100),mm=String(now.getMonth()+1);if(yy.length<2)yy='0'+yy;if(mm.length<2)mm='0'+mm;
+ var ym=madridYM(now),yy=String(ym.y%100),mm=String(ym.m);if(yy.length<2)yy='0'+yy;if(mm.length<2)mm='0'+mm;
  var s='';for(var i=0;i<4;i++)s+=ID_ALPHA.charAt(Math.floor(rng()*ID_ALPHA.length));
  return 'CN-'+yy+mm+'-'+s;
 }
@@ -1662,14 +1674,16 @@ function fmtDate(iso,loc){try{return new Intl.DateTimeFormat(loc||'ca-ES',{timeZ
 /* validació de camps (d = dades del formulari) */
 function telDigitsOf(t){return String(t||'').replace(/[\s.\-]/g,'').replace(/^(\+34|0034)/,'')}
 function outsidePen(cp){var c=String(cp||'').trim();return c.length>=2&&NOPEN.indexOf(c.slice(0,2))>-1}
-function isPeninsula(cp){return /^\d{5}$/.test(String(cp||'').trim())&&!outsidePen(cp)}
+/* CP existent: les dues primeres xifres són una província (01–52); 00xxx i 53xxx–99xxx no existeixen */
+function cpKnown(cp){var c=String(cp||'').trim(),p=+c.slice(0,2);return /^\d{5}$/.test(c)&&p>=1&&p<=52}
+function isPeninsula(cp){return cpKnown(cp)&&!outsidePen(cp)}
 function cpProvince(cp){return PROV[String(cp||'').trim().slice(0,2)]||''}
 var V={
  nom:function(d){var v=String(d.nom||'').trim();return v.length>=2&&v.length<=80?'':_t('v.nom')},
  email:function(d){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email||'').trim())?'':_t('v.email')},
  tel:function(d){var t=telDigitsOf(d.tel);if(!t){if(d.mode==='shipping')return _t('v.tel.ship');if(d.canal==='WhatsApp'||d.canal==='Telèfon')return _t('v.tel.canal',{c:canalLabel(d.canal)});return ''}return /^\d{9}$/.test(t)?'':_t('v.tel.digits')},
  adr1:function(d){return String(d.adr1||'').trim().length>=3?'':_t('v.adr1')},
- cp:function(d){var c=String(d.cp||'').trim();if(!/^\d{5}$/.test(c))return _t('v.cp');return d.mode==='shipping'&&!isPeninsula(c)?msgPen():''},
+ cp:function(d){var c=String(d.cp||'').trim();if(!/^\d{5}$/.test(c))return _t('v.cp');if(d.mode!=='shipping')return '';return !cpKnown(c)?_t('v.cp'):!isPeninsula(c)?msgPen():''},
  poble:function(d){return String(d.poble||'').trim()?'':_t('v.poble')},
  pay:function(d){return d.pay==='later'||d.pay==='card'?'':_t('v.pay')},
  ok:function(d){return d.ok?'':_t('v.ok')}
@@ -1731,6 +1745,10 @@ function selfTest(){
  t('recollida: sempre sense enviament',function(){return computeTotals([{qty:1,unitCents:2200}],'pickup').deliveryCents===0});
  t('península: 08001 sí; 07/35/38/51/52 no',function(){return isPeninsula('08001')&&isPeninsula('25001')&&!isPeninsula('07001')&&!isPeninsula('35001')&&!isPeninsula('38001')&&!isPeninsula('51001')&&!isPeninsula('52001')&&!isPeninsula('0800')});
  t('validació cp: enviament fora de península dóna error',function(){return V.cp({cp:'07001',mode:'shipping'})===msgPen()&&V.cp({cp:'07001',mode:'pickup'})===''&&V.cp({cp:'08',mode:'pickup'})!==''});
+ t('validació cp: enviament amb província inexistent dóna el mateix error que un CP invàlid',function(){var e=_t('v.cp');return V.cp({cp:'99999',mode:'shipping'})===e&&V.cp({cp:'00000',mode:'shipping'})===e&&V.cp({cp:'53001',mode:'shipping'})===e&&V.cp({cp:'22001',mode:'shipping'})===''&&V.cp({cp:'01001',mode:'shipping'})===''&&V.cp({cp:'50001',mode:'shipping'})===''&&!isPeninsula('99999')});
+ t('número de reserva: el mes és el de Madrid, com la data del text',function(){var d=new Date(Date.UTC(2026,9,31,23,30)),id=makeOrderId(d,Math.random),d2=new Date(Date.UTC(2026,10,30,22,59));
+  return id.indexOf('CN-2611-')===0&&fmtDate(d.toISOString()).indexOf('01/11/2026')===0&&makeOrderId(d2,Math.random).indexOf('CN-2611-')===0&&makeOrderId(new Date(Date.UTC(2026,10,30,23,0)),Math.random).indexOf('CN-2612-')===0||id});
+ t('fusió de talles: el topall diu quantes unitats queden fora',function(){var a=capMerge(8,5),b=capMerge(3,4);return a.qty===BOTIGA.maxQty&&a.lost===3&&b.qty===7&&b.lost===0});
  t('CP → província',function(){return cpProvince('08001')==='Barcelona'&&cpProvince('25001')==='Lleida'&&cpProvince('17001')==='Girona'&&cpProvince('99999')===''});
  t('validació: correu i telèfon',function(){return V.email({email:'a@b.cat'})===''&&V.email({email:'a@b'})!==''&&V.tel(sample)===''&&V.tel({tel:'12345',mode:'pickup'})!==''&&V.tel({tel:'',mode:'shipping'})!==''&&V.tel({tel:'',mode:'pickup',canal:'Correu'})===''});
  t('número de reserva: format CN-AAMM-XXXX',function(){var seq=0,r=function(){seq=(seq+7)%97;return seq/97},id=makeOrderId(new Date(2026,10,13),r);
@@ -1860,6 +1878,8 @@ function histLine(x,noSize){var p=String(x.sku||'').toLowerCase().split('-'),mo=
 function findIdx(sku){for(var i=0;i<cart.length;i++)if(cart[i].sku===sku)return i;return -1}
 var EMPTY_NEST='<svg viewBox="0 0 120 80" width="96" height="64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 52c8 14 26 20 46 20s38-6 46-20"/><path d="M22 46c10 8 24 11 38 11s28-3 38-11"/><path d="M30 38c8 5 18 7 30 7s22-2 30-7"/><path d="M44 36c-4-10 2-20 16-22 14 2 20 12 16 22"/></svg>';
 function render(noSave){
+ /* el desfer d'una fusió de talles torna una còpia sencera: si la cistella ha canviat després (+/-, afegir, una altra pestanya), ja no s'ofereix, per no esborrar aquest canvi */
+ if(undo&&undo.snap&&JSON.stringify(cart)!==undo.sig)hideToast();
  var T=computeTotals(cart,null),ul=el('items'),n=T.items;
  var cnt=el('count');cnt.textContent=n;cnt.setAttribute('aria-label',_t('items',{n:n}));
  el('total').textContent=eur(T.subtotalCents);
@@ -1930,7 +1950,8 @@ el('addBtn').addEventListener('click',function(){
 var atT=0,atEl=el('addToast');
 function hideAT(){clearTimeout(atT);atEl.classList.remove('on')}
 function atTimer(){clearTimeout(atT);atT=setTimeout(hideAT,9000)}
-function showAT(msg,plain){el('atMsg').textContent=msg||_t('added');atEl.classList.toggle('plain',!!plain);atEl.classList.add('on');atTimer()}
+/* key: clau i18n del missatge; queda a data-i18n perquè, si es canvia d'idioma amb l'avís obert, apply() el tradueixi amb el mateix sentit */
+function showAT(key,plain){var m=el('atMsg');key=key||'added';m.setAttribute('data-i18n',key);m.textContent=_t(key);atEl.classList.toggle('plain',!!plain);atEl.classList.add('on');atTimer()}
 atEl.addEventListener('mouseenter',function(){clearTimeout(atT)});atEl.addEventListener('focusin',function(){clearTimeout(atT)});
 atEl.addEventListener('mouseleave',function(){if(atEl.classList.contains('on'))atTimer()});
 atEl.addEventListener('focusout',function(){setTimeout(function(){if(atEl.classList.contains('on')&&!atEl.contains(document.activeElement)&&!atEl.matches(':hover'))atTimer()},0)});
@@ -2015,15 +2036,19 @@ el('items').addEventListener('change',function(e){
  var s=e.target.closest('select[data-act="size"]');if(!s)return;
  var li=s.closest('li[data-sku]'),i=findIdx(li.dataset.sku);if(i<0)return;
  var x=cart[i],nl=makeLine(idxOf(TYPES,x.tipus),idxOf(MOTIFS,x.estampat),idxOf(COLORS,x.color),s.value,x.qty),j=findIdx(nl.sku);
- if(j>-1&&j!==i){var q=Math.min(BOTIGA.maxQty,cart[j].qty+x.qty);cart[j].qty=q;cart.splice(i,1);focusAfter={sku:nl.sku,act:'size'};render();toast(h(_t('toast.merged',{n:q})))}
+ if(j>-1&&j!==i){var snap=cart.map(function(l){return Object.assign({},l)}),mg=capMerge(cart[j].qty,x.qty);cart[j].qty=mg.qty;cart.splice(i,1);undo={snap:snap,line:x,sku:nl.sku,sig:JSON.stringify(cart)};focusAfter={sku:nl.sku,act:'size'};render();
+  toast(h(_t('toast.merged',{n:mg.qty})+(mg.lost?' '+_t('toast.cap',{k:mg.lost,n:BOTIGA.maxQty}):'')),true)}
  else{cart[i]=nl;focusAfter={sku:nl.sku,act:'size'};render()}
 });
 el('toast').addEventListener('click',function(e){
  if(e.target.id!=='undoBtn'||!undo)return;
  var u=undo;undo=null;clearTimeout(undoTm);el('toast').classList.remove('on');el('toast').innerHTML='';
- var j=findIdx(u.line.sku);
- if(j>-1)cart[j].qty=Math.min(BOTIGA.maxQty,cart[j].qty+u.line.qty);else cart.splice(Math.min(u.index,cart.length),0,u.line);
- focusAfter={sku:u.line.sku,act:'rm'};render();say(_t('say.restored',{l:lineFull(u.line)}));
+ /* desfer una fusió de talles: la cistella torna exactament a com era, amb les unitats que no hi cabien */
+ if(u.snap){cart=u.snap;focusAfter={sku:u.line.sku,act:'size'};render();say(_t('say.restored',{l:lineFull(u.line)}));return}
+ var j=findIdx(u.line.sku),mg=null;
+ if(j>-1){mg=capMerge(cart[j].qty,u.line.qty);cart[j].qty=mg.qty}else cart.splice(Math.min(u.index,cart.length),0,u.line);
+ focusAfter={sku:u.line.sku,act:'rm'};render();
+ if(mg&&mg.lost)toast(h(_t('say.restored',{l:lineFull(u.line)})+' '+_t('toast.cap',{k:mg.lost,n:BOTIGA.maxQty})));else say(_t('say.restored',{l:lineFull(u.line)}));
 });
 el('cartBanner').addEventListener('click',function(e){if(e.target.id==='reopenOrder'){close(true);openCheckout('done')}});
 var drawer=el('drawer'),scrim=el('scrim'),opener=null,ck=el('checkout');
@@ -2199,6 +2224,7 @@ function renderStep(focusSel){
  view='steps';exitAsk=false;
  setHead(_t('ck.stepOf',{n:step,s:STEPN_(step-1)}),STEPT_(step-1),true);
  el('ckBody').innerHTML='<div class="alert" id="errsum" role="alert" tabindex="-1" hidden></div>'+sumDetails()+'<form novalidate id="ckForm" onsubmit="return false">'+stepBody(step)+'</form>';
+ if(step===3)reviewedKey=cartKey();
  swapThumbs(el('ckBody'));
  el('ckFoot').hidden=false;
  el('ckFoot').innerHTML='<button type="button" class="btn-line ck-back" id="ckBack">'+_t('back')+'</button><button type="button" class="btn-pill ck-next" id="ckNext">'+(step===3?finalLabel():(retTo?_t('ck.toReview'):_t('cont')))+'</button>';
@@ -2294,7 +2320,15 @@ ck.addEventListener('click',function(e){
 });
 function ckGoCart(){doClose();setTimeout(open,0)}
 /* ---- creació única de la reserva: el mateix número mentre la cistella i les dades no canviïn ---- */
-var finishing=false,payCb=null,cardTry=null;
+var finishing=false,payCb=null,cardTry=null,reviewedKey='';
+/* la cistella que es va pintar a la revisió (pas 3): una altra pestanya la pot canviar (esdeveniment storage) sense que aquesta revisió es torni a pintar */
+function cartKey(){return JSON.stringify(cart.map(function(l){return[l.sku,l.qty]}))}
+function reviewStale(){
+ if(!cart.length){ckGoCart();setTimeout(function(){toast(h(_t('ck.emptied')))},0);return true}
+ if(cartKey()===reviewedKey)return false;
+ goStep(3);var box=el('errsum');box.innerHTML='<p><b>'+h(_t('ck.changed'))+'</b></p>';box.hidden=false;box.focus({preventScroll:true});
+ return true;
+}
 function makeOrder(){
  var hs=orderHash(cart,D),o=store.order;
  if(D.pay==='later'){
@@ -2312,6 +2346,7 @@ function askReplace(p){
 }
 async function finish(force){
  if(finishing)return;
+ if(reviewStale())return;
  var pend=store.order;
  if(force!==true&&pend&&pend.estat==='preparada'&&pend.hash!==orderHash(cart,D)){askReplace(pend);return}
  finishing=true;
@@ -2320,6 +2355,8 @@ async function finish(force){
   var o=makeOrder();
   if(o.pay.metode==='card'){
    var r=await iniciarPagamentStripe(o);
+   /* mentre era a la pantalla de pagament, una altra pestanya pot haver canviat la cistella: no es «paga» res i es torna a la revisió */
+   if(r&&r.ok&&(!cart.length||cartKey()!==reviewedKey)){cardTry=null;finishing=false;reviewStale();return}
    if(r&&r.ok){o.estat='pagada-prova';cardTry=null;store.order=o;store.orders=pushHistory(store.orders,o);removeOrderLines(o);save();clearDraft();render();view='done';renderDone();focusTitle();celebrate();say(_t('say.paid',{id:o.id}))}
    else{finishing=false;if(ck.open)goStep(3);else{step=3;view='steps';renderStep();try{sessionStorage.setItem(BOTIGA.draftKey,JSON.stringify({d:D,step:step}))}catch(e){}}}
   }else{view='done';renderDone();focusTitle();celebrate();say(_t('say.prepared',{id:o.id}));render()}
@@ -2519,7 +2556,7 @@ var sharedIn=(function(){var q;try{q=new URLSearchParams(location.search)}catch(
 refresh();render();measure();
 /* enllaç directe a un pas (#pas-color…): ja amb el carregador tancat, es col·loca a la secció i el focus va al seu titular */
 (function(){var m=location.hash.match(/^#pas-(tipus|estampat|color|talla|resum)$/);if(!m&&!sharedIn)return;var i=m?['','tipus','estampat','color','talla','resum'].indexOf(m[1]):5,n=0;
- function go(){if(document.documentElement.classList.contains('loading')&&n++<60)return setTimeout(go,150);measure();goTo(i,true);setTimeout(function(){focusHeading(i);if(sharedIn&&!m){showAT(_t('shared.at'),true);say(_t('shared.say'))}},60)}
+ function go(){if(document.documentElement.classList.contains('loading')&&n++<60)return setTimeout(go,150);measure();goTo(i,true);setTimeout(function(){focusHeading(i);if(sharedIn&&!m){showAT('shared.at',true);say(_t('shared.say'))}},60)}
  setTimeout(go,100)})();
 window.addEventListener('cn:lang',function(){
  document.querySelectorAll('.sr-live,#live').forEach(function(n){n.textContent=''});
@@ -3476,11 +3513,14 @@ function start(THREE) {
   const colTgt = new THREE.Color(CN.COLORS[S.c].g);
   let shownType = S.t, pendingType = S.t, squash = 1;
   let appliedIdx = CN.idx || 0, fadeT = 0;
-  let lastSig = '', lastOff = '', endUp = 0, resZ = 0, rTall = null;
+  let lastSig = '', lastOff = '', endUp = 0, resZ = 0, rTall = null, rLow = null, lowLift = 0;
   const resumTall = () => { if (rTall === null) { const e = document.getElementById('resumCopy'); rTall = !!e && e.offsetHeight > (parseFloat(getComputedStyle(e).lineHeight) || 24) * 2.3; } return rTall; };
-  window.addEventListener('cn:lang', () => { rTall = null; }); window.addEventListener('resize', () => { rTall = null; });
+  /* pantalla baixa de mòbil (≤700 alt, ≤420 ample): franja lliure entre el titular i el resum del pas Resum, relativa al .stick (no depèn del scroll) */
+  const resumLow = () => { if (rLow === null) { rLow = false; if (CN.mobile && window.innerHeight <= 700 && window.innerWidth <= 420) { const st = document.querySelector('#pas-resum .stick'), hl = st && st.querySelector('.hl'), sb = st && st.querySelector('.sumbox'); if (hl && sb) { const s0 = st.getBoundingClientRect().top; rLow = { top: hl.getBoundingClientRect().bottom - s0, bot: sb.getBoundingClientRect().top - s0 }; } } } return rLow; };
+  window.addEventListener('cn:lang', () => { rTall = null; rLow = null; }); window.addEventListener('resize', () => { rTall = null; rLow = null; });
 
   function onChange() {
+    rLow = null;
     colTgt.set(CN.COLORS[S.c].g);
     updateGlbTint();
     sizeTgt = S.s ? 0.94 + CN.SIZES.indexOf(S.s) * 0.024 : 1;
@@ -3727,7 +3767,7 @@ function start(THREE) {
     if (hs < 0.002) hs = 0;
     const aspect = camera.aspect, R = radCur * sizeCur * 1.1, mg = CN.mobile ? 0.9 : 0.9 - 0.44 * hs, fr = CN.mobile ? 0.4 - 0.02 * hs : (window.innerWidth < 1200 ? 0.44 : 0.5) + 0.13 * hs;
     // portada: la samarreta a l'esquerra (escriptori) o a dalt (mòbil); el text queda a l'altra banda
-    const offX = CN.mobile ? 0 : hs * 0.25 * W, offY = (CN.mobile ? (0.07 + 0.098 * hs) * H : 0) + endUp * (H / window.innerHeight);
+    const offX = CN.mobile ? 0 : hs * 0.25 * W, offY = (CN.mobile ? (0.07 + 0.098 * hs) * H : 0) + (endUp + lowLift) * (H / window.innerHeight);
     const offKey = offX.toFixed(1) + '|' + offY.toFixed(1) + '|' + W + '|' + H;
     if (offKey !== lastOff) {
       lastOff = offKey;
@@ -3740,7 +3780,12 @@ function start(THREE) {
     // resum: una mica més petita perquè la vora i l'ombra no toquin el text de sota (mòbil sempre; escriptori si el text fa més de 2 línies)
     let rz = 0;
     if (M.secs.length > 5) { const vh5 = window.innerHeight; rz = clamp(1 - Math.abs(c - M.secs[5].c) / (vh5 * 0.6), 0, 1); }
-    const rzT = rz * (CN.mobile ? 0.1 : (resumTall() ? 0.07 : 0));
+    // mòbil baix: la samarreta s'encongeix i puja fins a cabre entre el titular i el resum, perquè no tapi «Peça / Estampat» (només en aquest cas)
+    const low = CN.mobile && rz > 0 ? resumLow() : null, vhL = window.innerHeight;
+    let rzMob = 0.1; lowLift = 0;
+    // a distància d la samarreta visible (amb mànigues i ombra) fa ~1,2·fr·dH/d de l'alçada: es busca la d que la deixa dins la franja
+    if (low) { const band = Math.max(90, low.bot - low.top - 16); rzMob = Math.max(0.1, (1.2 * fr * dH * vhL / band) / Math.max(dW, dH) - 1); lowLift =rz * Math.max(0, 0.39 * vhL - (low.top + low.bot) / 2); }
+    const rzT = rz * (CN.mobile ? rzMob : (resumTall() ? 0.07 : 0));
     resZ += (rzT - resZ) * (reduced ? 1 : 1 - Math.exp(-dt * 5));
     let dist = Math.max(dW, dH * (CN.mobile ? 1 : pose.zoom)) * (1 + resZ);
     if (landT >= 0) { landT += dt; if (landT > 1.8) landT = -1; }
@@ -3885,22 +3930,37 @@ function start(THREE) {
  if(window.__noVideo)a.preload='none';
  var VOL=.6,FADE=600,raf=0;a.volume=0;
  var off=false;try{off=sessionStorage.getItem('cnSndOff')==='1'}catch(e){}
- var on=!off,unlocked=false;window.__sndOn=false;
+ /* failed: el navegador ha rebutjat play() (gest que no compta com a activació, sobretot el pointerdown tàctil): el botó es mostra apagat fins que soni de veritat */
+ /* playing: només quan play() s'ha resolt; el botó surt «activat» només si de veritat sona. pre: com es veia el botó quan va començar el gest que acaba en clic */
+ var on=!off,unlocked=false,failed=false,playing=false,pre=null,onLit=null,EVS=['pointerdown','pointerup','keydown','touchend','click'];window.__sndOn=false;
  /* amb temporitzadors i no amb requestAnimationFrame, que no corre amb la pestanya amagada */
  function fade(to,done){clearTimeout(raf);var from=a.volume,t0=performance.now();
   (function step(){var k=Math.min(1,(performance.now()-t0)/FADE);try{a.volume=Math.max(0,Math.min(1,from+(to-from)*k))}catch(e){}
    if(k<1)raf=setTimeout(step,30);else if(done)done()})()}
- function start(){var p=a.play();if(p&&p.catch)p.catch(function(){});fade(VOL)}
- function stop(){fade(0,function(){if(!a.paused)a.pause()})}
+ function start(){var p=a.play();
+  if(p&&p.then)p.then(function(){failed=false;playing=window.__sndOn;labels();if(onLit&&lit())onLit()},function(e){if(e&&e.name==='AbortError')return;failed=true;playing=false;unlocked=false;window.__sndOn=false;listen(true);labels()});
+  else{playing=true;labels();if(onLit&&lit())onLit()}
+  fade(VOL)}
+ function stop(){playing=false;fade(0,function(){if(!a.paused)a.pause()})}
  function apply(){
   window.__sndOn=on&&unlocked;
   labels();
   if(window.__sndOn&&!document.hidden)start();else stop()}
- function labels(){b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?_t('snd.mute'):_t('snd.unmute'));b.title=on?_t('snd.muteT'):_t('snd.unmute');var x=document.querySelector('#sndHint .tx');if(x)x.textContent=_t('snd.hint')}
+ function lit(){return on&&playing&&!failed}
+ function labels(){var lit=on&&playing&&!failed;b.setAttribute('aria-pressed',String(lit));b.setAttribute('aria-label',lit?_t('snd.mute'):_t('snd.unmute'));b.title=lit?_t('snd.muteT'):_t('snd.unmute');var x=document.querySelector('#sndHint .tx');if(x)x.textContent=_t('snd.hint')}
  window.addEventListener('cn:lang',labels);
- function unlock(){if(unlocked)return;unlocked=true;['pointerdown','keydown','touchend','click'].forEach(function(t){document.removeEventListener(t,unlock,true)});apply()}
- ['pointerdown','keydown','touchend','click'].forEach(function(t){document.addEventListener(t,unlock,true)});
- b.addEventListener('click',function(){on=!on;unlocked=true;try{if(on)sessionStorage.removeItem('cnSndOff');else sessionStorage.setItem('cnSndOff','1')}catch(e){}apply()});
+ function listen(add){EVS.forEach(function(t){document[add?'addEventListener':'removeEventListener'](t,unlock,true)})}
+ /* només un gest que activa de veritat (spec HTML): pointerdown amb ratolí, pointerup/touchend tàctil, tecla o clic; si no, s'espera el següent */
+ function unlock(e){if(unlocked)return;var ua=navigator.userActivation;
+  if(ua?!ua.isActive:(e&&(e.type==='pointerdown'&&e.pointerType!=='mouse'||e.type==='keydown'&&e.key==='Escape')))return;
+  unlocked=true;listen(false);apply()}
+ /* es registra abans que unlock: guarda l'estat que l'usuari veia, encara que el desbloqueig faci sonar el so abans que arribi el clic */
+ function rec(e){pre=b.contains(e.target)?lit():null}
+ document.addEventListener('pointerdown',rec,true);document.addEventListener('keydown',rec,true);
+ listen(true);
+ /* el clic fa el que deia el botó en començar el gest: si es veia apagat (no sonava), l'engega; si es veia activat, el silencia */
+ b.addEventListener('click',function(){var was=pre!==null?pre:lit();pre=null;
+  on=!was;unlocked=true;listen(false);try{if(on)sessionStorage.removeItem('cnSndOff');else sessionStorage.setItem('cnSndOff','1')}catch(e){}apply()});
  /* pestanya amagada: baixa el so suaument i atura; en tornar, reprèn si estava activat */
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop();else if(window.__sndOn)start()});
  apply();
@@ -3913,9 +3973,9 @@ function start(THREE) {
  function place(){var r=b.getBoundingClientRect(),w=Math.min(220,innerWidth-24);tip.style.width=w+'px';
   var right=Math.max(12,Math.min(innerWidth-12,r.right+4));tip.style.left=Math.max(12,right-w)+'px';tip.style.top=(r.bottom+12)+'px';
   tip.style.setProperty('--ax',Math.max(14,Math.min(w-14,(r.left+r.width/2)-(right-w)))+'px')}
- var tmShow=0,tmHide=0,shown=false;
- function hide(){clearTimeout(tmShow);clearTimeout(tmHide);tip.classList.remove('on');b.classList.remove('ping');setTimeout(function(){if(tip.parentNode)tip.parentNode.removeChild(tip)},500)}
- function show(){if(shown)return;shown=true;place();tip.classList.add('on');b.classList.add('ping');try{sessionStorage.setItem('cnSndHint','1')}catch(e){}tmHide=setTimeout(hide,6500)}
+ /* el globus diu «amb so, apaga-l aquí»: només surt quan de veritat sona; si encara calla, espera que play() es resolgui */ var tmShow=0,tmHide=0,shown=false,gone=false;
+ function hide(){gone=true;onLit=null;clearTimeout(tmShow);clearTimeout(tmHide);tip.classList.remove('on');b.classList.remove('ping');setTimeout(function(){if(tip.parentNode)tip.parentNode.removeChild(tip)},500)}
+ function show(){if(shown||gone)return;if(!lit()){onLit=show;return}onLit=null;shown=true;place();tip.classList.add('on');b.classList.add('ping');try{sessionStorage.setItem('cnSndHint','1')}catch(e){}tmHide=setTimeout(hide,6500)}
  tip.addEventListener('click',hide);b.addEventListener('click',hide);window.addEventListener('resize',function(){if(shown)place()});
  var L=document.getElementById('loader');
  function arm(){tmShow=setTimeout(show,800)}

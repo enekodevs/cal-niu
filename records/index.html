@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow"><!-- treure quan la botiga es publiqui de veritat -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Records Cal Niu · Samarretes per ajudar el projecte</title>
-<meta name="description" content="Samarretes de Cal Niu, l'antiga rectoria de Castellar del Riu (Berguedà). Tria el model, l'estampat, el color i la talla. Amb el que pagues ens ajudes a mantenir la casa i les activitats.">
+<title>Records Cal Niu · Samarretes i dessuadores per ajudar el projecte</title>
+<meta name="description" content="Samarretes i dessuadores de Cal Niu, l'antiga rectoria de Castellar del Riu (Berguedà). Tria el model, l'estampat, el color i la talla. Amb el que pagues ens ajudes a mantenir la casa i les activitats.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
@@ -139,6 +139,15 @@ body.on-hero .dot[aria-current="step"] i{background:var(--paper)}
 .cname{font-family:'Fraunces',serif;font-style:italic;font-size:20px;min-width:5ch;margin-left:6px}
 .chips.res{flex-direction:column;gap:4px}
 .big-price{font-family:'Fraunces',serif;font-size:34px;line-height:1.1}
+/* tria de la peça (samarreta o dessuadora) amb el seu preu, al pas del resum */
+/* a l'escriptori, a la mateixa línia que el preu perquè el text de sobre no pugi cap a la peça; al mòbil, a sobre del preu */
+.chips.res .prow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 18px}
+.chips.res .peca{display:flex;flex-wrap:wrap;gap:8px}
+.chip.pc{gap:10px}.chip.pc .pp{font-family:'Fraunces',serif;font-weight:500;font-size:15px}
+@media(max-width:899px){.chips.res .prow{justify-content:flex-start;gap:4px 10px}.chips.res .peca{gap:5px}.chip.pc{min-height:34px;padding:0 8px;gap:5px;font-size:12px}.chip.pc .pp{font-size:13px}.chips.res .prow .big-price{font-size:22px}} /* mòbil: prenda i preu en una fila, perquè el resum no pugi i la peça no tapi el text */
+/* dessuadora: no hi ha model 3D; el dibuix SVG (#fallback) ocupa el lloc de la samarreta i el mou l'escena */
+#stage.svgt #fallback{display:block}
+#stage.svgt #fallback svg{height:100%}
 .note{font-size:14px;color:var(--clay-d);min-height:22px;line-height:1.4;font-weight:500}
 .sum{display:grid;margin-top:6px}
 .sum div{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid rgba(44,42,36,.25);font-size:16px}
@@ -752,15 +761,15 @@ var KEY='calniu.botiga.lang',LANGS=['ca','es','en'],LOC={ca:'ca-ES',es:'es-ES',e
 var PD={ca:'<span class="pd">[pendent]</span>',es:'<span class="pd">[pendiente]</span>',en:'<span class="pd">[pending]</span>'};
 var I18N={
 ca:{
- 'meta.title':'Records Cal Niu · Samarretes per ajudar el projecte',
- 'meta.desc':"Samarretes de Cal Niu, l'antiga rectoria de Castellar del Riu (Berguedà). Tria el model, l'estampat, el color i la talla. Amb el que pagues ens ajudes a mantenir la casa i les activitats.",
+ 'meta.title':'Records Cal Niu · Samarretes i dessuadores per ajudar el projecte',
+ 'meta.desc':"Samarretes i dessuadores de Cal Niu, l'antiga rectoria de Castellar del Riu (Berguedà). Tria el model, l'estampat, el color i la talla. Amb el que pagues ens ajudes a mantenir la casa i les activitats.",
  'hl.hero':['Records','*Cal Niu'],'hl.tipus':['Tria la','*samarreta'],'hl.estampat':['Quin','disseny','*t\'agrada?'],'hl.color':['De quin','*color?'],'hl.talla':['Quina','*talla?'],'hl.resum':['T\'agrada','*així?'],
  'del.pickup':'Recollida a Cal Niu, Castellar del Riu','del.pickupShort':'Recollida a Cal Niu','del.ship':'Enviament a domicili','del.area':'península',
  'slot.0':'Dissabte matí','slot.1':'Diumenge tarda','slot.2':'Ho acordem per missatge',
  'list.or':' o ','pay.0':'Bizum','pay.1':'Transferència','pay.2':'Efectiu en recollir',
  'canal.Correu':'Correu','canal.WhatsApp':'WhatsApp','canal.Telèfon':'Telèfon',
  'prod':'Estampació per encàrrec · 2–3 setmanes','prod.short':'2–3 setmanes',
- 'type.curta':'Màniga curta','shirt':'Samarreta',
+ 'type.curta':'Samarreta','type.dessuadora':'Dessuadora','shirt':'Samarreta','peca.aria':'Peça i preu','svg.note':'dibuix: encara no tenim model 3D de la dessuadora',
  'col.blancbrut':'Blanc brut','col.argila':'Marró argila','col.salvia':'Verd sàlvia','col.cel':'Blau cel','col.groc':'Groc fulla','col.carbo':'Negre nit',
  'mdesc.niu':'El logo de Cal Niu, amb textura d\'estampa de fusta.','mdesc.fulla':'Una fulla de roure, amb textura d\'estampa.','mdesc.tomaquera':'Una tomaquera amb estil de linogravat.','mdesc.eines':'Aixada, rascle, forca, pala i falç, en silueta.','mdesc.influencer':'«Influencer de tomaqueres», amb lletres de segell. Per a qui té més seguidors a l\'hort que a les xarxes.','mdesc.faltacamp':'«Et falta camp», amb un paisatge de camps i masia en estil de linogravat.',
  'v.pen':'De moment només enviem a la península. Tria la recollida o escriu-nos.',
@@ -768,23 +777,23 @@ ca:{
  'st.preparada':'Preparada, sense enviar','st.enviada':'Enviada, pendent de resposta','st.pagada-prova':'Pagada (prova), sense cap càrrec',
  'notice':'Hem tret {n} articles que ja no estan disponibles','notice.one':'Hem tret {n} article que ja no està disponible',
  'a.color':'Color {c}','sum.tbd':'Per triar','add.first':'Primer tria la talla.','added':'Afegida a la cistella.',
- 'desc':'Samarreta de màniga curta, estampat {m}, color {c}, {s}','desc.size':'talla {s}','desc.nosize':'talla sense triar',
+ 'desc':'Samarreta de màniga curta, estampat {m}, color {c}, {s}','desc.dessuadora':'Dessuadora, estampat {m}, color {c}, {s}','desc.size':'talla {s}','desc.nosize':'talla sense triar',
  'say.model':'Has triat: {n}','say.t':'Has triat: {t}','say.m':'Has triat l\'estampat {m}','say.c':'Has triat el color {c}','say.s':'Has triat la talla {s}',
- 'line.title':'Samarreta {m}','line.full':'Samarreta {m}, {c}, talla {s}','line.meta':'Estampat: {m} · Color: {c}',
+ 'line.title':'{p} {m}','line.full':'{p} {m}, {c}, talla {s}','line.meta':'Estampat: {m} · Color: {c}',
  'items':'{n} articles','items.one':'{n} article','cart.sub':'Subtotal ({items})',
- 'cart.why.test':'És una reserva de prova: no es cobra res, ni ara ni al pas final.','cart.why.real':'És una reserva: no es cobra res en línia fins que tu ho triïs al pas final.','cart.why.empty':'Afegeix almenys una samarreta per poder continuar.',
+ 'cart.why.test':'És una reserva de prova: no es cobra res, ni ara ni al pas final.','cart.why.real':'És una reserva: no es cobra res en línia fins que tu ho triïs al pas final.','cart.why.empty':'Afegeix almenys una peça per poder continuar.',
  'cart.mem':'No podem recordar la cistella en aquest navegador.','cart.ban':'Tens la reserva {id} sense enviar','cart.ban.changed':' (amb les peces d\'abans; la cistella ha canviat)','cart.ban.open':'Obre-la',
  'cart.empty':'La cistella encara és buida.','cart.empty.cta':'Dissenya la teva samarreta','lbl.size':'Talla',
  'a.sizeOf':'Talla de {n}','a.qtyOf':'Quantitat de {n}: {q}','a.dec':'Treu una unitat de {n}','a.inc':'Afegeix una unitat de {n}','a.rm':'Elimina {n}','cart.rm':'Eliminar','cart.max':'Màxim {n} per peça. Si en vols més, escriu-nos.',
  'say.qty':'{l}: {n} unitats. Total {t}','say.qty.one':'{l}: {n} unitat. Total {t}','undo':'Desfer',
- 'say.added':'Samarreta afegida a la cistella: {m}, {c}, talla {s}.','say.cartN':' Cistella: {items}.','add.max':'Ja en tens {n} d\'aquesta. Si en vols més, escriu-nos.',
+ 'say.added':'{p} afegida a la cistella: {m}, {c}, talla {s}.','say.cartN':' Cistella: {items}.','add.max':'Ja en tens {n} d\'aquesta. Si en vols més, escriu-nos.',
  'say.another':'Pas 1 de 5. Tens la mateixa peça, estampat i color; només cal triar una talla nova. Pots canviar-ho tot.',
- 'share.txt':'Mira la samarreta que he dissenyat a la botiga de Cal Niu: {d}.','share.title':'Samarreta Cal Niu','share.ok':'Enllaç copiat.','share.fail':'No s\'ha pogut copiar. L\'enllaç és: {url}',
+ 'share.txt':'Mira la peça que he dissenyat a la botiga de Cal Niu: {d}.','share.title':'Records Cal Niu','share.ok':'Enllaç copiat.','share.fail':'No s\'ha pogut copiar. L\'enllaç és: {url}',
  'toast.removed':'Has tret {l}.','toast.merged':'Hem ajuntat dues línies iguals: ara en tens {n}.','toast.cap':'N\'han quedat fora {k}: el màxim és {n} per peça.','say.restored':'Has recuperat {l}.',
  'res.title':'Les meves reserves','res.link':'Les meves reserves ({n})','res.openA':'Obre el resum de la reserva {id}','res.open':'Obre el resum','res.none':'Encara no tens cap reserva en aquest navegador.','res.wipe':'Esborrar l\'historial','close':'Tanca',
  'res.one':'Reserva {id}','res.num':'Número de reserva: ','tot.tax':'Total · impostos inclosos','res.back':'Torna a la llista',
  'res.wipeQ':'Esborrarem les reserves guardades en aquest navegador, també la que encara no has enviat. Segur?','res.wipeNo':'No, les deixo','res.wipeYes':'Sí, esborra-ho','res.wiped':'Historial esborrat.',
- 'cart.emptySay':'La cistella és buida: afegeix una samarreta per continuar.',
+ 'cart.emptySay':'La cistella és buida: afegeix una peça per continuar.',
  'ck.changed':'La cistella ha canviat en una altra pestanya. Revisa-la abans de continuar.','ck.emptied':'La cistella és buida: no es pot fer cap reserva.',
  'ck.errs':'Revisa què falta:','ck.sum':'Veure la comanda · {t}','opt':'(opcional)',
  'f.nom':'Nom i cognoms','f.email':'Correu','f.email.h.test':'Quan la botiga s\'obri, és on et respondrem.','f.email.h.real':'Hi rebràs la resposta de l\'equip.','f.tel':'Telèfon','f.tel.h':'9 xifres, amb o sense +34. Obligatori si tries l\'enviament, WhatsApp o telèfon.',
@@ -821,21 +830,21 @@ ca:{
  'step.of5':'Pas {i} de 5','sn.prev':'Anterior: {s}','sn.next':'Següent: {s}','sn.stepN':'pas {i}, {n}',
  'resum.copy.test':'Revisa-la i afegeix-la a la cistella. Després la reserves: pots triar pagar-la més tard o amb targeta (de moment, tot és de prova). Encara no enviem les reserves a ningú.',
  'shared.at':'T\'han compartit aquest disseny. Revisa\'l i afegeix-lo a la cistella.','shared.say':'T\'han compartit aquest disseny.',
- 'rack.tap':'Torna a tocar per triar-la','rack.click':'Clica per triar-la','rack.aria':'Branca amb cinc samarretes penjades, totes de màniga curta i a {p}: {names}. Fes servir els botons de sota per triar-ne una.','rack.and':' i ',
+ 'rack.tap':'Torna a tocar per triar-la','rack.click':'Clica per triar-la','rack.aria':'Branca amb cinc samarretes penjades, totes de màniga curta i a {p}: {names}. Fes servir els botons de sota per triar-ne una. Al pas final també la pots demanar en dessuadora, a {p2}.','rack.and':' i ',
+ 'guide.cap.dess':'Dessuadora · mesures en cm: encara no les tenim <span class="pd">[pendent]</span>','guide.note.dess':'Les mesures de la dessuadora estan <span class="pd">[pendent]</span>: depenen del model que triem amb el taller. No són les de la samarreta.',
  'size.lbl':'Talla {s}','snd.mute':'Silencia el so','snd.muteT':'Silencia','snd.unmute':'Activa el so','snd.hint':'Amb so. Si no el vols, apaga\'l aquí.'
 },
 es:{
- 'meta.title':'Recuerdos de Cal Niu · Camisetas para ayudar al proyecto',
- 'meta.desc':'Camisetas de Cal Niu, la antigua casa rectoral de Castellar del Riu (Berguedà). Elige el modelo, el estampado, el color y la talla. Con lo que pagas nos ayudas a mantener la casa y las actividades.',
+ 'meta.title':'Recuerdos de Cal Niu · Camisetas y sudaderas para ayudar al proyecto',
+ 'meta.desc':'Camisetas y sudaderas de Cal Niu, la antigua casa rectoral de Castellar del Riu (Berguedà). Elige el modelo, el estampado, el color y la talla. Con lo que pagas nos ayudas a mantener la casa y las actividades.',
  'hl.hero':['Recuerdos','*de Cal Niu'],'hl.tipus':['Elige tu','*camiseta'],'hl.estampat':['¿Qué','diseño','*te gusta?'],'hl.color':['¿De qué','*color?'],'hl.talla':['¿Qué','*talla?'],'hl.resum':['¿Te gusta','*así?'],
  'skip.aria':'Accesos directos','skip.cfg':'Ir al configurador','skip.simple':'Versión sencilla, sin 3D','load':'Cargando…','nav.main':'Principal','hdr.cart':'Cesta','lang.aria':'Idioma',
  'ann.tipus':'luego puedes cambiar el estampado, el color y la talla','ann.estampat':'los diseños son nuestros','ann.color':'desplázate para girarla','ann.talla':'Cal Niu en la espalda',
  'dots.aria':'Pasos de la tienda','sn.aria':'Paso anterior y siguiente','sn.prevT':'Anterior','sn.nextT':'Siguiente','fallback':'Camiseta',
  'hero.eyebrow':'Tienda de Cal Niu · Castellar del Riu','hero.h1':'Recuerdos de Cal Niu',
- 'hero.body':'En Cal Niu puedes venir a hacer un taller, una estancia o un voluntariado, y apuntarte a las actividades que organizamos. Ahora también puedes echar una mano al proyecto comprando una camiseta: el dinero sirve para mantener la casa rectoral y para que las actividades puedan seguir.',
+ 'hero.body':'En Cal Niu puedes venir a hacer un taller, una estancia o un voluntariado, y apuntarte a las actividades que organizamos. Ahora también puedes echar una mano al proyecto comprando una camiseta o una sudadera: el dinero sirve para mantener la casa rectoral y para que las actividades puedan seguir.',
  'hero.cta':'Elige la camiseta','hero.more':'Conoce el proyecto','hero.cue':'Baja para empezar ↓','sec.intro':'Inicio',
  'step1.sr':'Paso 1 de 5: la camiseta','hl.tipus.sr':'Elige tu camiseta',
- 'copy.tipus':'Hay cinco modelos, todos de manga corta y a 22 €. Pasa el ratón por encima (o tócalos) para verlos por detrás y elige el que te guste. Después puedes cambiar el estampado, el color y la talla.',
  'note.prov':'Quién la hace','chips.tipus':'Modelos de camiseta colgados de la rama',
  'step2.sr':'Paso 2 de 5: el estampado','chips.motiu':'Estampado',
  'step3.sr':'Paso 3 de 5: el color','copy.color':'Seis colores sacados de lo que vemos cada día en Cal Niu. Haz girar la camiseta mientras eliges: el estampado cambia de color solo para que siempre se vea bien.','note.mat':'El material','chips.color':'Color',
@@ -843,7 +852,7 @@ es:{
  'step5.sr':'Paso 5 de 5: resumen','sum.piece':'Prenda','sum.motif':'Estampado','sum.color':'Color','sum.size':'Talla',
  'resum.copy':'Revísala y añádela a la cesta. Después la reservas: puedes pagarla más tarde (alguien del equipo de Cal Niu te escribirá) o con tarjeta, de momento solo de prueba.',
  'resum.copy.test':'Revísala y añádela a la cesta. Después la reservas: puedes elegir pagarla más tarde o con tarjeta (de momento, todo es de prueba). Por ahora, las reservas no le llegan a nadie.',
- 'note.terms':'Plazos y cómo la preparamos','add.btn':'Añadir a la cesta','cart.openBtn':'Abrir la cesta','share.btn':'Compartir esta camiseta',
+ 'note.terms':'Plazos y cómo la preparamos','add.btn':'Añadir a la cesta','cart.openBtn':'Abrir la cesta','share.btn':'Compartir este diseño',
  'faq.eyebrow':'Dudas','faq.h':'Preguntas <em>frecuentes</em>',
  'faq.q1':'¿Cómo funciona la reserva?','faq.a1':'Eliges la prenda, el estampado, el color y la talla, la añades a la cesta y nos dejas tus datos. No se paga nada en este momento. De momento la tienda es una prueba: la reserva solo se guarda en tu navegador.',
  'faq.q2':'¿Cuándo la recibiré?','faq.a2':'Estampamos por encargo: cuenta con unas 2 o 3 semanas desde que se confirma la reserva. Es un plazo provisional <span class="pd">[pendiente]</span>.',
@@ -864,7 +873,7 @@ es:{
  'cart.own':'Esta cesta es solo de esta tienda: la versión sencilla tiene la suya.','cart.help':'¿Tienes dudas? <a href="#preguntes">Preguntas frecuentes</a> · <button type="button" class="lk" data-legal="condicions">Condiciones</button>',
  'guide.title':'Guía de tallas','guide.x':'Cerrar la guía','guide.cap':'Manga corta · medidas en cm · provisionales, no son de la prenda real <span class="pd">[pendiente]</span>','th.w':'Ancho','th.l':'Largo',
  'guide.note':'Medidas de la camiseta extendida en plano. Tolerancia: <span class="pd">[pendiente]</span>. Medidas reales de la prenda: <span class="pd">[pendiente]</span>',
- 'guide.how':'<h3>Cómo medir</h3><p>Extiende bien sobre una mesa una camiseta que te quede bien. Mide el ancho de axila a axila y el largo desde el hombro hasta el bajo, y compáralo con la tabla.</p><p><b>¿Entre dos tallas?</b> Elige la más grande si la quieres holgada.</p>',
+ 'guide.how':'<h3>Cómo medir</h3><p>Extiende bien sobre una mesa una prenda del mismo tipo que te quede bien. Mide el ancho de axila a axila y el largo desde el hombro hasta el bajo, y compáralo con la tabla.</p><p><b>¿Entre dos tallas?</b> Elige la más grande si la quieres holgada.</p>',
  'res.fine':'Se guardan únicamente en este navegador. De las reservas enviadas solo conservamos el número, la fecha, el estado y las prendas; ningún dato personal.',
  'ck.close':'Cerrar la reserva','ck.steps':'Pasos de la reserva','info.draft':'Borrador — pendiente de revisión',
  /* JS */
@@ -873,7 +882,7 @@ es:{
  'list.or':' o ','pay.0':'Bizum','pay.1':'Transferencia','pay.2':'Efectivo al recoger',
  'canal.Correu':'Correo','canal.WhatsApp':'WhatsApp','canal.Telèfon':'Teléfono',
  'prod':'Estampado por encargo · de 2 a 3 semanas','prod.short':'de 2 a 3 semanas',
- 'type.curta':'Camiseta de manga corta','shirt':'Camiseta',
+ 'type.curta':'Camiseta','type.dessuadora':'Sudadera','shirt':'Camiseta','peca.aria':'Prenda y precio','svg.note':'dibujo: todavía no tenemos modelo 3D de la sudadera',
  'col.blancbrut':'Blanco roto','col.argila':'Marrón arcilla','col.salvia':'Verde salvia','col.cel':'Azul cielo','col.groc':'Amarillo hoja','col.carbo':'Negro noche',
  'mname.niu':'Nido','mname.fulla':'Hoja de roble','mname.tomaquera':'Tomatera','mname.eines':'Herramientas del huerto','mname.influencer':'Influencer de tomateras',
  'mdesc.niu':'El logo de Cal Niu, con textura de estampa de madera.','mdesc.fulla':'Una hoja de roble, con textura de estampa.','mdesc.tomaquera':'Una tomatera con estilo de linograbado.','mdesc.eines':'Azada, rastrillo, horca, pala y hoz, en silueta.','mdesc.influencer':'Con letras de sello. Para quien tiene más seguidores en el huerto que en las redes.','mname.faltacamp':'Te falta campo','mdesc.faltacamp':'Con un paisaje de campos y masía, en estilo de linograbado.',
@@ -882,23 +891,23 @@ es:{
  'st.preparada':'Preparada, sin enviar','st.enviada':'Enviada, pendiente de respuesta','st.pagada-prova':'Pagada (prueba), sin ningún cargo',
  'notice':'Hemos quitado {n} artículos que ya no están disponibles','notice.one':'Hemos quitado {n} artículo que ya no está disponible',
  'a.color':'Color {c}','sum.tbd':'Por elegir','add.first':'Primero elige la talla.','added':'Añadida a la cesta.',
- 'desc':'Camiseta de manga corta, estampado {m}, color {c}, {s}','desc.size':'talla {s}','desc.nosize':'talla sin elegir',
+ 'desc':'Camiseta de manga corta, estampado {m}, color {c}, {s}','desc.dessuadora':'Sudadera, estampado {m}, color {c}, {s}','desc.size':'talla {s}','desc.nosize':'talla sin elegir',
  'say.model':'Has elegido: {n}','say.t':'Has elegido: {t}','say.m':'Has elegido el estampado {m}','say.c':'Has elegido el color {c}','say.s':'Has elegido la talla {s}',
- 'line.title':'Camiseta {m}','line.full':'Camiseta {m}, {c}, talla {s}','line.meta':'Estampado: {m} · Color: {c}',
+ 'line.title':'{p} {m}','line.full':'{p} {m}, {c}, talla {s}','line.meta':'Estampado: {m} · Color: {c}',
  'items':'{n} artículos','items.one':'{n} artículo','cart.sub':'Subtotal ({items})',
- 'cart.why.test':'Es una reserva de prueba: no se cobra nada, ni ahora ni en el último paso.','cart.why.real':'Es una reserva: no se cobra nada en línea hasta que tú lo elijas en el último paso.','cart.why.empty':'Añade al menos una camiseta para poder continuar.',
+ 'cart.why.test':'Es una reserva de prueba: no se cobra nada, ni ahora ni en el último paso.','cart.why.real':'Es una reserva: no se cobra nada en línea hasta que tú lo elijas en el último paso.','cart.why.empty':'Añade al menos una prenda para poder continuar.',
  'cart.mem':'No podemos recordar la cesta en este navegador.','cart.ban':'Tienes la reserva {id} sin enviar','cart.ban.changed':' (con las prendas de antes; la cesta ha cambiado)','cart.ban.open':'Abrirla',
  'cart.empty':'La cesta todavía está vacía.','cart.empty.cta':'Diseña tu camiseta','lbl.size':'Talla',
  'a.sizeOf':'Talla de {n}','a.qtyOf':'Cantidad de {n}: {q}','a.dec':'Quitar una unidad de {n}','a.inc':'Añadir una unidad de {n}','a.rm':'Eliminar {n}','cart.rm':'Eliminar','cart.max':'Máximo {n} por prenda. Si quieres más, escríbenos.',
  'say.qty':'{l}: {n} unidades. Total {t}','say.qty.one':'{l}: {n} unidad. Total {t}','undo':'Deshacer',
- 'say.added':'Camiseta añadida a la cesta: {m}, {c}, talla {s}.','say.cartN':' Cesta: {items}.','add.max':'Ya tienes {n} de esta. Si quieres más, escríbenos.',
+ 'say.added':'{p} añadida a la cesta: {m}, {c}, talla {s}.','say.cartN':' Cesta: {items}.','add.max':'Ya tienes {n} de esta. Si quieres más, escríbenos.',
  'say.another':'Paso 1 de 5. Tienes la misma prenda, estampado y color; solo tienes que elegir una talla nueva. Puedes cambiarlo todo.',
- 'share.txt':'Mira la camiseta que he diseñado en la tienda de Cal Niu: {d}.','share.title':'Camiseta Cal Niu','share.ok':'Enlace copiado.','share.fail':'No se ha podido copiar. El enlace es: {url}',
+ 'share.txt':'Mira la prenda que he diseñado en la tienda de Cal Niu: {d}.','share.title':'Recuerdos de Cal Niu','share.ok':'Enlace copiado.','share.fail':'No se ha podido copiar. El enlace es: {url}',
  'toast.removed':'Has quitado {l}.','toast.merged':'Hemos juntado dos líneas iguales: ahora tienes {n}.','toast.cap':'Se han quedado fuera {k}: el máximo es {n} por prenda.','say.restored':'Has recuperado {l}.',
  'res.title':'Mis reservas','res.link':'Mis reservas ({n})','res.openA':'Abrir el resumen de la reserva {id}','res.open':'Abrir el resumen','res.none':'Todavía no tienes ninguna reserva en este navegador.','res.wipe':'Borrar el historial','close':'Cerrar',
  'res.one':'Reserva {id}','res.num':'Número de reserva: ','tot.tax':'Total · impuestos incluidos','res.back':'Volver a la lista',
  'res.wipeQ':'Borraremos las reservas guardadas en este navegador, incluida la que todavía no has enviado. ¿Seguro?','res.wipeNo':'No, las dejo','res.wipeYes':'Sí, bórralas','res.wiped':'Historial borrado.',
- 'cart.emptySay':'La cesta está vacía: añade una camiseta para continuar.',
+ 'cart.emptySay':'La cesta está vacía: añade una prenda para continuar.',
  'ck.changed':'La cesta ha cambiado en otra pestaña. Revísala antes de continuar.','ck.emptied':'La cesta está vacía: no se puede hacer ninguna reserva.',
  'ck.errs':'Revisa qué falta:','ck.sum':'Ver la reserva · {t}','opt':'(opcional)',
  'f.nom':'Nombre y apellidos','f.email':'Correo','f.email.h.test':'Cuando la tienda abra, es donde te responderemos.','f.email.h.real':'Aquí recibirás la respuesta del equipo.','f.tel':'Teléfono','f.tel.h':'9 cifras, con o sin +34. Obligatorio si eliges el envío, WhatsApp o teléfono.',
@@ -934,21 +943,21 @@ es:{
  'nav.0':'Inicio','nav.1':'Prenda','nav.2':'Estampado','nav.3':'Color','nav.4':'Talla','nav.5':'Reserva','nav.6':'Dudas','nav.step':'Paso {i}: {n}',
  'step.of5':'Paso {i} de 5','sn.prev':'Anterior: {s}','sn.next':'Siguiente: {s}','sn.stepN':'paso {i}, {n}',
  'shared.at':'Te han compartido este diseño. Revísalo y añádelo a la cesta.','shared.say':'Te han compartido este diseño.',
- 'rack.tap':'Vuelve a tocar para elegirla','rack.click':'Haz clic para elegirla','rack.aria':'Rama con cinco camisetas colgadas, todas de manga corta y a {p}: {names}. Usa los botones de debajo para elegir una.','rack.and':' y ',
+ 'rack.tap':'Vuelve a tocar para elegirla','rack.click':'Haz clic para elegirla','rack.aria':'Rama con cinco camisetas colgadas, todas de manga corta y a {p}: {names}. Usa los botones de debajo para elegir una. En el último paso también puedes pedirla en sudadera, a {p2}.','rack.and':' y ',
+ 'guide.cap.dess':'Sudadera · medidas en cm: todavía no las tenemos <span class="pd">[pendiente]</span>','guide.note.dess':'Las medidas de la sudadera están <span class="pd">[pendiente]</span>: dependen del modelo que elijamos con el taller. No son las de la camiseta.',
  'size.lbl':'Talla {s}','snd.mute':'Silenciar el sonido','snd.muteT':'Silenciar','snd.unmute':'Activar el sonido','snd.hint':'La página tiene sonido. Si te molesta, quítalo aquí.'
 },
 en:{
- 'meta.title':'Cal Niu souvenirs · T-shirts that support the project',
- 'meta.desc':'T-shirts from Cal Niu, the old rectory in Castellar del Riu (Berguedà, Catalonia). Choose the style, print, colour and size. What you pay helps us look after the house and keep the activities going.',
+ 'meta.title':'Cal Niu souvenirs · T-shirts and sweatshirts that support the project',
+ 'meta.desc':'T-shirts and sweatshirts from Cal Niu, the old rectory in Castellar del Riu (Berguedà, Catalonia). Choose the style, print, colour and size. What you pay helps us look after the house and keep the activities going.',
  'hl.hero':['Souvenirs','from *Cal Niu'],'hl.tipus':['Pick your','*T-shirt'],'hl.estampat':['Which','print','*do you like?'],'hl.color':['Which','*colour?'],'hl.talla':['What','*size?'],'hl.resum':['Happy','*with it?'],
  'skip.aria':'Shortcuts','skip.cfg':'Skip to the T-shirt builder','skip.simple':'Simple version, no 3D','load':'Loading…','nav.main':'Main','hdr.cart':'Basket','lang.aria':'Language',
  'ann.tipus':'you can change the print, colour and size later','ann.estampat':'our own designs','ann.color':'scroll to spin it','ann.talla':'Cal Niu on the back',
  'dots.aria':'Shop steps','sn.aria':'Previous and next step','sn.prevT':'Back','sn.nextT':'Next','fallback':'T-shirt',
  'hero.eyebrow':'Cal Niu shop · Castellar del Riu','hero.h1':'Souvenirs from Cal Niu',
- 'hero.body':'At Cal Niu you can come for a workshop or a stay, volunteer, and join the activities we run. Now you can also support the project by buying a T-shirt: the money helps us look after the old rectory and keep the activities going.',
+ 'hero.body':'At Cal Niu you can come for a workshop or a stay, volunteer, and join the activities we run. Now you can also support the project by buying a T-shirt or a sweatshirt: the money helps us look after the old rectory and keep the activities going.',
  'hero.cta':'Choose your T-shirt','hero.more':'About the project','hero.cue':'Scroll down to start ↓','sec.intro':'Home',
  'step1.sr':'Step 1 of 5: the T-shirt','hl.tipus.sr':'Pick your T-shirt',
- 'copy.tipus':'There are five designs, all short-sleeved and €22 each. Hover over them (or tap them) to see the back, and pick the one you like. You can change the print, colour and size afterwards.',
  'note.prov':'Who makes it','chips.tipus':'T-shirt styles hanging from the branch',
  'step2.sr':'Step 2 of 5: the print','chips.motiu':'Print',
  'step3.sr':'Step 3 of 5: the colour','copy.color':'Six colours taken from what we see every day at Cal Niu. Spin the T-shirt while you choose: the print changes colour by itself so it always stands out.','note.mat':'The fabric','chips.color':'Colour',
@@ -956,7 +965,7 @@ en:{
  'step5.sr':'Step 5 of 5: summary','sum.piece':'Item','sum.motif':'Print','sum.color':'Colour','sum.size':'Size',
  'resum.copy':'Check it and add it to your basket. Then reserve it: you can pay later (someone from the Cal Niu team will get in touch) or by card, which is only a test for now.',
  'resum.copy.test':'Check it and add it to your basket. Then reserve it: you can choose to pay later or by card, but for now it’s all a test: nothing is charged and nothing reaches the Cal Niu team.',
- 'note.terms':'Timing and how we make it','add.btn':'Add to basket','cart.openBtn':'Open basket','share.btn':'Share this T-shirt',
+ 'note.terms':'Timing and how we make it','add.btn':'Add to basket','cart.openBtn':'Open basket','share.btn':'Share this design',
  'faq.eyebrow':'Questions','faq.h':'Frequently asked <em>questions</em>',
  'faq.q1':'How does reserving work?','faq.a1':'You choose the item, print, colour and size, add it to your basket and leave us your details. You don’t pay anything at this point. For now the shop is a test: the reservation is only saved in your browser.',
  'faq.q2':'When will I get it?','faq.a2':'We print to order, so allow 2–3 weeks from when your reservation is confirmed. This timeframe is provisional <span class="pd">[pending]</span>.',
@@ -977,7 +986,7 @@ en:{
  'cart.own':'This basket is only for this version of the shop; the simple version keeps a separate one.','cart.help':'Any questions? <a href="#preguntes">FAQs</a> · <button type="button" class="lk" data-legal="condicions">Terms</button>',
  'guide.title':'Size guide','guide.x':'Close size guide','guide.cap':'Short sleeve · measurements in cm · provisional, not yet taken from the actual garment <span class="pd">[pending]</span>','th.w':'Width','th.l':'Length',
  'guide.note':'Measured with the T-shirt laid flat. Tolerance: <span class="pd">[pending]</span>. Real garment measurements: <span class="pd">[pending]</span>',
- 'guide.how':'<h3>How to measure</h3><p>Lay a T-shirt that fits you well flat on a table. Measure the width from armpit to armpit and the length from the shoulder to the hem, then compare with the table.</p><p><b>Between two sizes?</b> Go for the bigger one if you like it loose.</p>',
+ 'guide.how':'<h3>How to measure</h3><p>Lay a garment of the same kind that fits you well flat on a table. Measure the width from armpit to armpit and the length from the shoulder to the hem, then compare with the table.</p><p><b>Between two sizes?</b> Go for the bigger one if you like it loose.</p>',
  'res.fine':'They’re kept only in this browser. For reservations you’ve sent, we keep just the number, date, status and items, with no personal details.',
  'ck.close':'Close reservation','ck.steps':'Reservation steps','info.draft':'Draft — pending review',
  /* JS */
@@ -986,7 +995,7 @@ en:{
  'list.or':' or ','pay.0':'Bizum','pay.1':'Bank transfer','pay.2':'Cash on collection',
  'canal.Correu':'Email','canal.WhatsApp':'WhatsApp','canal.Telèfon':'Phone',
  'prod':'Printed to order · 2–3 weeks','prod.short':'2–3 weeks',
- 'type.curta':'Short-sleeved T-shirt','shirt':'T-shirt',
+ 'type.curta':'T-shirt','type.dessuadora':'Sweatshirt','shirt':'T-shirt','peca.aria':'Item and price','svg.note':'drawing: we don’t have a 3D model of the sweatshirt yet',
  'col.blancbrut':'Off-white','col.argila':'Clay brown','col.salvia':'Sage green','col.cel':'Sky blue','col.groc':'Leaf yellow','col.carbo':'Night black',
  'mname.niu':'Nest','mname.fulla':'Oak leaf','mname.tomaquera':'Tomato plant','mname.eines':'Garden tools','mname.influencer':'Tomato-plant influencer',
  'mdesc.niu':'The Cal Niu logo, with a woodblock print texture.','mdesc.fulla':'An oak leaf, with a block-print texture.','mdesc.tomaquera':'A tomato plant in a linocut style.','mdesc.eines':'Hoe, rake, fork, spade and sickle, in silhouette.','mdesc.influencer':'In rubber-stamp lettering. For anyone with more followers in the veg patch than online.','mname.faltacamp':'You need more countryside','mdesc.faltacamp':'With a landscape of fields and a farmhouse, in linocut style.',
@@ -995,23 +1004,23 @@ en:{
  'st.preparada':'Ready, not sent','st.enviada':'Sent, awaiting reply','st.pagada-prova':'Paid (test), nothing charged',
  'notice':'We removed {n} items that are no longer available','notice.one':'We removed {n} item that is no longer available',
  'a.color':'Colour {c}','sum.tbd':'Not chosen yet','add.first':'Choose a size first.','added':'Added to your basket.',
- 'desc':'Short-sleeved T-shirt, {m} print, {c}, {s}','desc.size':'size {s}','desc.nosize':'size not chosen',
+ 'desc':'Short-sleeved T-shirt, {m} print, {c}, {s}','desc.dessuadora':'Sweatshirt, {m} print, {c}, {s}','desc.size':'size {s}','desc.nosize':'size not chosen',
  'say.model':'You chose: {n}','say.t':'You chose the {t}','say.m':'You chose the {m} print','say.c':'You chose {c}','say.s':'You chose size {s}',
- 'line.title':'T-shirt: {m}','line.full':'T-shirt: {m}, {c}, size {s}','line.meta':'Print: {m} · Colour: {c}',
+ 'line.title':'{p}: {m}','line.full':'{p}: {m}, {c}, size {s}','line.meta':'Print: {m} · Colour: {c}',
  'items':'{n} items','items.one':'{n} item','cart.sub':'Subtotal ({items})',
- 'cart.why.test':'This is a test reservation: nothing is charged, now or at the last step.','cart.why.real':'This is a reservation: nothing is charged online unless you choose to at the last step.','cart.why.empty':'Add at least one T-shirt to continue.',
+ 'cart.why.test':'This is a test reservation: nothing is charged, now or at the last step.','cart.why.real':'This is a reservation: nothing is charged online unless you choose to at the last step.','cart.why.empty':'Add at least one item to continue.',
  'cart.mem':'We can’t remember your basket in this browser.','cart.ban':'You have reservation {id}, not sent yet','cart.ban.changed':' (with the earlier items; your basket has changed)','cart.ban.open':'Open it',
  'cart.empty':'Your basket is empty.','cart.empty.cta':'Design your T-shirt','lbl.size':'Size',
  'a.sizeOf':'Size of {n}','a.qtyOf':'Quantity of {n}: {q}','a.dec':'Remove one {n}','a.inc':'Add one more {n}','a.rm':'Remove {n}','cart.rm':'Remove','cart.max':'Maximum {n} per item. If you want more, message us.',
  'say.qty':'{l}: {n} units. Total {t}','say.qty.one':'{l}: {n} unit. Total {t}','undo':'Undo',
- 'say.added':'T-shirt added to your basket: {m}, {c}, size {s}.','say.cartN':' Basket: {items}.','add.max':'You already have {n} of this one. If you want more, message us.',
+ 'say.added':'{p} added to your basket: {m}, {c}, size {s}.','say.cartN':' Basket: {items}.','add.max':'You already have {n} of this one. If you want more, message us.',
  'say.another':'Step 1 of 5. You have the same item, print and colour; you just need to choose a new size. You can change anything.',
- 'share.txt':'Have a look at the T-shirt I designed in the Cal Niu shop: {d}.','share.title':'Cal Niu T-shirt','share.ok':'Link copied.','share.fail':'Couldn’t copy it. The link is: {url}',
+ 'share.txt':'Have a look at what I designed in the Cal Niu shop: {d}.','share.title':'Cal Niu souvenirs','share.ok':'Link copied.','share.fail':'Couldn’t copy it. The link is: {url}',
  'toast.removed':'You removed {l}.','toast.merged':'We merged two identical lines: you now have {n}.','toast.cap':'{k} were left out: the maximum is {n} per item.','say.restored':'You restored {l}.',
  'res.title':'My reservations','res.link':'My reservations ({n})','res.openA':'Open the summary of reservation {id}','res.open':'Open summary','res.none':'You don’t have any reservations in this browser yet.','res.wipe':'Clear history','close':'Close',
  'res.one':'Reservation {id}','res.num':'Reservation number: ','tot.tax':'Total · taxes included','res.back':'Back to the list',
  'res.wipeQ':'We’ll delete the reservations saved in this browser, including the one you haven’t sent yet. Are you sure?','res.wipeNo':'No, keep them','res.wipeYes':'Yes, delete them','res.wiped':'History cleared.',
- 'cart.emptySay':'Your basket is empty: add a T-shirt to continue.',
+ 'cart.emptySay':'Your basket is empty: add an item to continue.',
  'ck.changed':'Your basket changed in another tab. Please check it before you continue.','ck.emptied':'Your basket is empty, so there’s nothing to reserve.',
  'ck.errs':'Please check what’s missing:','ck.sum':'See your reservation · {t}','opt':'(optional)',
  'f.nom':'Full name','f.email':'Email','f.email.h.test':'When the shop opens, this is where we’ll reply.','f.email.h.real':'This is where the team will reply.','f.tel':'Phone','f.tel.h':'Spanish number, 9 digits, with or without +34. Required if you choose delivery, WhatsApp or phone.',
@@ -1047,7 +1056,8 @@ en:{
  'nav.0':'Home','nav.1':'Item','nav.2':'Print','nav.3':'Colour','nav.4':'Size','nav.5':'Reserve','nav.6':'FAQs','nav.step':'Step {i}: {n}',
  'step.of5':'Step {i} of 5','sn.prev':'Back: {s}','sn.next':'Next: {s}','sn.stepN':'step {i}, {n}',
  'shared.at':'Someone shared this design with you. Check it and add it to your basket.','shared.say':'Someone shared this design with you.',
- 'rack.tap':'Tap again to choose it','rack.click':'Click to choose it','rack.aria':'A branch with five hanging T-shirts, all short-sleeved and {p} each: {names}. Use the buttons below to choose one.','rack.and':' and ',
+ 'rack.tap':'Tap again to choose it','rack.click':'Click to choose it','rack.aria':'A branch with five hanging T-shirts, all short-sleeved and {p} each: {names}. Use the buttons below to choose one. At the last step you can also get it as a sweatshirt, {p2}.','rack.and':' and ',
+ 'guide.cap.dess':'Sweatshirt · measurements in cm: we don’t have them yet <span class="pd">[pending]</span>','guide.note.dess':'Sweatshirt measurements are <span class="pd">[pending]</span>: they depend on the model we choose with the print shop. They are not the T-shirt’s.',
  'size.lbl':'Size {s}','snd.mute':'Mute sound','snd.muteT':'Mute','snd.unmute':'Turn sound on','snd.hint':'Sound is on. If you don’t want it, switch it off here.'
 }
 };
@@ -1235,7 +1245,7 @@ check();
     <div class="hero-col">
       <p class="eyebrow" data-i18n="hero.eyebrow">Botiga de Cal Niu · Castellar del Riu</p>
       <h1 aria-label="Records Cal Niu" data-i18n-hl="hl.hero"><span class="ln" aria-hidden="true"><span>Records</span></span><span class="ln" aria-hidden="true"><span><em>Cal Niu</em></span></span></h1>
-      <p class="hero-body" data-i18n="hero.body">A Cal Niu pots venir a fer un taller, una estada o un voluntariat, i apuntar-te a les activitats que organitzem. Ara també pots donar un cop de mà al projecte comprant una samarreta: els diners serveixen per mantenir la rectoria i perquè les activitats puguin continuar.</p>
+      <p class="hero-body" data-i18n="hero.body">A Cal Niu pots venir a fer un taller, una estada o un voluntariat, i apuntar-te a les activitats que organitzem. Ara també pots donar un cop de mà al projecte comprant una samarreta o una dessuadora: els diners serveixen per mantenir la rectoria i perquè les activitats puguin continuar.</p>
       <div class="hero-acts"><a class="btn-pill" id="heroCta" href="#pas-tipus" data-i18n="hero.cta">Tria la samarreta</a><a class="btn-line" href="https://calniu.com" data-i18n="hero.more">Coneix el projecte</a></div>
       <p class="cue" aria-hidden="true" data-i18n="hero.cue">Baixa per començar ↓</p>
     </div>
@@ -1294,9 +1304,10 @@ check();
       <p class="nx"><button type="button" class="note-lk info-lk" data-info="terminis"><span data-i18n="note.terms">Terminis i com la preparem</span></button></p>
     </div>
     <div class="chips res">
-      <p class="big-price" id="sP"></p>
+      <div class="prow"><div class="peca" id="gPeca" role="group" aria-label="Peça i preu" data-i18n-attr="aria-label:peca.aria"></div>
+      <p class="big-price" id="sP"></p></div>
       <p class="note" id="addNote">Primer tria la talla.</p>
-      <div><button class="btn-pill" id="addBtn" type="button" aria-disabled="true" data-i18n="add.btn">Afegeix a la cistella</button> <button class="btn-line" id="goCart" type="button" style="margin-left:14px" data-i18n="cart.openBtn">Obre la cistella</button> <button class="btn-line" id="shareBtn" type="button" style="margin-left:14px" data-i18n="share.btn">Comparteix aquesta samarreta</button></div>
+      <div><button class="btn-pill" id="addBtn" type="button" aria-disabled="true" data-i18n="add.btn">Afegeix a la cistella</button> <button class="btn-line" id="goCart" type="button" style="margin-left:14px" data-i18n="cart.openBtn">Obre la cistella</button> <button class="btn-line" id="shareBtn" type="button" style="margin-left:14px" data-i18n="share.btn">Comparteix aquest disseny</button></div>
     </div>
     </div>
   </div></section>
@@ -1367,7 +1378,7 @@ check();
       <tbody id="meas"></tbody>
     </table>
     <p class="meas-note" data-i18n-html="guide.note">Mesures de la samarreta posada en pla. Tolerància: <span class="pd">[pendent]</span>. Mesures reals de la peça: <span class="pd">[pendent]</span></p>
-    <div class="how" data-i18n-html="guide.how"><h3>Com mesurar</h3><p>Posa una samarreta que t'estigui bé sobre una taula, ben estirada. Mesura l'amplada d'axil·la a axil·la i la llargada des de l'espatlla fins a baix, i compara-ho amb la taula.</p><p><b>Entre dues talles?</b> Tria la més gran si la vols ampla.</p></div>
+    <div class="how" data-i18n-html="guide.how"><h3>Com mesurar</h3><p>Posa una peça del mateix tipus que t'estigui bé sobre una taula, ben estirada. Mesura l'amplada d'axil·la a axil·la i la llargada des de l'espatlla fins a baix, i compara-ho amb la taula.</p><p><b>Entre dues talles?</b> Tria la més gran si la vols ampla.</p></div>
     <div class="acts"><button class="btn-line" id="closeGuide" type="button" data-i18n="close">Tanca</button></div>
   </div>
 </dialog>
@@ -1409,34 +1420,34 @@ CNL.apply(); /* tot l'HTML estàtic ja és a dalt: es tradueix ara, abans que la
 (function(){
 var P='<span class="pd">[pendent]</span>';
 var INFO={
- com:{t:'Com funciona?',draft:0,b:'<p>Això és una botiga en proves: encara no es cobra res ni s\'envien reserves de debò.</p><ol class="flex3"><li><b>Tria.</b> Escull la samarreta, l\'estampat, el color i la talla.</li><li><b>Reserva.</b> Afegeix-la a la cistella i omple les dades. No pagues res ara.</li><li><b>T\'escrivim.</b> Quan la botiga s\'obri de veritat, l\'equip de Cal Niu et dirà com pagar i com recollir-la. Ara per ara, la reserva queda guardada només al teu navegador.</li></ol>'},
- avis:{t:'Avís legal',draft:1,b:'<p>Informació general en compliment de la Llei 34/2002, de serveis de la societat de la informació (LSSI-CE).</p><h3>Titular</h3><ul><li>Nom o raó social: '+P+'</li><li>NIF: '+P+'</li><li>Adreça: '+P+'</li><li>Correu: '+P+'</li><li>Dades registrals, si escau: '+P+'</li></ul><h3>Objecte</h3><p>Aquesta web permet configurar i reservar samarretes de Cal Niu, antiga rectoria de Castellar del Riu (Berguedà). El que s\'hi recapta serveix per mantenir la casa i les activitats.</p><h3>Propietat intel·lectual</h3><p>Els dissenys, textos, logotips i imatges són de Cal Niu o s\'hi fan servir amb permís, llevat que s\'indiqui el contrari. No es poden reutilitzar sense autorització. '+P+'</p><h3>Responsabilitat</h3><p>Fem tot el possible perquè la informació sigui correcta, però pot canviar sense avís, sobretot mentre la botiga està en proves.</p><h3>Llei aplicable</h3><p>Aquest avís es regeix per la llei espanyola. Jurisdicció: '+P+'</p>'},
+ com:{t:'Com funciona?',draft:0,b:'<p>Això és una botiga en proves: encara no es cobra res ni s\'envien reserves de debò.</p><ol class="flex3"><li><b>Tria.</b> Escull la peça (samarreta o dessuadora), l\'estampat, el color i la talla.</li><li><b>Reserva.</b> Afegeix-la a la cistella i omple les dades. No pagues res ara.</li><li><b>T\'escrivim.</b> Quan la botiga s\'obri de veritat, l\'equip de Cal Niu et dirà com pagar i com recollir-la. Ara per ara, la reserva queda guardada només al teu navegador.</li></ol>'},
+ avis:{t:'Avís legal',draft:1,b:'<p>Informació general en compliment de la Llei 34/2002, de serveis de la societat de la informació (LSSI-CE).</p><h3>Titular</h3><ul><li>Nom o raó social: '+P+'</li><li>NIF: '+P+'</li><li>Adreça: '+P+'</li><li>Correu: '+P+'</li><li>Dades registrals, si escau: '+P+'</li></ul><h3>Objecte</h3><p>Aquesta web permet configurar i reservar samarretes i dessuadores de Cal Niu, antiga rectoria de Castellar del Riu (Berguedà). El que s\'hi recapta serveix per mantenir la casa i les activitats.</p><h3>Propietat intel·lectual</h3><p>Els dissenys, textos, logotips i imatges són de Cal Niu o s\'hi fan servir amb permís, llevat que s\'indiqui el contrari. No es poden reutilitzar sense autorització. '+P+'</p><h3>Responsabilitat</h3><p>Fem tot el possible perquè la informació sigui correcta, però pot canviar sense avís, sobretot mentre la botiga està en proves.</p><h3>Llei aplicable</h3><p>Aquest avís es regeix per la llei espanyola. Jurisdicció: '+P+'</p>'},
  privacitat:{t:'Política de privacitat',draft:1,b:'<p>Segons el Reglament (UE) 2016/679 (RGPD) i la Llei orgànica 3/2018 (LOPDGDD).</p><h3>Responsable</h3><p>'+P+' · NIF '+P+' · Adreça '+P+' · Correu '+P+'</p><h3>Quines dades i per què</h3><p>Nom, correu, telèfon (opcional) i dades de lliurament, només per gestionar la teva reserva i contactar-te sobre ella. Base legal: aplicar mesures precontractuals a petició teva.</p><h3>On es guarden</h3><p>Mentre la botiga és en proves, les dades es queden només al teu navegador i no se\'ns envien. Quan s\'obri de veritat, aquí hi posarem on es guarden i qui hi té accés: '+P+'</p><h3>Quant de temps</h3><p>'+P+'</p><h3>Destinataris</h3><p>'+P+' No tenim previst cedir les dades a tercers amb finalitats comercials.</p><h3>Els teus drets</h3><p>Pots accedir a les teves dades, rectificar-les, esborrar-les, oposar-te al tractament, limitar-lo i demanar-ne la portabilitat escrivint a '+P+'. Si creus que no ho hem fet bé, pots reclamar a l\'Agència Espanyola de Protecció de Dades (AEPD, www.aepd.es) '+P+' (autoritat a revisar segons la forma jurídica del titular).</p><h3>Notícies de Cal Niu</h3><p>No t\'enviarem notícies sense que ho demanis amb una casella pròpia i opcional. Ara no n\'hi ha cap.</p>'},
  condicions:{t:'Condicions de venda',draft:1,b:'<p>Aquestes condicions són un esborrany i no s\'apliquen mentre la botiga sigui en proves.</p><h3>Venedor</h3><p>'+P+' · NIF '+P+' · Adreça '+P+'</p><h3>Preus</h3><p>El preu final inclou tots els impostos aplicables. Règim d\'IVA: '+P+'. L\'enviament, si n\'hi ha, es mostra abans de confirmar la reserva (cost provisional: '+P+').</p><h3>Reserva i pagament</h3><p>Reservar no obliga a pagar en aquell moment. Les formes de pagament són '+P+'.</p><h3>Termini</h3><p>Estampem per encàrrec. Termini estimat de 2–3 setmanes des de la confirmació, provisional '+P+'.</p><h3>Dret de desistiment (14 dies)</h3><p>Com a consumidor tens 14 dies naturals des que reps la peça per desistir sense donar cap motiu. Cal que ens ho comuniquis i ens tornis la peça en 14 dies. Si l\'has fet servir més del necessari per provar-la, en pots respondre de la pèrdua de valor (art. 108 TRLGDCU). Les peces personalitzades poden quedar excloses (art. 103.c TRLGDCU). Com que les peces es trien entre opcions fixes i no es dissenyen a mida, aquesta excepció podria no aplicar-se; encara no ho hem confirmat. Cal revisar si el desistiment s\'hi aplica <span class="pd">[pendent de revisió]</span>. Procediment, formulari tipus i qui paga la devolució: '+P+'</p><h3>Garantia</h3><p>La llei dona una garantia legal sobre la conformitat del producte. Termini i condicions: '+P+'</p><h3>Reclamacions</h3><p>Pots escriure\'ns a '+P+'.</p>'},
  cookies:{t:'Cookies i emmagatzematge',draft:1,b:'<p>Aquesta web no fa servir cookies de seguiment, ni d\'analítica, ni de publicitat.</p><h3>Què guardem al teu navegador</h3><ul><li><b>localStorage:</b> la cistella i les reserves que has fet, perquè no es perdin si tanques la pàgina. Només al teu navegador.</li><li><b>localStorage:</b> l\'idioma que has triat.</li><li><b>sessionStorage:</b> l\'esborrany de les dades de la reserva mentre l\'omples, si has silenciat el so ambient i si ja t\'hem mostrat l\'avís del so; s\'esborra en tancar la pestanya.</li></ul><p>Són imprescindibles per al funcionament, per això no cal demanar consentiment ni hi ha bàner.</p><h3>Serveis de tercers</h3><p>Per mostrar la pàgina, el teu navegador carrega tipus de lletra de Google Fonts i la llibreria 3D des de jsDelivr; aquests serveis poden rebre la teva adreça IP. Si volem eliminar-ho o allotjar-ho nosaltres, ho actualitzarem aquí '+P+'.</p><h3>Esborrar-ho</h3><p>Pots esborrar-ho tot des de la configuració del navegador (dades del lloc).</p>'},
- proveidor:{t:'Qui la fa',draft:0,b:'<p>Abans de portar res a sobre, volem que sàpigues d\'on ve. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Qui l\'estampa</dt><dd>Berga Estampa (As de Camisetas), a Berga</dd></div><div><dt>Tècnica</dt><dd>'+P+'</dd></div><div class="w2"><dt>La samarreta llisa</dt><dd>Marca, model i origen '+P+'.</dd></div></dl><p class="intent"><b>La nostra intenció:</b> treballem amb una botiga del Berguedà, a mitja hora de casa. També volem cotó orgànic, però no ho direm com a fet fins que tinguem un certificat que ho acrediti.</p>'},
- material:{t:'El material',draft:0,b:'<p>Un teixit que es noti bé a la mà. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Composició</dt><dd>'+P+'</dd></div><div><dt>Gramatge</dt><dd>'+P+'</dd></div><div><dt>Tall</dt><dd>'+P+' · talles de la XS a la XXL</dd></div><div><dt>Certificats</dt><dd>'+P+'</dd></div><div class="w2"><dt>Cura de la peça</dt><dd>Les instruccions de rentat les posarem quan sapiguem el teixit exacte: '+P+'</dd></div></dl>'},
+ proveidor:{t:'Qui la fa',draft:0,b:'<p>Abans de portar res a sobre, volem que sàpigues d\'on ve. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Qui l\'estampa</dt><dd>Berga Estampa (As de Camisetas), a Berga</dd></div><div><dt>Tècnica</dt><dd>'+P+'</dd></div><div class="w2"><dt>La samarreta llisa</dt><dd>Marca, model i origen '+P+'.</dd></div><div class="w2"><dt>La dessuadora llisa</dt><dd>Coll rodó, sense caputxa. Marca, model, composició, origen i colors disponibles '+P+'.</dd></div></dl><p class="intent"><b>La nostra intenció:</b> treballem amb una botiga del Berguedà, a mitja hora de casa. També volem cotó orgànic, però no ho direm com a fet fins que tinguem un certificat que ho acrediti.</p>'},
+ material:{t:'El material',draft:0,b:'<p>Un teixit que es noti bé a la mà. Allò que encara no tenim tancat, ho diem tal qual.</p><dl class="spec"><div><dt>Composició</dt><dd>'+P+'</dd></div><div><dt>Gramatge</dt><dd>'+P+'</dd></div><div><dt>Tall</dt><dd>'+P+' · talles de la XS a la XXL</dd></div><div><dt>Certificats</dt><dd>'+P+'</dd></div><div class="w2"><dt>Cura de la peça</dt><dd>Les instruccions de rentat les posarem quan sapiguem el teixit exacte: '+P+'</dd></div><div class="w2"><dt>La dessuadora</dt><dd>Teixit, gramatge, tall i colors disponibles: '+P+'.</dd></div></dl>'},
  terminis:{t:'Terminis i com la preparem',draft:0,b:'<p>No tenim un magatzem ple de samarretes. Les estampem quan les reserves, i per això triga una mica.</p><h3>Quan la tindràs</h3><p><b class="big" id="prodMsg">2–3 setmanes</b></p><p>Termini provisional, des que es confirma la reserva. '+P+' de confirmar amb el taller.</p><h3>Recollida a Cal Niu</h3><p>Quan estigui preparada, quedem un dia que ens vagi bé a tots dos, a la rectoria de Castellar del Riu.</p><h3>Enviament a casa teva</h3><p>Termini d\'enviament un cop preparada: '+P+'. El cost i el llindar d\'enviament gratuït són provisionals.</p>'}
 };
 var PE='<span class="pd">[pendiente]</span>',PN='<span class="pd">[pending]</span>';
 var INFO_ES={
- com:{t:'¿Cómo funciona?',draft:0,b:'<p>Esto es una tienda en pruebas: todavía no se cobra nada ni se envían reservas de verdad.</p><ol class="flex3"><li><b>Elige.</b> Escoge la camiseta, el estampado, el color y la talla.</li><li><b>Reserva.</b> Añádela a la cesta y rellena tus datos. No pagas nada ahora.</li><li><b>Te escribimos.</b> Cuando la tienda abra de verdad, el equipo de Cal Niu te dirá cómo pagar y cómo recogerla. Por ahora, la reserva queda guardada solo en tu navegador.</li></ol>'},
- avis:{t:'Aviso legal',draft:1,b:'<p>Información general en cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información (LSSI-CE).</p><h3>Titular</h3><ul><li>Nombre o razón social: '+PE+'</li><li>NIF: '+PE+'</li><li>Dirección: '+PE+'</li><li>Correo: '+PE+'</li><li>Datos registrales, si procede: '+PE+'</li></ul><h3>Objeto</h3><p>Esta web permite configurar y reservar camisetas de Cal Niu, antigua casa rectoral de Castellar del Riu (Berguedà). Lo que se recauda sirve para mantener la casa y las actividades.</p><h3>Propiedad intelectual</h3><p>Los diseños, textos, logotipos e imágenes son de Cal Niu o se usan con permiso, salvo que se indique lo contrario. No se pueden reutilizar sin autorización. '+PE+'</p><h3>Responsabilidad</h3><p>Hacemos todo lo posible para que la información sea correcta, pero puede cambiar sin aviso, sobre todo mientras la tienda está en pruebas.</p><h3>Ley aplicable</h3><p>Este aviso se rige por la ley española. Jurisdicción: '+PE+'</p>'},
+ com:{t:'¿Cómo funciona?',draft:0,b:'<p>Esto es una tienda en pruebas: todavía no se cobra nada ni se envían reservas de verdad.</p><ol class="flex3"><li><b>Elige.</b> Escoge la prenda (camiseta o sudadera), el estampado, el color y la talla.</li><li><b>Reserva.</b> Añádela a la cesta y rellena tus datos. No pagas nada ahora.</li><li><b>Te escribimos.</b> Cuando la tienda abra de verdad, el equipo de Cal Niu te dirá cómo pagar y cómo recogerla. Por ahora, la reserva queda guardada solo en tu navegador.</li></ol>'},
+ avis:{t:'Aviso legal',draft:1,b:'<p>Información general en cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información (LSSI-CE).</p><h3>Titular</h3><ul><li>Nombre o razón social: '+PE+'</li><li>NIF: '+PE+'</li><li>Dirección: '+PE+'</li><li>Correo: '+PE+'</li><li>Datos registrales, si procede: '+PE+'</li></ul><h3>Objeto</h3><p>Esta web permite configurar y reservar camisetas y sudaderas de Cal Niu, antigua casa rectoral de Castellar del Riu (Berguedà). Lo que se recauda sirve para mantener la casa y las actividades.</p><h3>Propiedad intelectual</h3><p>Los diseños, textos, logotipos e imágenes son de Cal Niu o se usan con permiso, salvo que se indique lo contrario. No se pueden reutilizar sin autorización. '+PE+'</p><h3>Responsabilidad</h3><p>Hacemos todo lo posible para que la información sea correcta, pero puede cambiar sin aviso, sobre todo mientras la tienda está en pruebas.</p><h3>Ley aplicable</h3><p>Este aviso se rige por la ley española. Jurisdicción: '+PE+'</p>'},
  privacitat:{t:'Política de privacidad',draft:1,b:'<p>Según el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p><h3>Responsable</h3><p>'+PE+' · NIF '+PE+' · Dirección '+PE+' · Correo '+PE+'</p><h3>Qué datos y para qué</h3><p>Nombre, correo, teléfono (opcional) y datos de entrega, solo para gestionar tu reserva y contactarte sobre ella. Base legal: aplicar medidas precontractuales a petición tuya.</p><h3>Dónde se guardan</h3><p>Mientras la tienda está en pruebas, los datos se quedan solo en tu navegador y no nos llegan. Cuando abra de verdad, aquí indicaremos dónde se guardan y quién tiene acceso: '+PE+'</p><h3>Cuánto tiempo</h3><p>'+PE+'</p><h3>Destinatarios</h3><p>'+PE+' No tenemos previsto ceder los datos a terceros con fines comerciales.</p><h3>Tus derechos</h3><p>Puedes acceder a tus datos, rectificarlos, suprimirlos, oponerte al tratamiento, limitarlo y pedir su portabilidad escribiendo a '+PE+'. Si crees que no lo hemos hecho bien, puedes reclamar ante la Agencia Española de Protección de Datos (AEPD, www.aepd.es) '+PE+' (autoridad a revisar según la forma jurídica del titular).</p><h3>Noticias de Cal Niu</h3><p>No te enviaremos noticias a menos que lo pidas con una casilla propia y opcional. Ahora no hay ninguna.</p>'},
  condicions:{t:'Condiciones de venta',draft:1,b:'<p>Estas condiciones son un borrador y no se aplican mientras la tienda esté en pruebas.</p><h3>Vendedor</h3><p>'+PE+' · NIF '+PE+' · Dirección '+PE+'</p><h3>Precios</h3><p>El precio final incluye todos los impuestos aplicables. Régimen de IVA: '+PE+'. El envío, si lo hay, se muestra antes de confirmar la reserva (coste provisional: '+PE+').</p><h3>Reserva y pago</h3><p>Reservar no obliga a pagar en ese momento. Las formas de pago son '+PE+'.</p><h3>Plazo</h3><p>Estampamos por encargo. Plazo estimado de 2 a 3 semanas desde la confirmación, provisional '+PE+'.</p><h3>Derecho de desistimiento (14 días)</h3><p>Como consumidor tienes 14 días naturales desde que recibes la prenda para desistir sin dar ningún motivo. Tienes que comunicárnoslo y devolvernos la prenda en 14 días. Si la has usado más de lo necesario para probarla, puedes responder de la pérdida de valor (art. 108 TRLGDCU). Las prendas personalizadas pueden quedar excluidas (art. 103.c TRLGDCU) <span class="pd">[pendiente de revisión]</span>. Procedimiento, formulario tipo y quién paga la devolución: '+PE+'</p><h3>Garantía</h3><p>La ley da una garantía legal sobre la conformidad del producto. Plazo y condiciones: '+PE+'</p><h3>Reclamaciones</h3><p>Puedes escribirnos a '+PE+'.</p>'},
  cookies:{t:'Cookies y almacenamiento',draft:1,b:'<p>Esta web no usa cookies de seguimiento, ni de analítica, ni de publicidad.</p><h3>Qué guardamos en tu navegador</h3><ul><li><b>localStorage:</b> la cesta y las reservas que has hecho, para que no se pierdan si cierras la página. Solo en tu navegador.</li><li><b>localStorage:</b> el idioma que has elegido.</li><li><b>sessionStorage:</b> el borrador de los datos de la reserva mientras lo rellenas, si has silenciado el sonido ambiente y si ya te hemos mostrado el aviso del sonido; se borra al cerrar la pestaña.</li></ul><p>Son imprescindibles para el funcionamiento, por eso no hace falta pedir consentimiento ni mostrar un aviso de cookies.</p><h3>Servicios de terceros</h3><p>Para mostrar la página, tu navegador carga tipos de letra de Google Fonts y la biblioteca 3D desde jsDelivr; estos servicios pueden recibir tu dirección IP. Si queremos eliminarlo o alojarlo nosotros, lo actualizaremos aquí '+PE+'.</p><h3>Borrarlo</h3><p>Puedes borrarlo todo desde la configuración del navegador (datos del sitio).</p>'},
- proveidor:{t:'Quién la hace',draft:0,b:'<p>Antes de que te la pongas, queremos que sepas de dónde viene. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Quién la estampa</dt><dd>Berga Estampa (As de Camisetas), en Berga</dd></div><div><dt>Técnica</dt><dd>'+PE+'</dd></div><div class="w2"><dt>La camiseta lisa</dt><dd>Marca, modelo y origen '+PE+'.</dd></div></dl><p class="intent"><b>Nuestra intención:</b> trabajamos con una tienda del Berguedà, a media hora de casa. También queremos algodón orgánico, pero no lo daremos por hecho hasta que tengamos un certificado que lo acredite.</p>'},
- material:{t:'El material',draft:0,b:'<p>Un tejido agradable al tacto. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Composición</dt><dd>'+PE+'</dd></div><div><dt>Gramaje</dt><dd>'+PE+'</dd></div><div><dt>Corte</dt><dd>'+PE+' · tallas de la XS a la XXL</dd></div><div><dt>Certificados</dt><dd>'+PE+'</dd></div><div class="w2"><dt>Cuidado de la prenda</dt><dd>Pondremos las instrucciones de lavado cuando sepamos el tejido exacto: '+PE+'</dd></div></dl>'},
+ proveidor:{t:'Quién la hace',draft:0,b:'<p>Antes de que te la pongas, queremos que sepas de dónde viene. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Quién la estampa</dt><dd>Berga Estampa (As de Camisetas), en Berga</dd></div><div><dt>Técnica</dt><dd>'+PE+'</dd></div><div class="w2"><dt>La camiseta lisa</dt><dd>Marca, modelo y origen '+PE+'.</dd></div><div class="w2"><dt>La sudadera lisa</dt><dd>Cuello redondo, sin capucha. Marca, modelo, composición, origen y colores disponibles '+PE+'.</dd></div></dl><p class="intent"><b>Nuestra intención:</b> trabajamos con una tienda del Berguedà, a media hora de casa. También queremos algodón orgánico, pero no lo daremos por hecho hasta que tengamos un certificado que lo acredite.</p>'},
+ material:{t:'El material',draft:0,b:'<p>Un tejido agradable al tacto. Lo que todavía no tenemos cerrado, lo decimos tal cual.</p><dl class="spec"><div><dt>Composición</dt><dd>'+PE+'</dd></div><div><dt>Gramaje</dt><dd>'+PE+'</dd></div><div><dt>Corte</dt><dd>'+PE+' · tallas de la XS a la XXL</dd></div><div><dt>Certificados</dt><dd>'+PE+'</dd></div><div class="w2"><dt>Cuidado de la prenda</dt><dd>Pondremos las instrucciones de lavado cuando sepamos el tejido exacto: '+PE+'</dd></div><div class="w2"><dt>La sudadera</dt><dd>Tejido, gramaje, corte y colores disponibles: '+PE+'.</dd></div></dl>'},
  terminis:{t:'Plazos y cómo la preparamos',draft:0,b:'<p>No tenemos un almacén lleno de camisetas. Las estampamos cuando las reservas, y por eso tarda un poco.</p><h3>Cuándo la tendrás</h3><p><b class="big" id="prodMsg">de 2 a 3 semanas</b></p><p>Plazo provisional, desde que se confirma la reserva. '+PE+' de confirmar con el taller.</p><h3>Recogida en Cal Niu</h3><p>Cuando esté lista, quedamos un día que nos venga bien a los dos, en la casa rectoral de Castellar del Riu.</p><h3>Envío a tu casa</h3><p>Plazo de envío una vez lista: '+PE+'. El coste y el mínimo para el envío gratis son provisionales.</p>'}
 };
 var INFO_EN={
- com:{t:'How does it work?',draft:0,b:'<p>This is a test shop: nothing is charged and no real reservations are sent yet.</p><ol class="flex3"><li><b>Choose.</b> Pick the T-shirt, print, colour and size.</li><li><b>Reserve.</b> Add it to your basket and fill in your details. You don’t pay anything now.</li><li><b>We get in touch.</b> When the shop opens for real, the Cal Niu team will tell you how to pay and how to collect it. For now, the reservation is only saved in your browser.</li></ol>'},
- avis:{t:'Legal notice',draft:1,b:'<p>General information under Spanish Law 34/2002 on information society services (LSSI-CE).</p><h3>Owner</h3><ul><li>Name or company name: '+PN+'</li><li>Tax ID (NIF): '+PN+'</li><li>Address: '+PN+'</li><li>Email: '+PN+'</li><li>Registration details, if applicable: '+PN+'</li></ul><h3>Purpose</h3><p>This website lets you design and reserve T-shirts from Cal Niu, the old rectory in Castellar del Riu (Berguedà). The money raised helps look after the house and its activities.</p><h3>Intellectual property</h3><p>The designs, texts, logos and images belong to Cal Niu or are used with permission, unless stated otherwise. They may not be reused without authorisation. '+PN+'</p><h3>Liability</h3><p>We do our best to keep the information accurate, but it may change without notice, especially while the shop is a test.</p><h3>Applicable law</h3><p>This notice is governed by Spanish law. Jurisdiction: '+PN+'</p>'},
+ com:{t:'How does it work?',draft:0,b:'<p>This is a test shop: nothing is charged and no real reservations are sent yet.</p><ol class="flex3"><li><b>Choose.</b> Pick the item (T-shirt or sweatshirt), print, colour and size.</li><li><b>Reserve.</b> Add it to your basket and fill in your details. You don’t pay anything now.</li><li><b>We get in touch.</b> When the shop opens for real, the Cal Niu team will tell you how to pay and how to collect it. For now, the reservation is only saved in your browser.</li></ol>'},
+ avis:{t:'Legal notice',draft:1,b:'<p>General information under Spanish Law 34/2002 on information society services (LSSI-CE).</p><h3>Owner</h3><ul><li>Name or company name: '+PN+'</li><li>Tax ID (NIF): '+PN+'</li><li>Address: '+PN+'</li><li>Email: '+PN+'</li><li>Registration details, if applicable: '+PN+'</li></ul><h3>Purpose</h3><p>This website lets you design and reserve T-shirts and sweatshirts from Cal Niu, the old rectory in Castellar del Riu (Berguedà). The money raised helps look after the house and its activities.</p><h3>Intellectual property</h3><p>The designs, texts, logos and images belong to Cal Niu or are used with permission, unless stated otherwise. They may not be reused without authorisation. '+PN+'</p><h3>Liability</h3><p>We do our best to keep the information accurate, but it may change without notice, especially while the shop is a test.</p><h3>Applicable law</h3><p>This notice is governed by Spanish law. Jurisdiction: '+PN+'</p>'},
  privacitat:{t:'Privacy policy',draft:1,b:'<p>Under Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).</p><h3>Data controller</h3><p>'+PN+' · Tax ID '+PN+' · Address '+PN+' · Email '+PN+'</p><h3>What data and why</h3><p>Name, email, phone (optional) and delivery details, only to handle your reservation and contact you about it. Legal basis: taking pre-contractual steps at your request.</p><h3>Where it is stored</h3><p>While the shop is a test, your data stays in your browser only and is not sent to us. When it opens for real, we will explain here where it is stored and who can access it: '+PN+'</p><h3>How long</h3><p>'+PN+'</p><h3>Recipients</h3><p>'+PN+' We have no plans to share your data with third parties for commercial purposes.</p><h3>Your rights</h3><p>You can access, correct or delete your data, object to or restrict its processing, and ask for portability by writing to '+PN+'. If you think we haven’t handled it properly, you can complain to the Spanish Data Protection Agency (AEPD, www.aepd.es) '+PN+' (authority to be confirmed depending on the owner’s legal form).</p><h3>Cal Niu news</h3><p>We won’t send you news unless you ask for it with its own optional tick box. There isn’t one right now.</p>'},
  condicions:{t:'Terms of sale',draft:1,b:'<p>These terms are a draft and do not apply while the shop is a test.</p><h3>Seller</h3><p>'+PN+' · Tax ID '+PN+' · Address '+PN+'</p><h3>Prices</h3><p>The final price includes all applicable taxes. VAT scheme: '+PN+'. Delivery, if any, is shown before you confirm the reservation (provisional cost: '+PN+').</p><h3>Reservation and payment</h3><p>Reserving doesn’t oblige you to pay at that moment. Payment methods: '+PN+'.</p><h3>Timing</h3><p>We print to order. Estimated time of 2–3 weeks from confirmation, provisional '+PN+'.</p><h3>Right of withdrawal (14 days)</h3><p>As a consumer you have 14 calendar days from receiving the item to withdraw without giving a reason. You need to let us know and send the item back within 14 days. If you have used it more than needed to try it on, you may be liable for the loss in value (art. 108 TRLGDCU). Personalised items may be excluded (art. 103.c TRLGDCU). Because customers choose from fixed options rather than designing their own, this exception may not apply; we haven’t confirmed this yet. We still need to confirm whether withdrawal applies <span class="pd">[pending review]</span>. Procedure, model form and who pays for the return: '+PN+'</p><h3>Guarantee</h3><p>The law gives a legal guarantee of conformity for the product. Period and conditions: '+PN+'</p><h3>Complaints</h3><p>You can write to us at '+PN+'.</p>'},
  cookies:{t:'Cookies and storage',draft:1,b:'<p>This website does not use tracking, analytics or advertising cookies.</p><h3>What we keep in your browser</h3><ul><li><b>localStorage:</b> your basket and the reservations you’ve made, so they aren’t lost if you close the page. Only in your browser.</li><li><b>localStorage:</b> the language you chose.</li><li><b>sessionStorage:</b> the draft of your reservation details while you fill them in, whether you’ve muted the background sound and whether we’ve already shown you the sound tip; it’s deleted when you close the tab.</li></ul><p>These are essential for the site to work, so no consent is needed and there’s no banner.</p><h3>Third-party services</h3><p>To show the page, your browser loads fonts from Google Fonts and the 3D library from jsDelivr; these services may receive your IP address. If we decide to remove them or host them ourselves, we’ll update this '+PN+'.</p><h3>Deleting it</h3><p>You can delete it all from your browser settings (site data).</p>'},
- proveidor:{t:'Who makes it',draft:0,b:'<p>Before you wear anything, we want you to know where it comes from. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Who prints it</dt><dd>Berga Estampa (As de Camisetas), in Berga</dd></div><div><dt>Technique</dt><dd>'+PN+'</dd></div><div class="w2"><dt>The blank T-shirt</dt><dd>Brand, model and origin '+PN+'.</dd></div></dl><p class="intent"><b>What we’re aiming for:</b> we work with a print shop in the Berguedà, half an hour from home. We’d also like organic cotton, but we won’t claim it until we have a certificate to prove it.</p>'},
- material:{t:'The fabric',draft:0,b:'<p>A fabric that feels good in your hand. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Composition</dt><dd>'+PN+'</dd></div><div><dt>Weight</dt><dd>'+PN+'</dd></div><div><dt>Fit</dt><dd>'+PN+' · sizes XS to XXL</dd></div><div><dt>Certificates</dt><dd>'+PN+'</dd></div><div class="w2"><dt>Care</dt><dd>We’ll add washing instructions once we know the exact fabric: '+PN+'</dd></div></dl>'},
+ proveidor:{t:'Who makes it',draft:0,b:'<p>Before you wear anything, we want you to know where it comes from. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Who prints it</dt><dd>Berga Estampa (As de Camisetas), in Berga</dd></div><div><dt>Technique</dt><dd>'+PN+'</dd></div><div class="w2"><dt>The blank T-shirt</dt><dd>Brand, model and origin '+PN+'.</dd></div><div class="w2"><dt>The blank sweatshirt</dt><dd>Crew neck, no hood. Brand, model, composition, origin and available colours '+PN+'.</dd></div></dl><p class="intent"><b>What we’re aiming for:</b> we work with a print shop in the Berguedà, half an hour from home. We’d also like organic cotton, but we won’t claim it until we have a certificate to prove it.</p>'},
+ material:{t:'The fabric',draft:0,b:'<p>A fabric that feels good in your hand. Where something isn’t settled yet, we say so plainly.</p><dl class="spec"><div><dt>Composition</dt><dd>'+PN+'</dd></div><div><dt>Weight</dt><dd>'+PN+'</dd></div><div><dt>Fit</dt><dd>'+PN+' · sizes XS to XXL</dd></div><div><dt>Certificates</dt><dd>'+PN+'</dd></div><div class="w2"><dt>Care</dt><dd>We’ll add washing instructions once we know the exact fabric: '+PN+'</dd></div><div class="w2"><dt>The sweatshirt</dt><dd>Fabric, weight, fit and available colours: '+PN+'.</dd></div></dl>'},
  terminis:{t:'Timing and how we make it',draft:0,b:'<p>We don’t have a warehouse full of T-shirts. We print them when you reserve, which is why it takes a little while.</p><h3>When you’ll have it</h3><p><b class="big" id="prodMsg">2–3 weeks</b></p><p>Provisional timeframe, from when the reservation is confirmed. '+PN+' confirmation with the print shop.</p><h3>Collection at Cal Niu</h3><p>When it’s ready, we’ll arrange a day that suits us both, at the rectory in Castellar del Riu.</p><h3>Delivery to your home</h3><p>Delivery time once it’s ready: '+PN+'. The cost and the free-delivery threshold are provisional.</p>'}
 };
 function infoSet(){return CNL.lang==='es'?INFO_ES:CNL.lang==='en'?INFO_EN:INFO}
@@ -1505,10 +1516,17 @@ const BOTIGA={
 };
 var SIZES=['XS','S','M','L','XL','XXL'];
 var SHIRTP=[
- 'M70 18 L40 30 L8 72 L34 92 L52 74 L52 200 Q52 206 58 206 L142 206 Q148 206 148 200 L148 74 L166 92 L192 72 L160 30 L130 18 Q100 44 70 18 Z'
+ 'M70 18 L40 30 L8 72 L34 92 L52 74 L52 200 Q52 206 58 206 L142 206 Q148 206 148 200 L148 74 L166 92 L192 72 L160 30 L130 18 Q100 44 70 18 Z',
+ /* dessuadora de coll rodó, sense caputxa: mànigues llargues amb punys i cintura de canalé (dibuix; no en tenim model 3D) */
+ 'M72 20 L44 28 Q30 34 26 52 L10 176 L11 197 L36 199 L38 180 L51 98 L51 192 L50 194 L50 206 Q50 210 54 210 L146 210 Q150 210 150 206 L150 194 L149 192 L149 98 L162 180 L164 199 L189 197 L190 176 L174 52 Q170 34 156 28 L128 20 Q100 42 72 20 Z'
 ];
+/* detalls només de traç (canalé del coll, dels punys i de la cintura) */
+var SHIRTD=['','M66 23 Q100 52 134 23 M50 194 L150 194 M11 187 L37 185 M163 185 L189 187'];
+/* n: nom en català per al missatge de l'equip. Preus en cèntims, IVA inclòs */
 var TYPES=[
- {id:'curta',n:'Màniga curta',price:2200,len:0}
+ {id:'curta',n:'Samarreta',price:2200,len:0},
+ /* 32 € (Eneko, 17-nov-2026). len:null = mesures [pendent]: la guia no hi posa les de la samarreta */
+ {id:'dessuadora',n:'Dessuadora',price:3200,len:null}
 ];
 var MOTIFS=[
  {id:'niu',n:'Niu',desc:'El logo de Cal Niu, amb textura d\'estampa de fusta.',img:'assets/estampat-niu.png',box:[60,90,80,80]},
@@ -1567,8 +1585,10 @@ function motifG(m,p){
  if(d.paths||d.fills)o+='<g fill="none" stroke="'+p+'" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'+(d.paths||[]).map(function(x){return '<path d="'+x+'"/>'}).join('')+(d.fills||[]).map(function(x){return '<path d="'+x+'" fill="'+p+'" stroke="none"/>'}).join('')+'</g>';
  return o;
 }
-function shirtSvg(t,c,m,label){
- return '<svg viewBox="0 0 200 220" role="img" aria-label="'+label+'"><path class="g" d="'+SHIRTP[t]+'" fill="'+COLORS[c].g+'" stroke="rgba(44,42,36,.28)" stroke-width="1.5" stroke-linejoin="round"/>'+motifG(m,printColor(m,c))+'</svg>';
+/* esquena (només el dibuix de la dessuadora la fa servir): el logo petit sota el coll, com l'estampat de l'esquena del 3D */
+function backG(c){var b=[86,46,28,28],iid='lm'+(lgN++);return '<defs><mask id="'+iid+'" maskUnits="userSpaceOnUse" x="'+b[0]+'" y="'+b[1]+'" width="'+b[2]+'" height="'+b[3]+'" style="mask-type:alpha"><image href="'+MOTIFS[0].img+'" x="'+b[0]+'" y="'+b[1]+'" width="'+b[2]+'" height="'+b[3]+'"/></mask></defs><rect x="'+b[0]+'" y="'+b[1]+'" width="'+b[2]+'" height="'+b[3]+'" fill="'+printColor(0,c)+'" mask="url(#'+iid+')"/>'}
+function shirtSvg(t,c,m,label,back){
+ return '<svg viewBox="0 0 200 220" role="img" aria-label="'+label+'"><path class="g" d="'+SHIRTP[t]+'" fill="'+COLORS[c].g+'" stroke="rgba(44,42,36,.28)" stroke-width="1.5" stroke-linejoin="round"/>'+(SHIRTD[t]?'<path d="'+SHIRTD[t]+'" fill="none" stroke="rgba(44,42,36,.28)" stroke-width="1.2" stroke-linecap="round"/>':'')+(back?backG(c):motifG(m,printColor(m,c)))+'</svg>';
 }
 var reduceMQ=window.matchMedia('(prefers-reduced-motion: reduce)');
 var CN=window.CN={S:{t:0,m:0,c:1,s:null,p:-1},TYPES:TYPES,MOTIFS:MOTIFS,MODELS:MODELS,COLORS:COLORS,SIZES:SIZES,printColor:printColor,
@@ -1602,6 +1622,7 @@ var HIST_MAX=20;
 function motifOf(id){for(var i=0;i<MOTIFS.length;i++)if(MOTIFS[i].id===id)return MOTIFS[i];return null}
 function colorOf(id){for(var i=0;i<COLORS.length;i++)if(COLORS[i].id===id)return COLORS[i]}
 function idxOf(arr,id){for(var i=0;i<arr.length;i++)if(arr[i].id===id)return i;return -1}
+function typeN(id){var i=idxOf(TYPES,id);return TYPES[i<0?0:i].n}
 function makeSku(tipus,estampat,color,talla){return [tipus,estampat,color,talla].join('-').toUpperCase()}
 function makeLine(t,m,c,s,q){var ty=TYPES[t],mo=MOTIFS[m],co=COLORS[c];
  return{sku:makeSku(ty.id,mo.id,co.id,s),tipus:ty.id,estampat:mo.id,color:co.id,talla:s,qty:Math.max(1,Math.min(BOTIGA.maxQty,q|0)),unitCents:ty.price}}
@@ -1625,7 +1646,7 @@ function cleanOrder(o){
  try{
   if(!o||o.estat!=='preparada'||typeof o.id!=='string'||!ID_RE.test(o.id)||!Array.isArray(o.lines)||!o.lines.length||!o.client||typeof o.client.nom!=='string'||typeof o.client.email!=='string'||typeof o.createdAt!=='string'||isNaN(Date.parse(o.createdAt))||!o.delivery||!o.pay)return null;
   var lines=[];
-  for(var i=0;i<o.lines.length;i++){var l=cleanLine(o.lines[i]);if(!l)return null;l.name='Samarreta '+motifOf(l.estampat).n;l.colorName=colorOf(l.color).n;lines.push(l)}
+  for(var i=0;i<o.lines.length;i++){var l=cleanLine(o.lines[i]);if(!l)return null;l.name=typeN(l.tipus)+' '+motifOf(l.estampat).n;l.colorName=colorOf(l.color).n;lines.push(l)}
   var mode=o.delivery.mode==='shipping'?'shipping':'pickup',a=o.delivery.address,ad=null;
   if(mode==='shipping'){if(!a||typeof a!=='object')return null;ad={l1:str(a.l1,120),l2:str(a.l2,120),cp:str(a.cp,10),poble:str(a.poble,80),prov:str(a.prov,60)}}
   var canal=['Correu','WhatsApp','Telèfon'].indexOf(o.client.canal)>-1?o.client.canal:'Correu';
@@ -1645,7 +1666,7 @@ function migrateStore(rawV2,rawOld){
     out.order=cleanOrder(j.order);
     if(Array.isArray(j.orders))out.orders=j.orders.filter(validHist).slice(0,HIST_MAX)}}
   else if(rawOld){var a=JSON.parse(rawOld);
-   if(Array.isArray(a))a.forEach(function(x){var oc=x?idxOf(COLORS,OLD_COLOR_IDX[x.c]):-1,ok=x&&TYPES[x.t]&&MOTIFS[x.m]&&oc>-1&&SIZES.indexOf(x.s)>-1&&x.q>0;if(ok)c.push(makeLine(x.t,x.m,oc,x.s,x.q));else out.dropped++})}
+   if(Array.isArray(a))a.forEach(function(x){var oc=x?idxOf(COLORS,OLD_COLOR_IDX[x.c]):-1,ok=x&&x.t===0&&MOTIFS[x.m]&&oc>-1&&SIZES.indexOf(x.s)>-1&&x.q>0;if(ok)c.push(makeLine(0,x.m,oc,x.s,x.q));else out.dropped++})}
  }catch(e){c=[]}
  out.cart=mergeBySku(c);
  return out;
@@ -1690,7 +1711,7 @@ var V={
 };
 /* reserva: parts congelades (peces amb noms i imports, totals, lliurament, client); hash per reaprofitar el mateix número si res no canvia */
 function orderParts(cart,d){
- var lines=cart.map(function(x){var m=motifOf(x.estampat);return{sku:x.sku,tipus:x.tipus,estampat:x.estampat,color:x.color,talla:x.talla,qty:x.qty,unitCents:x.unitCents,name:'Samarreta '+m.n,colorName:colorOf(x.color).n}});
+ var lines=cart.map(function(x){var m=motifOf(x.estampat);return{sku:x.sku,tipus:x.tipus,estampat:x.estampat,color:x.color,talla:x.talla,qty:x.qty,unitCents:x.unitCents,name:typeN(x.tipus)+' '+m.n,colorName:colorOf(x.color).n}});
  var pick=d.mode==='pickup';
  return{lines:lines,totals:computeTotals(lines,d.mode),notes:String(d.notes||'').trim(),
   delivery:{mode:d.mode,slot:pick?d.slot:'',address:pick?null:{l1:String(d.adr1||'').trim(),l2:String(d.adr2||'').trim(),cp:String(d.cp||'').trim(),poble:String(d.poble||'').trim(),prov:String(d.prov||'').trim()}},
@@ -1755,6 +1776,7 @@ function selfTest(){
   if(!ID_RE.test(id)||id.indexOf('CN-2611-')!==0)return false;
   for(var i=0;i<200;i++)if(!ID_RE.test(makeOrderId(new Date(),Math.random)))return false;return true});
  t('migració cistella antiga (+ línia invàlida)',function(){var m=migrateStore(null,JSON.stringify([{t:0,m:0,c:1,s:'M',q:2},{t:9,m:0,c:0,s:'M',q:1}]));return m.cart.length===1&&m.cart[0].sku==='CURTA-NIU-SALVIA-M'&&m.cart[0].qty===2&&m.dropped===1});
+ t('migració antiga: màniga llarga (t:1) i tirants (t:2) no es tornen dessuadora',function(){var m=migrateStore(null,JSON.stringify([{t:0,m:0,c:1,s:'M',q:1},{t:1,m:0,c:1,s:'L',q:1},{t:2,m:0,c:1,s:'S',q:1}]));return m.cart.length===1&&m.cart[0].sku==='CURTA-NIU-SALVIA-M'&&m.dropped===2});
  t('migració: JSON corrupte no trenca',function(){var a=migrateStore('{{',null),b=migrateStore(null,'no és json');return a.cart.length===0&&b.cart.length===0});
  t('migració v2: fusiona per sku i descarta invàlides',function(){var l=makeLine(0,0,idxOf(COLORS,'salvia'),'M',3);var m=migrateStore(JSON.stringify({v:2,cart:[l,l,{sku:'X'}],orders:[]}),null);return m.cart.length===1&&m.cart[0].qty===6&&m.dropped===1});
  t('reserva congelada i hash estable',function(){var o=buildOrder(cartS,sample,new Date(2026,10,13,18,42),Math.random);
@@ -1772,6 +1794,14 @@ function selfTest(){
   return m1.order===null&&m2.order&&m2.order.id===o.id&&m2.order.totals.totalCents===4400});
  t('historial: entrades sense peces o total es filtren',function(){var o=buildOrder(cartS,sample,new Date(),Math.random),g=slimOrder(o),b1=Object.assign({},g);delete b1.lines;var b2=Object.assign({},g);delete b2.totalCents;
   return validHist(g)&&!validHist(b1)&&!validHist(b2)});
+ t('dessuadora: 32,00 €, SKU propi i cistella neta',function(){var i=idxOf(TYPES,'dessuadora'),l=makeLine(i,0,idxOf(COLORS,'salvia'),'M',1);return i===1&&eurT(TYPES[i].price)==='32,00 €'&&l.sku==='DESSUADORA-NIU-SALVIA-M'&&l.unitCents===3200&&cleanLine(l).sku===l.sku&&TYPES[0].price===2200||l.sku});
+ t('cistella mixta: 1 samarreta + 1 dessuadora = 54,00 € + 4,90 € d\'enviament',function(){var L=[makeLine(0,0,1,'M',1),makeLine(1,0,1,'M',1)],T=computeTotals(L,'shipping');return mergeBySku(L).length===2&&T.items===2&&T.subtotalCents===5400&&T.deliveryCents===490&&T.totalCents===5890&&eurT(T.totalCents)==='58,90 €'&&computeTotals(L,'pickup').totalCents===5400});
+ t('dues dessuadores (64,00 €) passen el llindar: enviament gratuït',function(){var T=computeTotals([makeLine(1,0,1,'M',2)],'shipping');return T.subtotalCents===6400&&T.deliveryCents===0});
+ t('fusió de talles: samarreta i dessuadora no s\'ajunten; la dessuadora sí amb ella mateixa',function(){var a=makeLine(0,0,1,'M',8),b=makeLine(1,0,1,'M',5),c=makeLine(1,0,1,'M',9),m=mergeBySku([a,b,c]);return m.length===2&&m[0].qty===8&&m[1].qty===BOTIGA.maxQty});
+ t('reserva amb dessuadora: nom, SKU i preu al missatge',function(){var o=buildOrder([makeLine(1,0,idxOf(COLORS,'salvia'),'L',1),makeLine(0,0,idxOf(COLORS,'salvia'),'M',1)],sample,new Date(2026,10,17,10,0),Math.random),x=orderToText(o);
+  return (x.indexOf('1 × DESSUADORA-NIU-SALVIA-L · Dessuadora Niu, verd sàlvia, talla L · 32,00 €')>-1&&x.indexOf('1 × CURTA-NIU-SALVIA-M · Samarreta Niu, verd sàlvia, talla M · 22,00 €')>-1&&x.indexOf('Total: 54,00 €')>-1)||x});
+ t('enllaç compartit ?p=dessuadora (i els antics ?p=curta)',function(){var q=shareQS({t:1,m:0,c:idxOf(COLORS,'salvia'),s:'L'}),r=parseShared(q),o=parseShared('?p=curta&e=niu&c=crema'),x=parseShared('?p=caputxa');
+  return (q==='?p=dessuadora&e=niu&c=salvia&t=L'&&r.t===1&&r.m===0&&r.s==='L'&&o.t===0&&o.c===idxOf(COLORS,'blancbrut')&&x.t===-1&&!x.any)||q});
  var pass=res.filter(Boolean).length;
  console[pass===res.length?'info':'error']('AUTOPROVA: '+pass+'/'+res.length+(pass===res.length?' PASS':' FAIL'));
  window.__selftest={pass:pass,total:res.length};
@@ -1800,11 +1830,15 @@ function buildChips(){
 el('gTipus').innerHTML=MODELS.map(function(p,i){return '<button type="button" class="chip" data-p="'+i+'" aria-pressed="false"'+mTitle(p.m,p.n)+'><span class="pdot" aria-hidden="true" style="background:'+COLORS[p.c].g+'"></span><span class="cl"><span lang="ca">'+p.n+'</span>'+mGloss(p.m,false)+'</span></button>'}).join('');
 el('gMotiu').innerHTML=MOTIFS.map(function(m,i){return '<button type="button" class="chip" data-k="m" data-i="'+i+'" aria-pressed="false"><svg viewBox="52 70 96 106" aria-hidden="true">'+(m.slogan?'<text x="100" y="146" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-style="italic" font-weight="500" font-size="76" fill="#2c2a24">Aa</text>':motifG(i,'#2c2a24'))+'</svg><span class="cl"><span lang="ca">'+m.n+'</span>'+mGloss(i,false)+'</span></button>'}).join('');
 el('gColor').innerHTML=COLORS.map(function(c,i){var l=h(_t('a.color',{c:cName(i)}));return '<button type="button" class="sw" data-k="c" data-i="'+i+'" aria-pressed="false" aria-label="'+l+'" title="'+l+'" style="background:'+c.g+'"></button>'}).join('');
+el('gPeca').innerHTML=TYPES.map(function(ty,i){return '<button type="button" class="chip pc" data-k="t" data-i="'+i+'" aria-pressed="false"><span class="cl">'+h(tName(i))+'</span><b class="pp">'+CNL.eur0(ty.price)+'</b></button>'}).join('');
 el('gTalla').innerHTML=SIZES.map(function(s){return '<button type="button" class="chip s" data-k="s" data-i="'+s+'" aria-pressed="false">'+s+'</button>'}).join('');
 }
 buildChips();
 function measTable(){
- el('meas').innerHTML=SIZES.map(function(s){var b=BASE[s];return '<tr data-s="'+s+'"><th scope="row">'+s+'</th><td>'+b[0]+' cm</td><td>'+(b[1]+TYPES[S.t].len)+' cm</td></tr>'}).join('');
+ var ty=TYPES[S.t],pd=ty.len==null;
+ el('meas').innerHTML=SIZES.map(function(s){var b=BASE[s];return '<tr data-s="'+s+'"><th scope="row">'+s+'</th>'+(pd?'<td>'+CNL.pd()+'</td><td>'+CNL.pd()+'</td>':'<td>'+b[0]+' cm</td><td>'+(b[1]+ty.len)+' cm</td>')+'</tr>'}).join('');
+ /* el peu i la nota van amb la peça: a la dessuadora no se li atribueixen les mesures de la samarreta */
+ [['#guide caption','guide.cap'],['#guide .meas-note','guide.note']].forEach(function(p){var n=document.querySelector(p[0]);if(!n)return;var k=p[1]+(pd?'.dess':'');n.setAttribute('data-i18n-html',k);n.innerHTML=_t(k)});
 }
 function refresh(){
  document.querySelectorAll('[data-k]').forEach(function(b){
@@ -1823,18 +1857,22 @@ function refresh(){
  el('sP').textContent=eur(TYPES[S.t].price);
  var ab=el('addBtn');ab.setAttribute('aria-disabled',String(!S.s));
  el('addNote').textContent=S.s?'':_t('add.first');
- if(CN.fb)renderFallback();
+ if(CN.fb||S.t!==0)renderFallback();
 }
-function desc(){return _t('desc',{m:MOTIFS[S.m].n,c:cName(S.c).toLowerCase(),s:S.s?_t('desc.size',{s:S.s}):_t('desc.nosize')})}
+function desc(){return _t(S.t?'desc.'+TYPES[S.t].id:'desc',{m:MOTIFS[S.m].n,c:cName(S.c).toLowerCase(),s:S.s?_t('desc.size',{s:S.s}):_t('desc.nosize')})}
 CN.desc=desc;
-function renderFallback(){
- el('fallback').innerHTML=shirtSvg(S.t,S.c,S.m,desc());
- el('fallback').setAttribute('aria-label',desc());
+/* back: cara o esquena (el dibuix de la dessuadora segueix el gir de l'escena 3D, que el crida amb CN.renderFlat) */
+function renderFallback(back){
+ if(back!=null)renderFallback.back=!!back;
+ el('fallback').innerHTML=shirtSvg(S.t,S.c,S.m,desc(),S.t!==0&&!!renderFallback.back);
+ el('fallback').setAttribute('aria-label',desc()+(S.t?' ('+_t('svg.note')+')':''));
 }
+CN.renderFlat=renderFallback;
 function emit(){window.dispatchEvent(new CustomEvent('cn:change',{detail:S}))}
 CN.applyModel=function(i){var p=MODELS[i];S.m=p.m;S.c=p.c;S.p=i;say(_t('say.model',{n:p.n}));refresh();applyTint();emit()};
 CN.choose=function(i){
- if(CN.rack&&CN.rack.ready)return CN.rack.choose(i);
+ /* la branca només té samarretes: amb la dessuadora triada, el model canvia sense fer volar cap samarreta 3D */
+ if(CN.rack&&CN.rack.ready&&S.t===0)return CN.rack.choose(i);
  CN.applyModel(i);if(window.CNSND)CNSND.tick('p');setTimeout(function(){goTo(2);focusHeading(2)},350);
 };
 document.addEventListener('click',function(e){var b=e.target.closest('button[data-p]');if(b)CN.choose(+b.dataset.p)});
@@ -1848,7 +1886,7 @@ document.addEventListener('click',function(e){
  var k=b.dataset.k,v=k==='s'?b.dataset.i:+b.dataset.i;
  if(S[k]===v)return;
  S[k]=v;
- var msg={t:_t('say.t',{t:tName(S.t).charAt(0).toLowerCase()+tName(S.t).slice(1)}),m:_t('say.m',{m:MOTIFS[S.m].n}),c:_t('say.c',{c:cName(S.c).toLowerCase()}),s:_t('say.s',{s:S.s})};
+ var tn=tName(S.t),msg={t:_t('say.t',{t:/^T-/.test(tn)?tn:tn.charAt(0).toLowerCase()+tn.slice(1)}),m:_t('say.m',{m:MOTIFS[S.m].n}),c:_t('say.c',{c:cName(S.c).toLowerCase()}),s:_t('say.s',{s:S.s})};
  say(msg[k]);refresh();applyTint();emit();
 });
 CN.fallback=function(why){
@@ -1870,10 +1908,11 @@ function add(){
 }
 function name(x){return motifOf(x.estampat).n}
 function nameTr(x){return CNL.motif(x.estampat,name(x))}
-function lineFull(x){return _t('line.full',{m:name(x),c:cNameId(x.color).toLowerCase(),s:x.talla})}
+function pName(x){var i=idxOf(TYPES,x.tipus);return tName(i<0?0:i)}
+function lineFull(x){return _t('line.full',{p:pName(x),m:name(x),c:cNameId(x.color).toLowerCase(),s:x.talla})}
 /* línia d'una reserva desada (nom i color guardats en català): es tradueix a partir del sku si es pot */
-function histLine(x,noSize){var p=String(x.sku||'').toLowerCase().split('-'),mo=motifOf(p[1]),co=colorOf(COLOR_ALIAS[p[2]]||p[2]);
- if(mo&&co)return noSize?_t('line.title',{m:mo.n})+', '+cNameId(co.id).toLowerCase()+', '+x.talla:_t('line.full',{m:mo.n,c:cNameId(co.id).toLowerCase(),s:x.talla});
+function histLine(x,noSize){var p=String(x.sku||'').toLowerCase().split('-'),mo=motifOf(p[1]),co=colorOf(COLOR_ALIAS[p[2]]||p[2]),tp=pName({tipus:p[0]});
+ if(mo&&co)return noSize?_t('line.title',{p:tp,m:mo.n})+', '+cNameId(co.id).toLowerCase()+', '+x.talla:_t('line.full',{p:tp,m:mo.n,c:cNameId(co.id).toLowerCase(),s:x.talla});
  return x.name+', '+String(x.colorName).toLowerCase()+', '+x.talla}
 function findIdx(sku){for(var i=0;i<cart.length;i++)if(cart[i].sku===sku)return i;return -1}
 var EMPTY_NEST='<svg viewBox="0 0 120 80" width="96" height="64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 52c8 14 26 20 46 20s38-6 46-20"/><path d="M22 46c10 8 24 11 38 11s28-3 38-11"/><path d="M30 38c8 5 18 7 30 7s22-2 30-7"/><path d="M44 36c-4-10 2-20 16-22 14 2 20 12 16 22"/></svg>';
@@ -1896,7 +1935,7 @@ function render(noSave){
  else ul.innerHTML=cart.map(function(x){
   var nm=lineFull(x),opts=SIZES.map(function(s){return '<option'+(s===x.talla?' selected':'')+'>'+s+'</option>'}).join('');
   var max=x.qty>=BOTIGA.maxQty;
-  return '<li class="it" data-sku="'+x.sku+'"><div class="th" data-c="'+idxOf(COLORS,x.color)+'" data-m="'+idxOf(MOTIFS,x.estampat)+'">'+shirtSvg(idxOf(TYPES,x.tipus),idxOf(COLORS,x.color),idxOf(MOTIFS,x.estampat),'').replace('role="img" aria-label=""','aria-hidden="true"')+'</div><div class="im"><b>'+h(_t('line.title',{m:name(x)}))+'</b><small>'+h(_t('line.meta',{m:nameTr(x),c:cNameId(x.color)}))+'</small>'
+  return '<li class="it" data-sku="'+x.sku+'"><div class="th" data-t="'+idxOf(TYPES,x.tipus)+'" data-c="'+idxOf(COLORS,x.color)+'" data-m="'+idxOf(MOTIFS,x.estampat)+'">'+shirtSvg(idxOf(TYPES,x.tipus),idxOf(COLORS,x.color),idxOf(MOTIFS,x.estampat),'').replace('role="img" aria-label=""','aria-hidden="true"')+'</div><div class="im"><b>'+h(_t('line.title',{p:pName(x),m:name(x)}))+'</b><small>'+h(_t('line.meta',{m:nameTr(x),c:cNameId(x.color)}))+'</small>'
   +'<label class="sl">'+_t('lbl.size')+' <select data-act="size" aria-label="'+h(_t('a.sizeOf',{n:nm}))+'">'+opts+'</select></label>'
   +'<div class="qty" role="group" aria-label="'+h(_t('a.qtyOf',{n:nm,q:x.qty}))+'"><button type="button" data-act="dec" aria-label="'+h(_t('a.dec',{n:nm}))+'"'+(x.qty<=1?' aria-disabled="true"':'')+'>&minus;</button><span>'+x.qty+'</span><button type="button" data-act="inc" aria-label="'+h(_t('a.inc',{n:nm}))+'"'+(max?' aria-disabled="true"':'')+'>+</button></div>'
   +(max?'<p class="mx">'+_t('cart.max',{n:BOTIGA.maxQty})+'</p>':'')
@@ -1912,6 +1951,7 @@ function swapThumbs(root){
  if(!CN.thumb||CN.fb)return;
  var list=(root||document).querySelectorAll('.th[data-c],.rth[data-c]'),again=false;
  for(var i=0;i<list.length;i++){var e=list[i];if(e.querySelector('.th3d'))continue;
+  if(e.dataset.t&&e.dataset.t!=='0')continue; /* miniatura 3D només per a la samarreta; la dessuadora es queda amb el dibuix */
   var u=null;try{u=CN.thumb(+e.dataset.c,+e.dataset.m)}catch(_){u=null}
   if(u){var im=new Image();im.className='th3d';im.alt='';im.src=u;e.textContent='';e.appendChild(im)}else again=true}
  if(again&&!swapThumbs.t){swapThumbs.t=setTimeout(function(){swapThumbs.t=0;swapThumbs()},700)}
@@ -1941,7 +1981,7 @@ el('addBtn').setAttribute('aria-describedby','addNote');
 el('addBtn').addEventListener('click',function(){
  if(!S.s){el('addNote').textContent=_t('add.first');say(_t('add.first'));var fs=el('gTalla').querySelector('button');if(fs){goTo(4);fs.focus({preventScroll:true})}return}
  var ok=add(),m;
- if(ok){flyToCart();m=_t('say.added',{m:name({estampat:MOTIFS[S.m].id}),c:cName(S.c).toLowerCase(),s:S.s});el('addNote').textContent=_t('added');m+=_t('say.cartN',{items:_t('items',{n:computeTotals(cart,null).items})})}
+ if(ok){flyToCart();m=_t('say.added',{p:tName(S.t),m:name({estampat:MOTIFS[S.m].id}),c:cName(S.c).toLowerCase(),s:S.s});el('addNote').textContent=_t('added');m+=_t('say.cartN',{items:_t('items',{n:computeTotals(cart,null).items})})}
  else{m=_t('add.max',{n:BOTIGA.maxQty});el('addNote').textContent=m}
  say(m);
 });
@@ -1966,7 +2006,7 @@ el('atMore').addEventListener('click',designAnother);
 function bumpCount(){var c=el('count');c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop')}
 function flyToCart(){
  var sn=null;
- if(!CN.reduced&&!CN.fb&&CN.snap&&el('addBtn').getBoundingClientRect().width){try{sn=CN.snap()}catch(e){sn=null}}
+ if(!CN.reduced&&!CN.fb&&S.t===0&&CN.snap&&el('addBtn').getBoundingClientRect().width){try{sn=CN.snap()}catch(e){sn=null}}
  if(!sn||!window.Element.prototype.animate){bumpCount();showAT();return}
  var im=new Image(),r=sn.rect,cb=el('openCart').getBoundingClientRect();
  im.className='fly';im.alt='';im.setAttribute('aria-hidden','true');im.src=sn.url;
@@ -2006,7 +2046,8 @@ function celebrate(){
 }
 CN.celebrate=celebrate;
 /* compartir el disseny per enllaç */
-function shareURL(){return location.href.split(/[?#]/)[0]+'?p='+TYPES[S.t].id+'&e='+MOTIFS[S.m].id+'&c='+COLORS[S.c].id+(S.s?'&t='+S.s:'')}
+function shareQS(st){return '?p='+TYPES[st.t].id+'&e='+MOTIFS[st.m].id+'&c='+COLORS[st.c].id+(st.s?'&t='+st.s:'')}
+function shareURL(){return location.href.split(/[?#]/)[0]+shareQS(S)}
 function shareNote(m){el('addNote').textContent=m;say(m)}
 el('shareBtn').addEventListener('click',function(){
  var url=shareURL(),txt=_t('share.txt',{d:desc()});
@@ -2193,7 +2234,7 @@ function stepBody(n){
  return b;
 }
 function reviewHtml(T){
- var rows=cart.map(function(x){return '<tr><td><span class="rth" data-c="'+idxOf(COLORS,x.color)+'" data-m="'+idxOf(MOTIFS,x.estampat)+'">'+shirtSvg(idxOf(TYPES,x.tipus),idxOf(COLORS,x.color),idxOf(MOTIFS,x.estampat),'').replace('role="img" aria-label=""','aria-hidden="true"')+'</span><span>'+h(_t('line.title',{m:name(x)}))+'<small>'+h(_t('line.meta',{m:nameTr(x),c:cNameId(x.color)}))+'</small></span></td><td>'+x.talla+'</td><td>'+x.qty+'</td><td>'+eur(x.qty*x.unitCents)+'</td></tr>'}).join('');
+ var rows=cart.map(function(x){return '<tr><td><span class="rth" data-t="'+idxOf(TYPES,x.tipus)+'" data-c="'+idxOf(COLORS,x.color)+'" data-m="'+idxOf(MOTIFS,x.estampat)+'">'+shirtSvg(idxOf(TYPES,x.tipus),idxOf(COLORS,x.color),idxOf(MOTIFS,x.estampat),'').replace('role="img" aria-label=""','aria-hidden="true"')+'</span><span>'+h(_t('line.title',{p:pName(x),m:name(x)}))+'<small>'+h(_t('line.meta',{m:nameTr(x),c:cNameId(x.color)}))+'</small></span></td><td>'+x.talla+'</td><td>'+x.qty+'</td><td>'+eur(x.qty*x.unitCents)+'</td></tr>'}).join('');
  var del=D.mode==='pickup'?h(_t('del.pickup')+' · '+slotLabel(D.slot)):h(D.adr1+(D.adr2?', '+D.adr2:'')+', '+D.cp+' '+D.poble+(D.prov?' ('+D.prov+')':''));
  var ed=_t('edit');
  return '<section class="rv"><div class="rvh"><h3>'+_t('rv.items')+'</h3><button type="button" class="btn-line" data-edit="cart" aria-label="'+h(_t('a.editItems'))+'">'+ed+'</button></div>'
@@ -2549,10 +2590,13 @@ window.addEventListener('load',measure);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(measure);
 if(window.ResizeObserver)new ResizeObserver(measure).observe(document.querySelector('main'));
 (function(){var c=document.getElementById('resumCopy');if(c&&BOTIGA.contact.pendent){c.setAttribute('data-i18n','resum.copy.test');c.textContent=_t('resum.copy.test')}})();
-var sharedIn=(function(){var q;try{q=new URLSearchParams(location.search)}catch(e){return false}
- var t=idxOf(TYPES,q.get('p')),m=idxOf(MOTIFS,q.get('e')),c=idxOf(COLORS,COLOR_ALIAS[q.get('c')]||q.get('c')),z=q.get('t'),any=false;
- if(t>-1){S.t=t;any=true}if(m>-1){S.m=m;any=true}if(c>-1){S.c=c;any=true}if(z&&SIZES.indexOf(z)>-1){S.s=z;any=true}
- if(any)S.p=-1;return any})();
+/* enllaç compartit (?p=curta|dessuadora&e=&c=&t=): lectura pura, -1 = no hi és */
+function parseShared(search){var q;try{q=new URLSearchParams(search)}catch(e){return{t:-1,m:-1,c:-1,s:null,any:false}}
+ var t=idxOf(TYPES,q.get('p')),m=idxOf(MOTIFS,q.get('e')),c=idxOf(COLORS,COLOR_ALIAS[q.get('c')]||q.get('c')),z=q.get('t'),s=z&&SIZES.indexOf(z)>-1?z:null;
+ return{t:t,m:m,c:c,s:s,any:t>-1||m>-1||c>-1||!!s}}
+var sharedIn=(function(){var r=parseShared(location.search);
+ if(r.t>-1)S.t=r.t;if(r.m>-1)S.m=r.m;if(r.c>-1)S.c=r.c;if(r.s)S.s=r.s;
+ if(r.any)S.p=-1;return r.any})();
 refresh();render();measure();
 /* enllaç directe a un pas (#pas-color…): ja amb el carregador tancat, es col·loca a la secció i el focus va al seu titular */
 (function(){var m=location.hash.match(/^#pas-(tipus|estampat|color|talla|resum)$/);if(!m&&!sharedIn)return;var i=m?['','tipus','estampat','color','talla','resum'].indexOf(m[1]):5,n=0;
@@ -2736,6 +2780,7 @@ function start(THREE) {
 
   /* siluetes */
   const S = CN.S;
+  const TT = 0; // la peça 3D és sempre la samarreta (l'únic model que tenim); la dessuadora es dibuixa en SVG al seu lloc (placeFlat)
   function curve(p0, c, p1, n) {
     const out = [];
     for (let i = 1; i <= n; i++) {
@@ -2842,7 +2887,7 @@ function start(THREE) {
 
   /* materials */
   const garmentMat = new THREE.MeshStandardMaterial({ color: CN.COLORS[S.c].g, roughness: 0.88, metalness: 0 });
-  const mesh = new THREE.Mesh(geoFor(S.t), garmentMat);
+  const mesh = new THREE.Mesh(geoFor(TT), garmentMat);
   const pivot = new THREE.Group();
   pivot.add(mesh);
 
@@ -2968,7 +3013,7 @@ function start(THREE) {
   }
   const bctx = bc.getContext('2d');
   function placePrint() {
-    const h = HALF[S.t];
+    const h = HALF[TT];
     let g = new THREE.PlaneGeometry(h.pw, h.pw, 28, 28), pa = g.attributes.position;
     for (let i = 0; i < pa.count; i++) {
       const x = pa.getX(i), y = pa.getY(i);
@@ -2976,7 +3021,7 @@ function start(THREE) {
     }
     g.computeVertexNormals();
     printMesh.geometry.dispose(); printMesh.geometry = g; printMesh.position.y = h.chestY;
-    const by = S.t === 2 ? 1.1 : 1.0;
+    const by = TT === 2 ? 1.1 : 1.0;
     g = new THREE.PlaneGeometry(0.8, 0.4, 16, 8); pa = g.attributes.position;
     for (let i = 0; i < pa.count; i++) {
       const u = pa.getX(i), y = pa.getY(i) + by;
@@ -3336,6 +3381,7 @@ function start(THREE) {
   const T_FLY0 = 0.16, T_FLY = 1.14, T_REVEAL = 0.2;
   const easeIO = u => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
   function choose(i) {
+    if (S.t !== 0) return CN.choose(i); // amb la dessuadora triada no vola cap samarreta
     if (flight || tr || !rackReady) return;
     CN.applyModel(i);
     if (window.CNSND) CNSND.choose();
@@ -3452,7 +3498,7 @@ function start(THREE) {
   }
   function applyCanvasLabel() {
     canvas.setAttribute('aria-label', rackLblOn
-      ? _t('rack.aria', { p: CNL.eur0(CN.TYPES[0].price), names: CN.MODELS.map(m => m.n).slice(0, -1).join(', ') + _t('rack.and') + CN.MODELS[CN.MODELS.length - 1].n })
+      ? _t('rack.aria', { p: CNL.eur0(CN.TYPES[0].price), p2: CNL.eur0(CN.TYPES[1].price), names: CN.MODELS.map(m => m.n).slice(0, -1).join(', ') + _t('rack.and') + CN.MODELS[CN.MODELS.length - 1].n })
       : centralLabel);
   }
 
@@ -3509,9 +3555,9 @@ function start(THREE) {
   let dirty = true, spinAcc = 0, drag = 0, dragging = false, lastX = 0;
   let sizeCur = 1, sizeTgt = 1;
   const RAD = [1.72, 1.74, 1.0];
-  let radCur = RAD[S.t];
+  let radCur = RAD[TT];
   const colTgt = new THREE.Color(CN.COLORS[S.c].g);
-  let shownType = S.t, pendingType = S.t, squash = 1;
+  let shownType = TT, pendingType = TT, squash = 1;
   let appliedIdx = CN.idx || 0, fadeT = 0;
   let lastSig = '', lastOff = '', endUp = 0, resZ = 0, rTall = null, rLow = null, lowLift = 0;
   const resumTall = () => { if (rTall === null) { const e = document.getElementById('resumCopy'); rTall = !!e && e.offsetHeight > (parseFloat(getComputedStyle(e).lineHeight) || 24) * 2.3; } return rTall; };
@@ -3524,11 +3570,11 @@ function start(THREE) {
     colTgt.set(CN.COLORS[S.c].g);
     updateGlbTint();
     sizeTgt = S.s ? 0.94 + CN.SIZES.indexOf(S.s) * 0.024 : 1;
-    if (S.t !== shownType && squash >= 1) { pendingType = S.t; squash = 0; }
-    else pendingType = S.t;
+    if (TT !== shownType && squash >= 1) { pendingType = TT; squash = 0; }
+    else pendingType = TT;
     drawPrint();
     lbl.textContent = S.s ? _t('size.lbl', { s: S.s }) : '';
-    centralLabel = CN.desc ? CN.desc() : '';
+    centralLabel = CN.desc ? CN.desc() + (S.t !== 0 ? ' (' + _t('svg.note') + ')' : '') : '';
     applyCanvasLabel();
     dirty = true;
   }
@@ -3595,7 +3641,7 @@ function start(THREE) {
   // rectangle (px CSS) del logo del pit en la pose actual; null si no es pot calcular
   CN.printRect = () => {
     try {
-      if (!glb || !decalF || shownType !== 0 || !pivot.visible || CN.fb) return null;
+      if (!glb || !decalF || shownType !== 0 || S.t !== 0 || !pivot.visible || CN.fb) return null;
       pivot.updateMatrixWorld(true); camera.updateMatrixWorld(true);
       const cr = canvas.getBoundingClientRect(); if (!cr.width) return null;
       const hs = 0.575 * (2 / 3) * decalF.scale.x, p = decalF.position;
@@ -3640,7 +3686,7 @@ function start(THREE) {
   function placeTag(t, reduced, cs) {
     if (!tagEl) return;
     const idx = CN.idx | 0, bd = document.body;
-    const want = idx >= 2 && idx <= 5 && !!CN.pin[idx] && pivot.visible && cs > 0.9 && !flight && !tr && rackPNow < 0.02 && endUp < 24 && !CN.fb
+    const want = idx >= 2 && idx <= 5 && !!CN.pin[idx] && S.t === 0 && pivot.visible && cs > 0.9 && !flight && !tr && rackPNow < 0.02 && endUp < 24 && !CN.fb
       && !bd.classList.contains('on-hero') && !bd.classList.contains('in-final') && !CN.faqOn
       && !(scrimEl && scrimEl.classList.contains('on')) && !(ckEl && ckEl.open) && !(rsEl && rsEl.open);
     if (want !== tagOn) { tagOn = want; tagEl.classList.toggle('on', want); if (strSvg) strSvg.classList.toggle('on', want); }
@@ -3674,6 +3720,32 @@ function start(THREE) {
     if (key === tagKey) return; tagKey = key;
     tagEl.style.transform = 'translate(' + (hx - ox).toFixed(1) + 'px,' + (hy - th / 2).toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg)';
     if (strPath) { const mx = (A.x + hx) / 2 + 3, my = (A.y + hy) / 2 + 6; strPath.setAttribute('d', 'M' + A.x.toFixed(1) + ' ' + A.y.toFixed(1) + ' Q' + mx.toFixed(1) + ' ' + my.toFixed(1) + ' ' + hx.toFixed(1) + ' ' + hy.toFixed(1)); }
+  }
+
+  /* dessuadora: no hi ha model 3D. El dibuix SVG (#fallback) es posa just on aniria la samarreta,
+     amb la seva alçada, la seva esvaïda i el gir de cara o d'esquena (s'aprima de costat); la samarreta no es pinta */
+  const fbEl = document.getElementById('fallback'), fv1 = new THREE.Vector3(), fv2 = new THREE.Vector3();
+  let flatOn = false, flatBack = null;
+  function placeFlat(on, op) {
+    if (!fbEl) return;
+    if (on !== flatOn) {
+      flatOn = on; flatBack = null; host.classList.toggle('svgt', on);
+      if (on) fbEl.setAttribute('aria-hidden', 'true'); else { fbEl.removeAttribute('aria-hidden'); fbEl.style.cssText = ''; }
+    }
+    if (!on) return;
+    if (!pivot.visible) { fbEl.style.visibility = 'hidden'; return; }
+    const b = localBox(), cx = (b.min.x + b.max.x) / 2, cz = (b.min.z + b.max.z) / 2;
+    pivot.updateMatrixWorld(true); camera.updateMatrixWorld(true);
+    fv1.set(cx, b.max.y, cz); pivot.localToWorld(fv1).project(camera);
+    fv2.set(cx, b.min.y, cz); pivot.localToWorld(fv2).project(camera);
+    const x = (fv1.x * 0.5 + 0.5) * W, y1 = (-fv1.y * 0.5 + 0.5) * H, y2 = (-fv2.y * 0.5 + 0.5) * H;
+    const cr = Math.cos(pivot.rotation.y), back = cr < 0;
+    if (back !== flatBack) { flatBack = back; if (CN.renderFlat) CN.renderFlat(back); }
+    fbEl.style.visibility = '';
+    fbEl.style.left = x.toFixed(1) + 'px'; fbEl.style.top = ((y1 + y2) / 2).toFixed(1) + 'px';
+    fbEl.style.height = (Math.abs(y2 - y1) * 1.12).toFixed(1) + 'px';
+    fbEl.style.opacity = op.toFixed(3);
+    fbEl.style.transform = 'translate(-50%,-50%) scaleX(' + Math.max(0.12, Math.abs(cr)).toFixed(3) + ')';
   }
 
   /* bucle */
@@ -3814,12 +3886,15 @@ function start(THREE) {
     const diff = appearV * 3 + (glbMat ? glbMat.color.r * 5 + glbMat.color.g * 11 + glbMat.color.b * 17 : 0) + garmentMat.color.r + garmentMat.color.g * 7 + garmentMat.color.b * 13;
     if (rackReady) updateRack(dt, t, reduced, rackP);
     const rackSig = rackReady ? [rackP.toFixed(3), panCur.toFixed(3), cs.toFixed(2), flight ? flight.e.toFixed(3) : '', shirts.map(o => o.h.toFixed(3) + o.nudge.toFixed(3) + o.state[0] + o.reap.toFixed(2) + o.dim.toFixed(2)).join(',')].join('|') : '';
-    const sig = [fadeK.toFixed(3), rackSig, offKey, push.toFixed(3), printMat.emissiveIntensity.toFixed(3), pivot.rotation.y.toFixed(4), pose.zoom.toFixed(4), resZ.toFixed(4), pose.ty.toFixed(4), sizeCur.toFixed(4), f.toFixed(3), diff.toFixed(4), W, H].join('|');
+    const sig = [S.t, fadeK.toFixed(3), rackSig, offKey, push.toFixed(3), printMat.emissiveIntensity.toFixed(3), pivot.rotation.y.toFixed(4), pose.zoom.toFixed(4), resZ.toFixed(4), pose.ty.toFixed(4), sizeCur.toFixed(4), f.toFixed(3), diff.toFixed(4), W, H].join('|');
     const idle = !pivot.visible && !rack.visible && !flight;
     if (idle && idleDone && !dirty) { /* escena buida: no es torna a pintar */ }
     else if (!reduced || dirty || sig !== lastSig) {
       lastSig = sig; dirty = false; idleDone = idle;
-      renderer.render(scene, camera);
+      const flat = S.t !== 0;
+      if (flat) { const pv = pivot.visible, sv = shadow.visible; pivot.visible = shadow.visible = false; renderer.render(scene, camera); pivot.visible = pv; shadow.visible = sv; }
+      else renderer.render(scene, camera);
+      placeFlat(flat, fadeK);
       if (S.s) {
         // l'etiqueta de talla viu fora de la samarreta: a la dreta (escriptori) o a sota (mòbil)
         const bx = shirtBox(), lw = lbl.offsetWidth || 90;
